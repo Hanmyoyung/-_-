@@ -8,56 +8,76 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/CustomActionBarTheme" 
+        android:uiOptions="splitActionBarWhenNarrow" 
+        >
+      
+        <meta-data android:name="android.support.UI_OPTIONS"
+    				android:value="splitActionBarWhenNarrow" />
+        
         <activity
-            android:name=".MainActivity"
+            android:name="com.HomeGym.Activity.MainActivity"
             android:label="@string/app_name" >
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>
+            -->
         </activity>
         <activity
-            android:name=".AcheivementActivity"
+            android:name="com.HomeGym.Activity.AcheivementActivity"
             android:label="@string/title_activity_acheivement" >
         </activity>
         <activity
-            android:name=".ExerciseActivity"
+            android:name="com.HomeGym.Activity.ExerciseActivity"
             android:label="@string/title_activity_exercise" >
         </activity>
         <activity
-            android:name=".LoadingActivity"
+            android:name="com.HomeGym.Activity.LoadingActivity"
             android:label="@string/title_activity_loading" >
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name="com.HomeGym.Activity.MenuActivity"
             android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="com.HomeGym.Activity.PreviewActivity"
+            android:label="@string/title_activity_preview"
+            android:uiOptions="splitActionBarWhenNarrow" >
+              <meta-data android:name="android.support.UI_OPTIONS"
+    			android:value="splitActionBarWhenNarrow" />
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".PreviewActivity"
-            android:label="@string/title_activity_preview" >
-        </activity>
-        <activity
-            android:name=".RestActivity"
+            android:name="com.HomeGym.Activity.RestActivity"
             android:label="@string/title_activity_rest" >
         </activity>
         <activity
-            android:name=".SettingActivity"
+            android:name="com.HomeGym.Activity.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
         <activity
-            android:name=".UserInfoSettingActivity"
+            android:name="com.HomeGym.Activity.UserInfoSettingActivity"
             android:label="@string/title_activity_user_info_setting" >
+        </activity>
+        <activity
+            android:name="com.HomeGym.Activity.BTConnectActivity"
+            android:label="@string/title_activity_btconnect" >
         </activity>
     </application>
 

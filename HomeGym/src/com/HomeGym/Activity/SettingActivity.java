@@ -1,22 +1,24 @@
-package com.example.homegym;
+package com.HomeGym.Activity;
 
-import android.app.Activity;
+import com.example.homegym.R;
+
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class PreviewActivity extends Activity {
+public class SettingActivity extends PreferenceActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_preview);
+		setContentView(R.layout.activity_setting);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.preview, menu);
+		getMenuInflater().inflate(R.menu.setting, menu);
 		return true;
 	}
 

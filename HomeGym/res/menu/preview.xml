@@ -1,11 +1,36 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.homegym.PreviewActivity" >
+    tools:context="com.example.homegym.PreviewActivity" 
+    android:background="#016889">
 
     <item
+        android:id="@+id/action_blutooth"
+        android:icon="@drawable/bluetooth"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_blutooth"/>
+    
+    <item
+        android:id="@+id/action_camera"
+        android:icon="@drawable/camera"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_camera"/>
+        
+     <item
+        android:id="@+id/action_exercise"
+        android:icon="@drawable/exercise"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_exercise"/>
+      
+      <item
+        android:id="@+id/action_acheivementrate"
+        android:icon="@drawable/archievement"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_acheivementrate"/>
+         
+      <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
+        android:icon="@drawable/setting"
+        android:showAsAction="ifRoom"
         android:title="@string/action_settings"/>
 
 </menu>
