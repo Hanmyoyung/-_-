@@ -11,28 +11,21 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-    
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" 
-        android:uiOptions="splitActionBarWhenNarrow" 
-        >
-      
-        <meta-data android:name="android.support.UI_OPTIONS"
-    				android:value="splitActionBarWhenNarrow" />
-        
+        android:theme="@style/CustomActionBarTheme"
+        android:uiOptions="splitActionBarWhenNarrow" >
+        <meta-data
+            android:name="android.support.UI_OPTIONS"
+            android:value="splitActionBarWhenNarrow" />
+
         <activity
             android:name="com.HomeGym.Activity.MainActivity"
-            android:label="@string/app_name" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            
+            android:label="@string/app_name" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
         </activity>
         <activity
             android:name="com.HomeGym.Activity.AcheivementActivity"
@@ -46,6 +39,10 @@
             android:name="com.HomeGym.Activity.LoadingActivity"
             android:label="@string/title_activity_loading"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.HomeGym.Activity.MenuActivity"
@@ -57,32 +54,83 @@
             android:uiOptions="splitActionBarWhenNarrow" >
               <meta-data android:name="android.support.UI_OPTIONS"
     			android:value="splitActionBarWhenNarrow" />
-     
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            -->
+        </activity>
+        
+        <activity
+            android:name="com$HomeGym$Activity$AcheivementActivity"
+            android:label="@string/title_activity_acheivement" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
+        </activity>
+        
+        <activity
+            android:name="com$HomeGym$Activity$ExerciseActivity"
+            android:label="@string/title_activity_exercise"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        
+        <activity
+            android:name="com$HomeGym$Activity$LoadingActivity"
+            android:label="@string/title_activity_loading"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        
+        <activity
+            android:name="com$HomeGym$Activity$MenuActivity"
+            android:label="@string/title_activity_menu" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
+        </activity>
+        
+        <activity
+            android:name="com$HomeGym$Activity$PreviewActivity"
+            android:label="@string/title_activity_preview"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.HomeGym.Activity.MainActivity" />
         </activity>
         <activity
             android:name="com.HomeGym.Activity.RestActivity"
-            android:label="@string/title_activity_rest" >
+            android:label="@string/title_activity_rest"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
+        
         <activity
             android:name="com.HomeGym.Activity.SettingActivity"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
         </activity>
+        
         <activity
             android:name="com.HomeGym.Activity.UserInfoSettingActivity"
-            android:label="@string/title_activity_user_info_setting" >
+            android:label="@string/title_activity_user_info_setting"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
+        
         <activity
             android:name="com.HomeGym.Activity.BTConnectActivity"
-            android:label="@string/title_activity_btconnect" >
+            android:label="@string/title_activity_btconnect" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
         </activity>
+        
+        <activity
+            android:name="com.HomeGym.Activity.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        
     </application>
 
 </manifest>
