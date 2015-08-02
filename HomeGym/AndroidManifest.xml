@@ -55,47 +55,7 @@
               <meta-data android:name="android.support.UI_OPTIONS"
     			android:value="splitActionBarWhenNarrow" />
         </activity>
-        
-        <activity
-            android:name="com$HomeGym$Activity$AcheivementActivity"
-            android:label="@string/title_activity_acheivement" 
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
-        </activity>
-        
-        <activity
-            android:name="com$HomeGym$Activity$ExerciseActivity"
-            android:label="@string/title_activity_exercise"
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow" >
-        </activity>
-        
-        <activity
-            android:name="com$HomeGym$Activity$LoadingActivity"
-            android:label="@string/title_activity_loading"
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow" >
-        </activity>
-        
-        <activity
-            android:name="com$HomeGym$Activity$MenuActivity"
-            android:label="@string/title_activity_menu" 
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
-        </activity>
-        
-        <activity
-            android:name="com$HomeGym$Activity$PreviewActivity"
-            android:label="@string/title_activity_preview"
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow" >
-            <meta-data
-                android:name="android.support.UI_OPTIONS"
-                android:value="splitActionBarWhenNarrow" />
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.HomeGym.Activity.MainActivity" />
-        </activity>
+       
         <activity
             android:name="com.HomeGym.Activity.RestActivity"
             android:label="@string/title_activity_rest"
