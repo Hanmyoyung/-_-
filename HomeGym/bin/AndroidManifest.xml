@@ -16,26 +16,13 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme"
-        android:uiOptions="splitActionBarWhenNarrow" >
+        android:uiOptions="splitActionBarWhenNarrow" 
+        >
         <meta-data
             android:name="android.support.UI_OPTIONS"
             android:value="splitActionBarWhenNarrow" />
-
-        <activity
-            android:name="com.HomeGym.Activity.MainActivity"
-            android:label="@string/app_name" 
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
-        </activity>
-        <activity
-            android:name="com.HomeGym.Activity.AcheivementActivity"
-            android:label="@string/title_activity_acheivement" >
-        </activity>
-        <activity
-            android:name="com.HomeGym.Activity.ExerciseActivity"
-            android:label="@string/title_activity_exercise" >
-        </activity>
-        <activity
+      
+         <activity
             android:name="com.HomeGym.Activity.LoadingActivity"
             android:label="@string/title_activity_loading"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
@@ -44,32 +31,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        
         <activity
-            android:name="com.HomeGym.Activity.MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:name="com.HomeGym.Activity.MainActivity"
+            android:label="@string/app_name" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
         </activity>
+        
+        <activity
+            android:name="com.HomeGym.Activity.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        </activity>
+        
         <activity
             android:name="com.HomeGym.Activity.PreviewActivity"
             android:label="@string/title_activity_preview"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
             android:uiOptions="splitActionBarWhenNarrow" >
               <meta-data android:name="android.support.UI_OPTIONS"
-    			android:value="splitActionBarWhenNarrow" />
+             android:value="splitActionBarWhenNarrow" />
         </activity>
-       
+        
+        <activity
+            android:name="com.HomeGym.Activity.ExerciseActivity"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:label="@string/title_activity_exercise" >
+        </activity>
+        
+        <activity
+            android:name="com.HomeGym.Activity.AcheivementActivity"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:label="@string/title_activity_acheivement" >
+        </activity>
+        
+         <activity
+            android:name="com.HomeGym.Activity.SettingActivity"
+            android:label="@string/title_activity_setting" 
+            android:parentActivityName="com.HomeGym.Activity.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
+        </activity>
+            
         <activity
             android:name="com.HomeGym.Activity.RestActivity"
             android:label="@string/title_activity_rest"
             android:parentActivityName="com.HomeGym.Activity.MainActivity"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
-        
-        <activity
-            android:name="com.HomeGym.Activity.SettingActivity"
-            android:label="@string/title_activity_setting" 
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
-        </activity>
-        
+               
         <activity
             android:name="com.HomeGym.Activity.UserInfoSettingActivity"
             android:label="@string/title_activity_user_info_setting"
@@ -82,14 +94,10 @@
             android:label="@string/title_activity_btconnect" 
             android:parentActivityName="com.HomeGym.Activity.MainActivity"
             android:uiOptions="splitActionBarWhenNarrow">
+              
         </activity>
         
-        <activity
-            android:name="com.HomeGym.Activity.CameraActivity"
-            android:label="@string/title_activity_camera"
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow" >
-        </activity>
+        
         
     </application>
 
