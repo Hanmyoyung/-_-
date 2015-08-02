@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- 여기서 타이틀 바 제목 바꾸면 됩니다 -->
+
+    <!-- 여기서 타이틀 바 제목 바꾸면 됩니다 -->
     <string name="app_name">HomeGym</string>
     <string name="hello_world">Hello world!</string>
+    <string name="action_home">home</string>
     <string name="action_blutooth">Bluetooth</string>
     <string name="action_camera">Camera</string>
     <string name="action_exercise">Exercise</string>
@@ -12,10 +14,11 @@
     <string name="title_activity_exercise">ExerciseActivity</string>
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
-    <string name="title_activity_preview">오늘의 운동</string> 
+    <string name="title_activity_preview">오늘의 운동</string>
     <string name="title_activity_rest">RestActivity</string>
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_user_info_setting">UserInfoSettingActivity</string>
     <string name="title_activity_btconnect">BTConnectActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
 
 </resources>

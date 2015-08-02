@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import com.HomeGym.Bluetooth.BTHandler;
 import com.HomeGym.Bluetooth.BluetoothSerialClient;
 import com.HomeGym.Bluetooth.BluetoothSerialClient.OnScanListener;
-import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.HomeGym.Bluetooth.BluetoothStreamingHandler;
 import com.example.homegym.R;
 
@@ -17,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,9 +42,10 @@ public class PreviewActivity extends Activity {
 		
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//String.xml가면 타이틀 바 이름 바꿀 수 있음
-		getActionBar().setDisplayShowHomeEnabled(false);// 아이콘 없애기
+		//getActionBar().setDisplayShowHomeEnabled(false);// 아이콘 없애기
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preview);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		//overflowMenuInActionBar();
 		
 		//bluetoothSync= (ImageButton)findViewById(R.id.bluetoothsync);
@@ -155,33 +156,56 @@ public class PreviewActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	  MenuInflater inflater = getMenuInflater();
-	 
-	  inflater.inflate(R.menu.preview, menu);
+	  MenuInflater bottom = getMenuInflater(); 
+	  bottom.inflate(R.menu.bottommenu, menu);
 	  return super.onCreateOptionsMenu(menu);
 	}
 
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_blutooth) {
-			//mDeviceArrayAdapter = new ArrayAdapter<String>(this,R.layout.item_device);
-			//BluetoothSetting btSetting = new BluetoothSetting(getApplicationContext(),mDeviceArrayAdapter);
-			//initDeviceListDialog();
-			//initProgressDialog();
-			
-			boolean connect = mClient.isConnection();
-			if (!connect) {
-					mDeviceListDialog.show();
-			} else {
-					mBTHandler.close();
-			}
-			
+
+		Intent intent;		
+		switch (item.getItemId()) {
+
+			case android.R.id.home:
+				NavUtils.navigateUpFromSameTask(this); 
+				overridePendingTransition(0,0);
+				return true;
+				
+			case R.id.action_blutooth:
+				boolean connect = mClient.isConnection();
+				if (!connect) {
+						mDeviceListDialog.show();
+				} else {
+						mBTHandler.close();
+				}
+				return true;
+				
+			case R.id.action_camera:
+				intent = new Intent(PreviewActivity.this, CameraActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0,0);
+				return true;
+		
+			case R.id.action_exercise:
+				intent = new Intent(PreviewActivity.this, PreviewActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0,0);
+				return true;
+				
+			case R.id.action_acheivementrate:
+				intent = new Intent(PreviewActivity.this, AcheivementActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0,0);
+				return true;
+				
+			case R.id.action_settings:
+				intent = new Intent(PreviewActivity.this, SettingActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0,0);
+				return true;
 		}
+
 		return super.onOptionsItemSelected(item);
 	}
 }
