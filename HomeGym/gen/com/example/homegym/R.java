@@ -45,32 +45,35 @@ public final class R {
     }
     public static final class layout {
         public static final int acheivement_tab=0x7f030000;
-        public static final int activity_acheivement=0x7f030001;
-        public static final int activity_btconnect=0x7f030002;
-        public static final int activity_camera=0x7f030003;
-        public static final int activity_exercise=0x7f030004;
-        public static final int activity_loading=0x7f030005;
-        public static final int activity_main=0x7f030006;
-        public static final int activity_menu=0x7f030007;
-        public static final int activity_preview=0x7f030008;
-        public static final int activity_rest=0x7f030009;
-        public static final int activity_setting=0x7f03000a;
-        public static final int activity_user_info_setting=0x7f03000b;
-        public static final int item_device=0x7f03000c;
-        public static final int setting_tab=0x7f03000d;
+        public static final int activity_=0x7f030001;
+        public static final int activity_acheivement=0x7f030002;
+        public static final int activity_btconnect=0x7f030003;
+        public static final int activity_camera=0x7f030004;
+        public static final int activity_db=0x7f030005;
+        public static final int activity_exercise=0x7f030006;
+        public static final int activity_loading=0x7f030007;
+        public static final int activity_main=0x7f030008;
+        public static final int activity_menu=0x7f030009;
+        public static final int activity_preview=0x7f03000a;
+        public static final int activity_rest=0x7f03000b;
+        public static final int activity_setting=0x7f03000c;
+        public static final int activity_user_info_setting=0x7f03000d;
+        public static final int item_device=0x7f03000e;
+        public static final int setting_tab=0x7f03000f;
     }
     public static final class menu {
         public static final int acheivement=0x7f070000;
         public static final int bottommenu=0x7f070001;
         public static final int btconnect=0x7f070002;
         public static final int camera=0x7f070003;
-        public static final int exercise=0x7f070004;
-        public static final int loading=0x7f070005;
-        public static final int main=0x7f070006;
-        public static final int menu=0x7f070007;
-        public static final int rest=0x7f070008;
-        public static final int setting=0x7f070009;
-        public static final int user_info_setting=0x7f07000a;
+        public static final int db=0x7f070004;
+        public static final int exercise=0x7f070005;
+        public static final int loading=0x7f070006;
+        public static final int main=0x7f070007;
+        public static final int menu=0x7f070008;
+        public static final int rest=0x7f070009;
+        public static final int setting=0x7f07000a;
+        public static final int user_info_setting=0x7f07000b;
     }
     public static final class string {
         public static final int action_acheivementrate=0x7f050006;
@@ -83,9 +86,11 @@ public final class R {
          */
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050001;
+        public static final int title_activity_=0x7f050012;
         public static final int title_activity_acheivement=0x7f050008;
         public static final int title_activity_btconnect=0x7f050010;
         public static final int title_activity_camera=0x7f050011;
+        public static final int title_activity_db=0x7f050013;
         public static final int title_activity_exercise=0x7f050009;
         public static final int title_activity_loading=0x7f05000a;
         public static final int title_activity_menu=0x7f05000b;

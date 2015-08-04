@@ -20,5 +20,7 @@
     <string name="title_activity_user_info_setting">UserInfoSettingActivity</string>
     <string name="title_activity_btconnect">BTConnectActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_">Activity</string>
+    <string name="title_activity_db">DBActivity</string>
 
 </resources>
