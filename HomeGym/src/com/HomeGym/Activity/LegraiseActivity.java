@@ -1,55 +1,27 @@
 package com.HomeGym.Activity;
 
 import com.example.homegym.R;
+import com.example.homegym.R.id;
+import com.example.homegym.R.layout;
+import com.example.homegym.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 
-public class ExerciseActivity extends Activity {
+public class LegraiseActivity extends Activity {
 
-
-	private static final int PB_START = 1;
-	ProgressBar pb;
-	boolean flag=true;
-
-	Handler hand = new Handler(){
-	
-		public void handleMessage(android.os.Message msg){
-			switch (msg.what){
-			case PB_START:
-				if(pb.getProgress()<pb.getMax())
-					pb.incrementProgressBy(2);
-
-				break;
-			default:
-				break;
-			}
-		};
-	};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_exercise);
-		
-
-		pb = (ProgressBar)findViewById(R.id.pb);
-
-		pb.setMax(100);
-		pb.setProgress(0);
-		
-		if(flag == true){
-		hand.sendEmptyMessage(PB_START);
-		}
+		setContentView(R.layout.activity_legraise);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.bottommenu, menu);
+		getMenuInflater().inflate(R.menu.legraise, menu);
 		return true;
 	}
 

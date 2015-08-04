@@ -22,9 +22,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -37,6 +39,9 @@ public class PreviewActivity extends Activity {
 	private LinkedList<BluetoothDevice> mBluetoothDevices = new LinkedList<BluetoothDevice>();
 	private ArrayAdapter<String> mDeviceArrayAdapter;
 	private ProgressDialog mLoadingDialog;
+	public Button start;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -44,8 +49,10 @@ public class PreviewActivity extends Activity {
 		//String.xml가면 타이틀 바 이름 바꿀 수 있음
 		//getActionBar().setDisplayShowHomeEnabled(false);// 아이콘 없애기
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_preview);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		start = (Button)findViewById(R.id.start);
 		//overflowMenuInActionBar();
 		
 		//bluetoothSync= (ImageButton)findViewById(R.id.bluetoothsync);
@@ -56,7 +63,16 @@ public class PreviewActivity extends Activity {
 		initDeviceListDialog();
 		initProgressDialog();
 		//overridePendingTransition(0,0);
+		
+		start.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				Intent intent = new Intent(PreviewActivity.this, ExerciseActivity.class);//excercise액티비티 확인할라고 임의로 넘김
+				startActivity(intent);
+				overridePendingTransition(0,0);
+			}
+		});
 	}
+	
 	
 	private void initDeviceListDialog() {
 		mDeviceArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.item_device);

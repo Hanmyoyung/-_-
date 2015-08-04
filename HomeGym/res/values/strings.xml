@@ -22,5 +22,10 @@
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_">Activity</string>
     <string name="title_activity_db">DBActivity</string>
+    <string name="title_activity_squat">SquatActivity</string>
+    <string name="title_activity_crunch">CrunchActivity</string>
+    <string name="title_activity_lunge">LungeActivity</string>
+    <string name="title_activity_legraise">LegraiseActivity</string>
+
 
 </resources>

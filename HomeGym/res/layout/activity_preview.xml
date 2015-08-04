@@ -3,5 +3,13 @@
 	android:layout_height="match_parent" >
 
     <!--PPT색조합 http://m.post.naver.com/viewer/postView.nhn?volumeNo=1541943&memberNo=6532296&searchKeyword=ppt%EC%83%89%EC%A1%B0%ED%95%A9&searchRank=9 -->
-
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:text="Start" />
+    
 </RelativeLayout>
