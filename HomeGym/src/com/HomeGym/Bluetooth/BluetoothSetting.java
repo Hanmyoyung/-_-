@@ -3,8 +3,8 @@ package com.HomeGym.Bluetooth;
 import java.util.LinkedList;
 
 import com.HomeGym.Bluetooth.BluetoothSerialClient.OnScanListener;
+import com.example.homegym.R;
 
-import android.R;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothDevice;
@@ -17,45 +17,53 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class BluetoothSetting {
 	
 	private Context btContext;
-	private BluetoothSerialClient mClient;
 	private BluetoothStreamingHandler mBTHandler;
 	private AlertDialog mDeviceListDialog;
 	private LinkedList<BluetoothDevice> mBluetoothDevices = new LinkedList<BluetoothDevice>();
 	private ArrayAdapter<String> mDeviceArrayAdapter;
 	private ProgressDialog mLoadingDialog;
-
-	public BluetoothSetting(Context applicationContext,ArrayAdapter<String> arrayAdapter) {
-		
+	static private BluetoothSetting bThis = null;
+	
+	public BluetoothSetting(Context applicationContext){
 		// TODO Auto-generated constructor stub
 		btContext = applicationContext;
-		mDeviceArrayAdapter = arrayAdapter;
-		mClient = BluetoothSerialClient.getInstance();
 		mBTHandler= new BTHandler();
-		
-		//setDialog();
-		//initDeviceListDialog();
-		//initProgressDialog();
 				
+		
+		
 	}
 	
-	private void setDialog(){
-		boolean connect = mClient.isConnection();
+	public static BluetoothSetting getInstance(Context applicationContext) {
+		if(bThis == null) {
+			bThis = new BluetoothSetting(applicationContext);
+		}
+		return bThis;
+	}
+
+	public void setDialog(){
+		boolean connect = BluetoothSerialClient.getInstance().isConnection();
 		if (!connect) {
-				mDeviceListDialog.show();
+				mDeviceListDialog.show();				
 		} else {
 				mBTHandler.close();
 		}
-
 	}
 
+	public void sendStringData(String data) {
 
-	private void initDeviceListDialog() {
-		//mDeviceArrayAdapter = new ArrayAdapter<String>(btContext,R.layout.simple_list_item_1);
+		data += '\0';
+		byte[] buffer = data.getBytes();
+		if(mBTHandler.write(buffer)) {
+			Log.i("µÇ´Â°Å´Ï", "º¸³Â½À´Ï´ç");
+		}
+	}
+
+	public void initDeviceListDialog() {
+		mDeviceArrayAdapter = new ArrayAdapter<String>(btContext,R.layout.item_device);
 		Log.v("¹¹¾ß¹¹¾ß", "¿Ö¾ÈµÇ´Âµ¥1?");
 		ListView listView = new ListView(btContext);
 		listView.setAdapter(mDeviceArrayAdapter);
@@ -90,24 +98,24 @@ public class BluetoothSetting {
 	}
 	
 
-	private void initProgressDialog() {
+	public void initProgressDialog() {
 		 mLoadingDialog = new ProgressDialog(btContext);
 		 mLoadingDialog.setCancelable(true);
 	}
 	
 	
-	private void connect(BluetoothDevice device) {
+	public void connect(BluetoothDevice device) {
 		//mLoadingDialog.setMessage("Connecting....");
 		//mLoadingDialog.setCancelable(false);
 		//mLoadingDialog.show();
 		Log.v("¹¹¾ß¹¹¾ß", "¿Ö¾ÈµÇ´Âµ¥5?");
-		BluetoothSerialClient btSet =  mClient;
+		BluetoothSerialClient btSet =  BluetoothSerialClient.getInstance();
 		btSet.connect(btContext, device, mBTHandler);
 	}
 	
-	private void scanDevices() {
+	public void scanDevices() {
 		Log.v("¹¹¾ß¹¹¾ß", "½ºÄµ µð¹ÙÀÌ½º ÀÔ´Ï´Ù?");
-		BluetoothSerialClient btSet = mClient;
+		BluetoothSerialClient btSet = BluetoothSerialClient.getInstance();
 		btSet.scanDevices(btContext, new OnScanListener() {
 			String message ="";
 			@Override
@@ -121,7 +129,7 @@ public class BluetoothSetting {
 				mLoadingDialog.setOnCancelListener(new OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						BluetoothSerialClient btSet = mClient;
+						BluetoothSerialClient btSet = BluetoothSerialClient.getInstance();
 						btSet.cancelScan(btContext);
 					}
 				}); 
@@ -147,7 +155,7 @@ public class BluetoothSetting {
 		});
 	}
 	
-	private void addDeviceToArrayAdapter(BluetoothDevice device) {
+	public void addDeviceToArrayAdapter(BluetoothDevice device) {
 		if(mBluetoothDevices.contains(device)) { 
 			mBluetoothDevices.remove(device);
 			mDeviceArrayAdapter.remove(device.getName() + "\n" + device.getAddress());

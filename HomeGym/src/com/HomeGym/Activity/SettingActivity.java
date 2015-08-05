@@ -1,5 +1,6 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.example.homegym.R;
 
 import android.content.Intent;
@@ -10,7 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class SettingActivity extends PreferenceActivity {
-
+	
+	public String sString;
+	BluetoothSetting btSetting;
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,11 @@ public class SettingActivity extends PreferenceActivity {
 		addPreferencesFromResource(R.layout.activity_setting);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+	
+		btSetting= new BluetoothSetting(SettingActivity.this);	
+		btSetting.initDeviceListDialog();
+		btSetting.initProgressDialog();
+		
 	}
 
 	@Override
@@ -38,9 +47,7 @@ public class SettingActivity extends PreferenceActivity {
 				return true;
 				
 			case R.id.action_blutooth:
-				intent = new Intent(SettingActivity.this, PreviewActivity.class);
-				startActivity(intent);
-				overridePendingTransition(0,0);
+				btSetting.setDialog();
 				return true;
 				
 			case R.id.action_camera:
@@ -56,7 +63,7 @@ public class SettingActivity extends PreferenceActivity {
 				return true;
 				
 			case R.id.action_acheivementrate:
-				intent = new Intent(SettingActivity.this, AcheivementActivity.class);
+				intent = new Intent(SettingActivity.this, AchievementActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
 				return true;

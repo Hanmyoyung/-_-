@@ -62,7 +62,7 @@
         </activity>
         
         <activity
-            android:name="com.HomeGym.Activity.AcheivementActivity"
+            android:name="com.HomeGym.Activity.AchievementActivity"
             android:label="@string/title_activity_acheivement"
             android:parentActivityName="com.HomeGym.Activity.MainActivity" >
         </activity>
