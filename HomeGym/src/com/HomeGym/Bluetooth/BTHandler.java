@@ -6,7 +6,8 @@ import android.util.Log;
 
 public class BTHandler extends BluetoothStreamingHandler{
 
-		ByteBuffer mmByteBuffer = ByteBuffer.allocate(1024);
+		ByteBuffer mmByteBuffer = ByteBuffer.allocate(2048);
+		String tempString= new String();
 		
 		@Override
 		public void onError(Exception e) {
@@ -39,10 +40,12 @@ public class BTHandler extends BluetoothStreamingHandler{
 			} 
 			
 			mmByteBuffer.put(buffer, 0, length);
+			Log.v("장난함??length가 얼마인데?", Integer.toString(length));
 			
 			if(buffer[length] == '\0') {
 					String string = new String(mmByteBuffer.array(), 0, mmByteBuffer.position());
-					Log.v("HAHAHAWIJFWAIEFJAWLEFIJAWEJI", string);
+					tempString +=string;
+					Log.v("HAHAHAWIJFWAIEFJAWLEFIJAWEJI", tempString);
 					//addText(mClient.getConnectedDevice().getName() + " : " +
 					//		new String(mmByteBuffer.array(), 0, mmByteBuffer.position()) + '\n'); 
 					mmByteBuffer.clear();
