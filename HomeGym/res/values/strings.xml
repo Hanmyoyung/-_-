@@ -26,6 +26,6 @@
     <string name="title_activity_crunch">CrunchActivity</string>
     <string name="title_activity_lunge">LungeActivity</string>
     <string name="title_activity_legraise">LegraiseActivity</string>
-
+    <string name="title_activity_finish">FinishActivity</string>
 
 </resources>

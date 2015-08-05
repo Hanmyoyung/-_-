@@ -36,14 +36,17 @@ public final class R {
         public static final int setting=0x7f02000b;
     }
     public static final class id {
-        public static final int action_acheivementrate=0x7f080006;
-        public static final int action_blutooth=0x7f080003;
-        public static final int action_camera=0x7f080004;
-        public static final int action_exercise=0x7f080005;
-        public static final int action_settings=0x7f080002;
-        public static final int home=0x7f080007;
-        public static final int pb=0x7f080000;
-        public static final int start=0x7f080001;
+        public static final int action_acheivementrate=0x7f080009;
+        public static final int action_blutooth=0x7f080006;
+        public static final int action_camera=0x7f080007;
+        public static final int action_exercise=0x7f080008;
+        public static final int action_settings=0x7f080005;
+        public static final int crunchBar=0x7f080000;
+        public static final int home=0x7f08000a;
+        public static final int pb=0x7f080001;
+        public static final int restBar=0x7f080003;
+        public static final int squatBar=0x7f080004;
+        public static final int start=0x7f080002;
     }
     public static final class layout {
         public static final int acheivement_tab=0x7f030000;
@@ -54,18 +57,17 @@ public final class R {
         public static final int activity_crunch=0x7f030005;
         public static final int activity_db=0x7f030006;
         public static final int activity_exercise=0x7f030007;
-        public static final int activity_legraise=0x7f030008;
+        public static final int activity_finish=0x7f030008;
         public static final int activity_loading=0x7f030009;
-        public static final int activity_lunge=0x7f03000a;
-        public static final int activity_main=0x7f03000b;
-        public static final int activity_menu=0x7f03000c;
-        public static final int activity_preview=0x7f03000d;
-        public static final int activity_rest=0x7f03000e;
-        public static final int activity_setting=0x7f03000f;
-        public static final int activity_squat=0x7f030010;
-        public static final int activity_user_info_setting=0x7f030011;
-        public static final int item_device=0x7f030012;
-        public static final int setting_tab=0x7f030013;
+        public static final int activity_main=0x7f03000a;
+        public static final int activity_menu=0x7f03000b;
+        public static final int activity_preview=0x7f03000c;
+        public static final int activity_rest=0x7f03000d;
+        public static final int activity_setting=0x7f03000e;
+        public static final int activity_squat=0x7f03000f;
+        public static final int activity_user_info_setting=0x7f030010;
+        public static final int item_device=0x7f030011;
+        public static final int setting_tab=0x7f030012;
     }
     public static final class menu {
         public static final int acheivement=0x7f070000;
@@ -75,15 +77,16 @@ public final class R {
         public static final int crunch=0x7f070004;
         public static final int db=0x7f070005;
         public static final int exercise=0x7f070006;
-        public static final int legraise=0x7f070007;
-        public static final int loading=0x7f070008;
-        public static final int lunge=0x7f070009;
-        public static final int main=0x7f07000a;
-        public static final int menu=0x7f07000b;
-        public static final int rest=0x7f07000c;
-        public static final int setting=0x7f07000d;
-        public static final int squat=0x7f07000e;
-        public static final int user_info_setting=0x7f07000f;
+        public static final int finish=0x7f070007;
+        public static final int legraise=0x7f070008;
+        public static final int loading=0x7f070009;
+        public static final int lunge=0x7f07000a;
+        public static final int main=0x7f07000b;
+        public static final int menu=0x7f07000c;
+        public static final int rest=0x7f07000d;
+        public static final int setting=0x7f07000e;
+        public static final int squat=0x7f07000f;
+        public static final int user_info_setting=0x7f070010;
     }
     public static final class string {
         public static final int action_acheivementrate=0x7f050006;
@@ -103,6 +106,7 @@ public final class R {
         public static final int title_activity_crunch=0x7f050015;
         public static final int title_activity_db=0x7f050013;
         public static final int title_activity_exercise=0x7f050009;
+        public static final int title_activity_finish=0x7f050018;
         public static final int title_activity_legraise=0x7f050017;
         public static final int title_activity_loading=0x7f05000a;
         public static final int title_activity_lunge=0x7f050016;

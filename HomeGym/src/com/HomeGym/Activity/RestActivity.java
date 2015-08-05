@@ -1,24 +1,40 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.ExcerciseController.TimeProgress;
 import com.example.homegym.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 public class RestActivity extends Activity {
 
+	private ProgressBar pb;
+	private int fillBarPercent = 10;
+	TimeProgress tp = new TimeProgress();
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rest);
+		
+		pb = (ProgressBar)findViewById(R.id.restBar);
+
+		Intent intent = getIntent();
+		final String next = intent.getExtras().getString("next");
+		
+		tp.timeProgress(RestActivity.this, next, pb, fillBarPercent);
+
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.rest, menu);
+		getMenuInflater().inflate(R.menu.bottommenu, menu);
 		return true;
 	}
 

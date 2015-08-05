@@ -66,7 +66,7 @@ public class PreviewActivity extends Activity {
 		
 		start.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				Intent intent = new Intent(PreviewActivity.this, ExerciseActivity.class);//excercise액티비티 확인할라고 임의로 넘김
+				Intent intent = new Intent(PreviewActivity.this, SquatActivity.class);//excercise액티비티 확인할라고 임의로 넘김
 				startActivity(intent);
 				overridePendingTransition(0,0);
 			}
