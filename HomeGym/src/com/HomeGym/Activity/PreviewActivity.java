@@ -1,43 +1,31 @@
 package com.HomeGym.Activity;
 
-import java.util.LinkedList;
-
-import com.HomeGym.Bluetooth.BTHandler;
-import com.HomeGym.Bluetooth.BluetoothSerialClient;
-import com.HomeGym.Bluetooth.BluetoothSerialClient.OnScanListener;
 import com.HomeGym.Bluetooth.BluetoothSetting;
-import com.HomeGym.Bluetooth.BluetoothStreamingHandler;
+import com.HomeGym.ExcerciseController.ValueSetting;
 import com.example.homegym.R;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.bluetooth.BluetoothDevice;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.TextView;
 
 public class PreviewActivity extends Activity {
 	
 	public ImageButton bluetoothSync;
 	public Button start;
 	public String sString;
+	public TextView focus;
+	public TextView temp;
 	BluetoothSetting btSetting;
-	
+	ValueSetting vs = new ValueSetting();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +39,9 @@ public class PreviewActivity extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		start = (Button)findViewById(R.id.start);	
+		focus = (TextView)findViewById(R.id.focus);
+		temp = (TextView)findViewById(R.id.temp);
+		
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
@@ -64,6 +55,9 @@ public class PreviewActivity extends Activity {
 				overridePendingTransition(0,0);
 			}
 		});
+		
+		focus.setText("집중부위 : "+vs.getFocus());
+		temp.setText("온도는요?");
 	}
 	
 

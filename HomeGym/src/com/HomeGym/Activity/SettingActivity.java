@@ -19,7 +19,8 @@ public class SettingActivity extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.layout.activity_setting);
+		addPreferencesFromResource(R.xml.app_prefer);
+
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	

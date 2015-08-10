@@ -1,5 +1,6 @@
 package com.HomeGym.ExcerciseController;
 
+import com.HomeGym.Activity.FinishActivity;
 import com.HomeGym.Activity.RestActivity;
 import android.app.Activity;
 import android.content.Context;
@@ -19,50 +20,54 @@ public class TimeProgress {
 	private Intent intent;
 	
 	public void timeProgress(final Context context, final String next, final ProgressBar pb, final int percent){
-	final Intent intentToEx = NextExcercise.nextExcercise(context, next);	
-	final Intent intentToRest = new Intent(context, RestActivity.class);
+		final Intent intentToEx = NextExcercise.nextExcercise(context, next);	
+		final Intent intentToRest = new Intent(context, RestActivity.class);
 	
-	if (percent == 10) intent = intentToEx;
-	else{
-		intent = intentToRest;
-		intent.putExtra("next", next);
-	}
-	
-	TimeThread = new Thread(new Runnable(){
-		@Override
-		public void run(){
-			while (true) { 
-				if(ProgressStatus < 100){
-				ProgressStatus += percent;
-				}
-				else if(ProgressStatus >= 100){
-					hand.removeCallbacks(TimeThread);
-					TimeThread.interrupt();
-					context.startActivity(intent);
-					((Activity) context).overridePendingTransition(0,0);
-					((Activity) context).finish();
-					((Activity) context).overridePendingTransition(0,0);
-				
-					//progressReturn();
-					//startActivity(intent);
-					//overridePendingTransition(0,0);
-					break;
-					
-				}
-				hand.post(new Runnable(){
-					@Override
-					public void run(){
-						pb.setProgress(ProgressStatus);
-					}
-				});
-				try{
-					TimeThread.sleep(1000);
-				}catch (InterruptedException e){
-					e.printStackTrace();
-				}
+		if (percent == 10) intent = intentToEx;
+		else{
+			intent = intentToRest;
+			intent.putExtra("next", next);
+			if(next.equals("finish")){
+				intent = new Intent(context, FinishActivity.class);
 			}
 		}
-	});
-	TimeThread.start();
+	
+		TimeThread = new Thread(new Runnable(){
+			@Override
+			public void run(){
+				while (true) { 
+					if(ProgressStatus < 100){
+						ProgressStatus += percent;
+					}
+					else if(ProgressStatus >= 100){
+						hand.removeCallbacks(TimeThread);
+						TimeThread.interrupt();
+						context.startActivity(intent);
+						((Activity) context).overridePendingTransition(0,0);
+						((Activity) context).finish();
+						((Activity) context).overridePendingTransition(0,0);
+				
+						//progressReturn();
+						//startActivity(intent);
+						//overridePendingTransition(0,0);
+						break;
+					
+					}
+					
+					hand.post(new Runnable(){
+						@Override
+						public void run(){
+							pb.setProgress(ProgressStatus);
+						}
+					});
+					try{
+						TimeThread.sleep(1000);
+					}catch (InterruptedException e){
+						e.printStackTrace();
+					}
+				}	
+			}
+		});
+		TimeThread.start();
 	}
 }

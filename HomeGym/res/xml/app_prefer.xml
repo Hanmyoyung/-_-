@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="app_prefer"
+    android:title="설정 ">
+    
+    <PreferenceCategory
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:key="setting_activity_account"
+        android:title="운동 설정">
+        <ListPreference
+            android:dialogTitle="운동목표"             
+            android:entries="@array/goal_values"             
+            android:entryValues="@array/goal_key"             
+            android:key="excercise_goal"             
+            android:summary="운동 목표를 설정하세요"             
+            android:title="운동목표"
+            android:defaultValue="loseWeight" />
+        <ListPreference
+            android:dialogTitle="집중부위"             
+            android:entries="@array/focus_values"             
+            android:entryValues="@array/focus_key"             
+            android:key="excercise_focus"             
+            android:summary="집중 부위를 설정하세요"             
+            android:title="집중부위" 
+            android:defaultValue="full"/>
+    </PreferenceCategory>
+     
+    <PreferenceCategory
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:key="setting_activity_alarm"
+        android:title="알람 설정">
+        <CheckBoxPreference
+            android:key="excercise_alarm"
+            android:title="운동 알람"
+            android:summary="운동 시간이 되면 알림"
+            android:defaultValue="true"/>
+        <Preference
+            android:key="setting_activity_alarm_reiceive"
+            android:title="알림시간" android:defaultValue="true"
+            android:dependency="excercise_alarm"/>
+    </PreferenceCategory>
+     
+</PreferenceScreen>

@@ -11,5 +11,25 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="23dp"
         android:text="Start" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:layout_toLeftOf="@+id/start"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/focus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/temp"
+        android:layout_alignBottom="@+id/temp"
+        android:layout_toRightOf="@+id/start"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </RelativeLayout>
