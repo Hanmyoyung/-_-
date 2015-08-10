@@ -15,7 +15,8 @@
             android:key="excercise_goal"             
             android:summary="운동 목표를 설정하세요"             
             android:title="운동목표"
-            android:defaultValue="loseWeight" />
+             />
+        <!-- android:defaultValue="loseWeight" -->
         <ListPreference
             android:dialogTitle="집중부위"             
             android:entries="@array/focus_values"             
@@ -23,7 +24,8 @@
             android:key="excercise_focus"             
             android:summary="집중 부위를 설정하세요"             
             android:title="집중부위" 
-            android:defaultValue="full"/>
+            />
+        <!-- android:defaultValue="full" -->
     </PreferenceCategory>
      
     <PreferenceCategory

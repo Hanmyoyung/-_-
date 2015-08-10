@@ -13,7 +13,7 @@ public class SquatActivity extends Activity {
 
 	private ProgressBar pb;
 	private String next = "Crunch";
-	private int fillBarPercent = 20;// 나중에 2로 바꿔야함
+	private int fillBarPercent = 2;// 나중에 2로 바꿔야함
 	
 	TimeProgress tp = new TimeProgress();
 	

@@ -3,6 +3,7 @@ package com.HomeGym.DB;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.util.Log;
 import android.database.sqlite.SQLiteOpenHelper;
  
 public class DBManager extends SQLiteOpenHelper {
@@ -14,11 +15,14 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	String sql = "CREATE TABLE UserInfo("+
-    				"date DATE DEFAULT (date('now')), "+
-    				"exercise INTEGER, "+
-    				"doneCount INTEGER, "+
+    				"state INTEGER, "+
+    				"date DATE, "+
+    				"exerciseSeq INTEGER, "+
+    				"exerciseTime INTEGER, "+
     				"targetCount INTEGER, "+
+    				"doneCount INTEGER, "+
     				"percent DOUBLE);";
+    	Log.i("에휴", "여기로 오긴 하는 겁니까");
     	db.execSQL(sql);
     }
  

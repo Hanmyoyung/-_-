@@ -1,10 +1,12 @@
 package com.HomeGym.Activity;
 
 import com.HomeGym.Bluetooth.BluetoothSetting;
+import com.HomeGym.DB.DBSetting;
 import com.example.homegym.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -15,6 +17,8 @@ public class AchievementActivity extends Activity {
 	
 	public String sString;
 	BluetoothSetting btSetting;
+	SQLiteDatabase db;
+	DBSetting dbSetting;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,10 @@ public class AchievementActivity extends Activity {
 
 		btSetting= new BluetoothSetting(AchievementActivity.this);		
 		btSetting.initDeviceListDialog();
-		btSetting.initProgressDialog();		
+		btSetting.initProgressDialog();	
+		
+		dbSetting = new DBSetting(AchievementActivity.this);
+		dbSetting.testMethod();
 		
 	}
 
@@ -51,18 +58,21 @@ public class AchievementActivity extends Activity {
 				
 			case R.id.action_blutooth:
 				btSetting.setDialog();
+				
 				return true;
 				
 			case R.id.action_camera:
 				intent = new Intent(AchievementActivity.this, CameraActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		
 			case R.id.action_exercise:
 				intent = new Intent(AchievementActivity.this, PreviewActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 				
@@ -70,6 +80,7 @@ public class AchievementActivity extends Activity {
 				intent = new Intent(AchievementActivity.this, SettingActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		}
 		

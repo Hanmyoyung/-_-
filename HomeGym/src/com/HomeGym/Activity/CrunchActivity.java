@@ -13,7 +13,7 @@ public class CrunchActivity extends Activity {
 
 	private ProgressBar pb;
 	private String next = "finish";
-	private int fillBarPercent = 20;// 나중에 2로 바꿔야함
+	private int fillBarPercent = 2;// 나중에 2로 바꿔야함
 	
 	TimeProgress tp = new TimeProgress();
 	
@@ -24,7 +24,6 @@ public class CrunchActivity extends Activity {
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
 		pb = (ProgressBar)findViewById(R.id.crunchBar);
-		
 		tp.timeProgress(CrunchActivity.this, next, pb, fillBarPercent);
 		
 	}

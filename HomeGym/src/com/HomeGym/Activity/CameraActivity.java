@@ -53,24 +53,28 @@ public class CameraActivity extends Activity {
 				intent = new Intent(CameraActivity.this, CameraActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		
 			case R.id.action_exercise:
 				intent = new Intent(CameraActivity.this, PreviewActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 			case R.id.action_acheivementrate:
 				intent = new Intent(CameraActivity.this, AchievementActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 			case R.id.action_settings:
 				intent = new Intent(CameraActivity.this, SettingActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		}
 
