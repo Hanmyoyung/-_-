@@ -18,9 +18,7 @@ public class MainActivity extends Activity {
 	
 	public String sString;
 	BluetoothSetting btSetting;
-	String goal;
-	String focus;
-	SharedPreferences prefs;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +30,8 @@ public class MainActivity extends Activity {
 		btSetting= new BluetoothSetting(MainActivity.this);	
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
-		
-		prefs=PreferenceManager.getDefaultSharedPreferences(this);
-	    SharedPreferences.Editor editor= prefs.edit();
-		
-	    setting();
+			
+	    
 	}
 
 	@Override
@@ -83,17 +78,6 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void setting(){
-		
-		ValueSetting.alarmCheck = prefs.getBoolean("excercise_alarm", true);
-		ValueSetting.goal = prefs.getString("excercise_goal" , "");
-		ValueSetting.focus = prefs.getString("excercise_focus" , "");
-	    //Log.v("excercise_goal", goal);
-	    //Log.v("excercise_focus", focus);
-	   // if(ValueSetting.alarmCheck == true){
-	    //	Log.v("alarm", "true");
-	    //}else Log.v("alarm", "false");
-		
-	}
+
 }
 
