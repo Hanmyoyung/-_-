@@ -25,14 +25,14 @@ public class TimeProgress {
 	BluetoothSetting btSetting;
 	
 	public void timeProgress(final Context context, final String next, final ProgressBar pb, final int percent){
-		final Intent intentToEx = NextExcercise.nextExcercise(context, next);	
-		final Intent intentToRest = new Intent(context, RestActivity.class);
+	final Intent intentToEx = NextExcercise.nextExcercise(context, next);	
+	final Intent intentToRest = new Intent(context, RestActivity.class);
 	
 	if (percent == 25) intent = intentToEx;
 	else{
 		intent = intentToRest;
 		intent.putExtra("next", next);
-		if(next.equals("finish")){//마지막 운동이면 쉬는시간 없이 끝내기
+		if(next.equals("finish")){
             intent = new Intent(context, FinishActivity.class);
          }
 	}
@@ -55,9 +55,6 @@ public class TimeProgress {
 					btSetting= new BluetoothSetting((Activity)context);
 					bString = "2";
 					btSetting.sendStringData(bString);
-					//progressReturn();
-					//startActivity(intent);
-					//overridePendingTransition(0,0);
 					break;
 					
 				}
@@ -71,11 +68,11 @@ public class TimeProgress {
 					TimeThread.sleep(1000);
 				}catch (InterruptedException e){
 					e.printStackTrace();
-					}
-				}	
+				}
 			}
-		});
-		TimeThread.start();
+		}
+	});
+	TimeThread.start();
 	}
 	
 	}
