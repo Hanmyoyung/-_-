@@ -55,11 +55,15 @@ public class PreviewActivity extends Activity {
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
 		
+		
+		sString = "0";// 온도 받아오기
+		btSetting.sendStringData(sString);
+		
 		start.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				Intent intent = new Intent(PreviewActivity.this, SquatActivity.class);//excercise액티비티 확인할라고 임의로 넘김
 				startActivity(intent);
-				sString = "temp";
+				sString = "1";
 				btSetting.sendStringData(sString);
 				overridePendingTransition(0,0);
 			}
@@ -93,24 +97,28 @@ public class PreviewActivity extends Activity {
 				intent = new Intent(PreviewActivity.this, CameraActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		
 			case R.id.action_exercise:
 				intent = new Intent(PreviewActivity.this, PreviewActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 			case R.id.action_acheivementrate:
 				intent = new Intent(PreviewActivity.this, AchievementActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 			case R.id.action_settings:
 				intent = new Intent(PreviewActivity.this, SettingActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		}
 

@@ -27,6 +27,7 @@ public class BluetoothSetting {
 	private ArrayAdapter<String> mDeviceArrayAdapter;
 	private ProgressDialog mLoadingDialog;
 	static private BluetoothSetting bThis = null;
+	private boolean isConnect;
 	
 	public BluetoothSetting(Context applicationContext){
 		// TODO Auto-generated constructor stub
@@ -105,12 +106,21 @@ public class BluetoothSetting {
 	
 	
 	public void connect(BluetoothDevice device) {
-		//mLoadingDialog.setMessage("Connecting....");
-		//mLoadingDialog.setCancelable(false);
-		//mLoadingDialog.show();
+		mLoadingDialog.setMessage("Connecting....");
+		mLoadingDialog.setCancelable(false);
+		mLoadingDialog.show();
 		Log.v("뭐야뭐야", "왜안되는데5?");
 		BluetoothSerialClient btSet =  BluetoothSerialClient.getInstance();
-		btSet.connect(btContext, device, mBTHandler);
+		
+		if(btSet.connect(btContext, device, mBTHandler)==true){
+			mLoadingDialog.setMessage("연결 되었습니당");
+			mLoadingDialog.setCancelable(false);
+			mLoadingDialog.show();
+		}else{
+			mLoadingDialog.setMessage("연결되지 않았습니다.");
+			mLoadingDialog.setCancelable(false);
+			mLoadingDialog.show();
+		}
 	}
 	
 	public void scanDevices() {
@@ -125,7 +135,7 @@ public class BluetoothSetting {
 				message = "Scanning....";
 				mLoadingDialog.setMessage("Scanning....");
 				mLoadingDialog.setCancelable(true);
-				mLoadingDialog.setCanceledOnTouchOutside(false);				
+				mLoadingDialog.setCanceledOnTouchOutside(true);				
 				mLoadingDialog.setOnCancelListener(new OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {

@@ -8,6 +8,8 @@ public class BTHandler extends BluetoothStreamingHandler{
 
 		ByteBuffer mmByteBuffer = ByteBuffer.allocate(2048);
 		String tempString= new String();
+		BluetoothGetData get = new BluetoothGetData();
+		//boolean isData;
 		
 		@Override
 		public void onError(Exception e) {
@@ -15,6 +17,13 @@ public class BTHandler extends BluetoothStreamingHandler{
 			//addText("Messgae : Connection error - " +  e.toString() + "\n");
 			//mMenu.getItem(0).setTitle(R.string.action_connect);
 			Log.v("실행이 되긴 하나요", "에러입니다");
+		}
+		
+		public void initData(boolean isData){
+			if(isData ==true){
+				get.getData(tempString);
+				tempString = new String();
+			}
 		}
 		
 		@Override
@@ -45,44 +54,14 @@ public class BTHandler extends BluetoothStreamingHandler{
 			if(buffer[length] == '\0') {
 					String string = new String(mmByteBuffer.array(), 0, mmByteBuffer.position());
 					tempString +=string;
+					initData(get.isData(tempString));
 					Log.v("HAHAHAWIJFWAIEFJAWLEFIJAWEJI", tempString);
-					//addText(mClient.getConnectedDevice().getName() + " : " +
-					//		new String(mmByteBuffer.array(), 0, mmByteBuffer.position()) + '\n'); 
+					Log.v("왜안되는건지 진짜 모르겠다아유",get.tempData);
 					mmByteBuffer.clear();
 				}
 			}
 		
 		
-		/*
-		@Override
-		public void onData(byte[] buffer, int length, BluetoothSerialClient mClient) { //메시지 읽어서 보여주는 함수
-			Log.v("실행이 되긴 하나요", "ondata입니다");
-			
-			if(length == 0) {
-				Log.v("실행이 되긴 하나요", "길이가 영입니다 여기 들어가면 안됨");
-				System.out.println("들어온 메시지가 없어");
-				return;
-			}else{
-				//cutByte(buffer,0,length);
-			}
-			
-			if(mmByteBuffer.position() + length >= mmByteBuffer.capacity()) {
-				Log.v("실행이 되긴 하나요", "여기로 들어와야된다고요ㅔ발");
-				ByteBuffer newBuffer = ByteBuffer.allocate(mmByteBuffer.capacity() * 2); 
-				newBuffer.put(mmByteBuffer.array(), 0,  mmByteBuffer.position());
-				mmByteBuffer = newBuffer;
-			} 
-			mmByteBuffer.put(buffer, 0, length);
-			if(buffer[length - 1] == '\0') {		
-				String string = new String(mmByteBuffer.array(), 0, mmByteBuffer.position());
-				Log.v("들어온 메시지가 있어", string);
-				System.out.println(string);
-				//addText(mClient.getConnectedDevice().getName() + " : " +
-				//		string + '\n'); 
-				mmByteBuffer.clear();
-			}
-		}
-		*/
 		
 		@Override
 		public boolean onConnected() {

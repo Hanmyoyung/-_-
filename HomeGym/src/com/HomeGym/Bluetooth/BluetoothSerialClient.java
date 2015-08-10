@@ -125,7 +125,7 @@ public class BluetoothSerialClient {
      * @param mBTHandler 블루투스 스트리밍 핸들러. 
      * @return 만약 블루투스를 사용할 수 없는 상태라면 false. {@link  enableBluetooth} 를 통하여 블루투스를 사용 가능한 상태로 만들어줘야 한다. 
      */
-		public boolean connect(final Context context,final BluetoothDevice device, final BluetoothStreamingHandler mBTHandler) {
+	public boolean connect(final Context context,final BluetoothDevice device, final BluetoothStreamingHandler mBTHandler) {
 			Log.v("에휴", "여기서 안되는것 같은데...");
 		if(!isEnabled()) return false;
 		mConnectedDevice = device;

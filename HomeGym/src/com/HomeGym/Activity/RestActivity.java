@@ -1,5 +1,6 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.HomeGym.ExcerciseController.TimeProgress;
 import com.example.homegym.R;
 
@@ -13,8 +14,10 @@ import android.widget.ProgressBar;
 public class RestActivity extends Activity {
 
 	private ProgressBar pb;
-	private int fillBarPercent = 10;
+	private int fillBarPercent = 25;
 	TimeProgress tp = new TimeProgress();
+	public String sString;
+	BluetoothSetting btSetting;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,14 @@ public class RestActivity extends Activity {
 
 		Intent intent = getIntent();
 		final String next = intent.getExtras().getString("next");
+		btSetting= new BluetoothSetting(RestActivity.this);		
+		
+		
+		btSetting.initDeviceListDialog();
+		btSetting.initProgressDialog();
+		
+		//sString = "1";
+		//btSetting.sendStringData(sString);
 		
 		tp.timeProgress(RestActivity.this, next, pb, fillBarPercent);
 

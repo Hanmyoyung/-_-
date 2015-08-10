@@ -54,18 +54,21 @@ public class SettingActivity extends PreferenceActivity {
 				intent = new Intent(SettingActivity.this, CameraActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 		
 			case R.id.action_exercise:
 				intent = new Intent(SettingActivity.this, PreviewActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 			case R.id.action_acheivementrate:
 				intent = new Intent(SettingActivity.this, AchievementActivity.class);
 				startActivity(intent);
 				overridePendingTransition(0,0);
+				finish();
 				return true;
 				
 		}
