@@ -6,7 +6,9 @@ import com.example.homegym.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -27,7 +29,12 @@ public class PreviewActivity extends Activity {
 	public TextView temp;
 	BluetoothSetting btSetting;
 	ValueSetting vs = new ValueSetting();
+	String goal;
+	//String focus;
+	SharedPreferences prefs;
 	
+
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -35,7 +42,8 @@ public class PreviewActivity extends Activity {
 		//String.xml가면 타이틀 바 이름 바꿀 수 있음
 		//getActionBar().setDisplayShowHomeEnabled(false);// 아이콘 없애기
 		super.onCreate(savedInstanceState);
-		
+		prefs=PreferenceManager.getDefaultSharedPreferences(this);
+	    SharedPreferences.Editor editor= prefs.edit();
 		setContentView(R.layout.activity_preview);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
@@ -50,6 +58,7 @@ public class PreviewActivity extends Activity {
 		
 		sString = "0";// 온도 받아오기
 		btSetting.sendStringData(sString);
+		setting();
 		
 		start.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
@@ -72,6 +81,7 @@ public class PreviewActivity extends Activity {
 	  MenuInflater bottom = getMenuInflater(); 
 	  bottom.inflate(R.menu.bottommenu, menu);
 	  return super.onCreateOptionsMenu(menu);
+	  
 	}
 
 	@Override
@@ -119,5 +129,18 @@ public class PreviewActivity extends Activity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void setting(){
+		
+		ValueSetting.alarmCheck = prefs.getBoolean("excercise_alarm", true);
+		ValueSetting.goal = prefs.getString("excercise_goal" , "");
+		ValueSetting.focus = prefs.getString("excercise_focus" , "");
+	    //Log.v("excercise_goal", goal);
+	    //Log.v("excercise_focus", focus);
+	   // if(ValueSetting.alarmCheck == true){
+	    //	Log.v("alarm", "true");
+	    //}else Log.v("alarm", "false");
+		
 	}
 }
