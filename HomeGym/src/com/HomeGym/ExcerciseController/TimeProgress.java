@@ -52,9 +52,12 @@ public class TimeProgress {
 					((Activity) context).overridePendingTransition(0,0);
 					((Activity) context).finish();
 					((Activity) context).overridePendingTransition(0,0);
+					
+
 					btSetting= new BluetoothSetting((Activity)context);
 					bString = "2";
 					btSetting.sendStringData(bString);
+					
 					break;
 					
 				}

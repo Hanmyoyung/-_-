@@ -27,12 +27,13 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
             
             <intent-filter>
+                 
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             
+            </intent-filter>
+			       
         </activity>
-        
         <activity
             android:name="com.HomeGym.Activity.MainActivity"
             android:label="@string/app_name"
@@ -91,11 +92,13 @@
         <activity
             android:name="com.HomeGym.Activity.DBActivity"
             android:label="@string/title_activity_db" >
-			<!-- 
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>			 -->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name="com.HomeGym.Activity.SquatActivity"
@@ -107,8 +110,12 @@
         </activity>
         <activity
             android:name="com.HomeGym.Activity.FinishActivity"
-            android:parentActivityName="com.HomeGym.Activity.MainActivity"
-            android:label="@string/title_activity_finish" >
+            android:label="@string/title_activity_finish"
+            android:parentActivityName="com.HomeGym.Activity.MainActivity" >
+        </activity>
+        <activity
+            android:name="com.HomeGym.Activity.TestActivity"
+            android:label="@string/title_activity_test" >
         </activity>
     </application>
 

@@ -14,7 +14,6 @@ public class SettingActivity extends PreferenceActivity {
 	
 	public String sString;
 	BluetoothSetting btSetting;
-	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

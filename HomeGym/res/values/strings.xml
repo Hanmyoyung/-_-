@@ -27,5 +27,6 @@
     <string name="title_activity_lunge">LungeActivity</string>
     <string name="title_activity_legraise">LegraiseActivity</string>
     <string name="title_activity_finish">FinishActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 
 </resources>

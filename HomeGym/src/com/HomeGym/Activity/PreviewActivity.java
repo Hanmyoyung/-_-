@@ -1,5 +1,6 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.Bluetooth.BluetoothGetData;
 import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.HomeGym.ExcerciseController.ValueSetting;
 import com.example.homegym.R;
@@ -27,10 +28,11 @@ public class PreviewActivity extends Activity {
 	public String sString;
 	public TextView focus;
 	public TextView temp;
+	public BluetoothGetData btGet;
 	BluetoothSetting btSetting;
 	ValueSetting vs = new ValueSetting();
 	String goal;
-	//String focus;
+	String temperature;
 	SharedPreferences prefs;
 	
 
@@ -42,11 +44,14 @@ public class PreviewActivity extends Activity {
 		//String.xml가면 타이틀 바 이름 바꿀 수 있음
 		//getActionBar().setDisplayShowHomeEnabled(false);// 아이콘 없애기
 		super.onCreate(savedInstanceState);
-		prefs=PreferenceManager.getDefaultSharedPreferences(this);
-	    SharedPreferences.Editor editor= prefs.edit();
+		
 		setContentView(R.layout.activity_preview);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		
+
+		prefs=PreferenceManager.getDefaultSharedPreferences(this);
+	    SharedPreferences.Editor editor= prefs.edit();
+	    btGet = BluetoothGetData.getInstance();	
+	    
 		start = (Button)findViewById(R.id.start);	
 		focus = (TextView)findViewById(R.id.focus);
 		temp = (TextView)findViewById(R.id.temp);
@@ -56,8 +61,9 @@ public class PreviewActivity extends Activity {
 		btSetting.initProgressDialog();
 		
 		
-		sString = "0";// 온도 받아오기
-		btSetting.sendStringData(sString);
+		//sString = "0";// 온도 받아오기
+		//btSetting.sendStringData(sString);
+		
 		setting();
 		
 		start.setOnClickListener(new OnClickListener(){
@@ -72,10 +78,14 @@ public class PreviewActivity extends Activity {
 		
 		focus.setText("집중부위 : "+vs.getFocus());
 		Log.v("집중부위",vs.getFocus());
-		temp.setText("온도는요?");
+		temp.setText("온도는요?   "+btGet.getTemp());
+		Log.v("온도는요?",btGet.getTemp()); 
+		
+		
 	}
 	
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	  MenuInflater bottom = getMenuInflater(); 
