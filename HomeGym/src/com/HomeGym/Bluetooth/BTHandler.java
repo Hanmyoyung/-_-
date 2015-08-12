@@ -8,8 +8,7 @@ public class BTHandler extends BluetoothStreamingHandler{
 
 		ByteBuffer mmByteBuffer = ByteBuffer.allocate(2048);
 		String tempString= new String();
-		BluetoothGetData get = new BluetoothGetData();
-		//boolean isData;
+		BluetoothGetData get = BluetoothGetData.getInstance();
 		
 		@Override
 		public void onError(Exception e) {
@@ -22,7 +21,7 @@ public class BTHandler extends BluetoothStreamingHandler{
 		public void initData(boolean isData){
 			if(isData ==true){
 				get.getData(tempString);
-				tempString = new String();
+				tempString = "";
 			}
 		}
 		

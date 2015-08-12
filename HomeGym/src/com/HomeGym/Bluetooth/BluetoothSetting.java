@@ -26,24 +26,13 @@ public class BluetoothSetting {
 	private LinkedList<BluetoothDevice> mBluetoothDevices = new LinkedList<BluetoothDevice>();
 	private ArrayAdapter<String> mDeviceArrayAdapter;
 	private ProgressDialog mLoadingDialog;
-	static private BluetoothSetting bThis = null;
-	private boolean isConnect;
 	
 	public BluetoothSetting(Context applicationContext){
 		// TODO Auto-generated constructor stub
 		btContext = applicationContext;
-		mBTHandler= new BTHandler();
-				
-		
-		
+		mBTHandler= new BTHandler();	
 	}
 	
-	public static BluetoothSetting getInstance(Context applicationContext) {
-		if(bThis == null) {
-			bThis = new BluetoothSetting(applicationContext);
-		}
-		return bThis;
-	}
 
 	public void setDialog(){
 		boolean connect = BluetoothSerialClient.getInstance().isConnection();
@@ -106,21 +95,60 @@ public class BluetoothSetting {
 	
 	
 	public void connect(BluetoothDevice device) {
-		mLoadingDialog.setMessage("Connecting....");
-		mLoadingDialog.setCancelable(false);
-		mLoadingDialog.show();
+		//mLoadingDialog.setMessage("Connecting....");
+		//mLoadingDialog.setCancelable(false);
+		//mLoadingDialog.show();
 		Log.v("뭐야뭐야", "왜안되는데5?");
 		BluetoothSerialClient btSet =  BluetoothSerialClient.getInstance();
 		
 		if(btSet.connect(btContext, device, mBTHandler)==true){
-			mLoadingDialog.setMessage("연결 되었습니당");
-			mLoadingDialog.setCancelable(false);
-			mLoadingDialog.show();
+			alertDialog(true);
+			String sString = "0";// 온도 받아오기
+			sendStringData(sString);
+			
 		}else{
-			mLoadingDialog.setMessage("연결되지 않았습니다.");
-			mLoadingDialog.setCancelable(false);
-			mLoadingDialog.show();
+			alertDialog(false);
 		}
+	}
+	
+	public void alertDialog(boolean isConnected){
+		AlertDialog.Builder builder = new AlertDialog.Builder(btContext);     // 여기서 this는 Activity의 this
+
+		// 여기서 부터는 알림창의 속성 설정
+		if(isConnected==true){
+		builder.setTitle("Connecting...")        // 제목 설정
+		.setMessage("블루투가 연결되었습니당")        // 메세지 설정
+		.setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+
+		.setPositiveButton("확인", new DialogInterface.OnClickListener(){       
+
+		 // 확인 버튼 클릭시 설정
+			public void onClick(DialogInterface dialog, int whichButton){
+				dialog.cancel();
+			}
+		});
+
+		AlertDialog dialog = builder.create();    // 알림창 객체 생성
+
+		dialog.show();    // 알림창 띄우기
+		}else{
+			builder.setTitle("Connecting...")        // 제목 설정
+			.setMessage("블루투가 연결되었습니당")        // 메세지 설정
+			.setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+
+			.setPositiveButton("확인", new DialogInterface.OnClickListener(){       
+
+			 // 확인 버튼 클릭시 설정
+				public void onClick(DialogInterface dialog, int whichButton){
+					dialog.cancel();
+				}
+			});
+
+
+			AlertDialog dialog = builder.create();    // 알림창 객체 생성
+
+			dialog.show();    // 알림창 띄우기
+			}		
 	}
 	
 	public void scanDevices() {

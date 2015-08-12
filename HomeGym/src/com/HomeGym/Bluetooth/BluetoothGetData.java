@@ -1,21 +1,40 @@
 package com.HomeGym.Bluetooth;
 
-import java.util.StringTokenizer;
-
 import android.util.Log;
 
 public class BluetoothGetData {
 	
+	private static BluetoothGetData btData;
 	public String tempString;
-	String resultData = "";
-	String tempData = "";
-	public BluetoothGetData(){
+	public String resultData = "";
+	public String tempData = "";
+	public String squatData;
+	public String crunchData;
+	
+	private BluetoothGetData(){
 		
 	}
 	
+	public static BluetoothGetData getInstance(){
+		if(btData==null){
+			btData = new BluetoothGetData();
+		}
+		return btData;
+	}
 	
+	public String getTemp(){
+		return tempData;
+	}
 	
+	public String getSquat(){
+		return squatData;
+	}
 	
+	public String getCrunch(){
+		return crunchData;
+	}
+	
+
 	public boolean isData(String getString){
 		
 		Log.v("초기값은요", getString);
@@ -41,6 +60,7 @@ public class BluetoothGetData {
 			}else{
 				Log.v("널 만났어", resultData);
 				setData();
+				resultData = "";
 				i=getString.length();
 				break;
 			}
@@ -49,15 +69,32 @@ public class BluetoothGetData {
 	
 	public void setData(){
 			
+		
 			if(resultData.charAt(0)=='0'){
 				//Log.v("이거 영 맞냐?", resultData.charAt(0));
+				if(tempData!=null){
+					tempData="";
+				}
 				tempData = resultData.substring(2);
-				
-				Log.v("온도 데이터 입니다", tempData);
+				//Log.v("온도 데이터 입니다", tempData);
 			}else if(resultData.charAt(0)=='3'){
-				Log.v("스쿼트 횟수 데이터 입니다", "핳");
+				//Log.v("스쿼트 횟수 데이터 입니다", "핳");
+				if(squatData!=null){
+					squatData="";
+				}
+				//squatData = Integer.valueOf(resultData.substring(2));
+				squatData = resultData;
+				//Log.v("스쿼트 데이터 입니다 입니다", String.valueOf(squatData));
 			}else if(resultData.charAt(0)=='4'){
-				Log.v("크런치 횟수 데이터 입니다", "핳");
+				//Log.v("크런치 횟수 데이터 입니다", "핳");
+				if(crunchData!=null){
+					squatData="";
+				}
+				//crunchData = Integer.valueOf(resultData.substring(2));
+				crunchData = resultData;
+				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
+			}else{
+				
 			}
 		
 	}

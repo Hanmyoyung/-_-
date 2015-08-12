@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
 			{
 				//찍은 사진을 이미지뷰에 보여줌
 				Log.v("들어오니", "ㅅㅄㅂ");
-				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ tempPicturePath)));
+				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
 				BitmapFactory.Options options = new BitmapFactory.Options();
 				options.inSampleSize = 8;
 				Bitmap bm = BitmapFactory.decodeFile(CameraSetting.tempPicturePath, options);

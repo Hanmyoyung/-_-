@@ -43,7 +43,7 @@ public class CameraSetting {
 		AlertDialog.Builder builder = new AlertDialog.Builder(cameraContext);     // 여기서 this는 Activity의 this
 		// 여기서 부터는 알림창의 속성 설정
 		builder.setTitle("사진을 가져올 위치를 선택하세요")        // 제목 설정
-		.setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+		.setCancelable(true)        // 뒤로 버튼 클릭시 취소 가능 설정
 		.setPositiveButton("Camera", new DialogInterface.OnClickListener(){      
 			public void onClick(DialogInterface dialog, int whichButton){
 				flag = 1;   

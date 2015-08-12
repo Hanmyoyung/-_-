@@ -15,6 +15,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	String sql = "CREATE TABLE UserInfo("+
+    				"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
     				"state INTEGER, "+
     				"date DATE, "+
     				"exerciseSeq INTEGER, "+
@@ -31,6 +32,7 @@ public class DBManager extends SQLiteOpenHelper {
     	String sql = "drop table if exists UserInfo";
     	db.execSQL(sql);
     	
+    	Log.i("핳핳핳핳핳", "디비가 업그레이드 됐습니다.");
     	onCreate(db);
     	
     }
