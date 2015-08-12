@@ -62,10 +62,10 @@ public final class R {
         public static final int action_settings=0x7f0a000b;
         public static final int crunch=0x7f0a0000;
         public static final int crunchBar=0x7f0a0001;
-        public static final int finish=0x7f0a0003;
+        public static final int finish=0x7f0a0002;
         public static final int focus=0x7f0a0006;
         public static final int home=0x7f0a0010;
-        public static final int pb=0x7f0a0002;
+        public static final int imageView1=0x7f0a0003;
         public static final int rest=0x7f0a0007;
         public static final int restBar=0x7f0a0008;
         public static final int squat=0x7f0a0009;
@@ -80,19 +80,17 @@ public final class R {
         public static final int activity_btconnect=0x7f030003;
         public static final int activity_camera=0x7f030004;
         public static final int activity_crunch=0x7f030005;
-        public static final int activity_db=0x7f030006;
-        public static final int activity_exercise=0x7f030007;
-        public static final int activity_finish=0x7f030008;
-        public static final int activity_loading=0x7f030009;
-        public static final int activity_main=0x7f03000a;
-        public static final int activity_menu=0x7f03000b;
-        public static final int activity_preview=0x7f03000c;
-        public static final int activity_rest=0x7f03000d;
-        public static final int activity_setting=0x7f03000e;
-        public static final int activity_squat=0x7f03000f;
-        public static final int activity_user_info_setting=0x7f030010;
-        public static final int item_device=0x7f030011;
-        public static final int setting_tab=0x7f030012;
+        public static final int activity_finish=0x7f030006;
+        public static final int activity_loading=0x7f030007;
+        public static final int activity_main=0x7f030008;
+        public static final int activity_menu=0x7f030009;
+        public static final int activity_preview=0x7f03000a;
+        public static final int activity_rest=0x7f03000b;
+        public static final int activity_setting=0x7f03000c;
+        public static final int activity_squat=0x7f03000d;
+        public static final int activity_user_info_setting=0x7f03000e;
+        public static final int item_device=0x7f03000f;
+        public static final int setting_tab=0x7f030010;
     }
     public static final class menu {
         public static final int acheivement=0x7f090000;

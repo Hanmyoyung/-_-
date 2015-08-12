@@ -1,7 +1,8 @@
 package com.HomeGym.Activity;
 
 import com.HomeGym.Bluetooth.BluetoothSetting;
-import com.HomeGym.ExcerciseController.ValueSetting;
+import com.HomeGym.Controller.CameraSetting;
+import com.HomeGym.Controller.ValueSetting;
 import com.example.homegym.R;
 
 import android.app.Activity;
@@ -100,10 +101,7 @@ public class PreviewActivity extends Activity {
 				return true;
 				
 			case R.id.action_camera:
-				intent = new Intent(PreviewActivity.this, CameraActivity.class);
-				startActivity(intent);
-				overridePendingTransition(0,0);
-				finish();
+				//cSetting.setCameraDialog();
 				return true;
 		
 			case R.id.action_exercise:

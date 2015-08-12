@@ -62,10 +62,7 @@ public class AchievementActivity extends Activity {
 				return true;
 				
 			case R.id.action_camera:
-				intent = new Intent(AchievementActivity.this, CameraActivity.class);
-				startActivity(intent);
-				overridePendingTransition(0,0);
-				finish();
+				//cSetting.setCameraDialog();
 				return true;
 		
 			case R.id.action_exercise:

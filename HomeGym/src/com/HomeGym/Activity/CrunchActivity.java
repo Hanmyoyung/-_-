@@ -1,6 +1,6 @@
 package com.HomeGym.Activity;
 
-import com.HomeGym.ExcerciseController.TimeProgress;
+import com.HomeGym.Controller.TimeProgress;
 import com.example.homegym.R;
 
 import android.app.Activity;

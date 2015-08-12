@@ -1,4 +1,4 @@
-package com.HomeGym.ExcerciseController;
+package com.HomeGym.Controller;
 
 import com.HomeGym.Activity.FinishActivity;
 import com.HomeGym.Activity.RestActivity;

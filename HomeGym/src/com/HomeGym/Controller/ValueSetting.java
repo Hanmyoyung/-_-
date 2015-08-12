@@ -1,4 +1,4 @@
-package com.HomeGym.ExcerciseController;
+package com.HomeGym.Controller;
 
 public class ValueSetting {
 	
