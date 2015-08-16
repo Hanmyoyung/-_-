@@ -44,90 +44,101 @@ public final class R {
         public static final int camera_tab=0x7f020004;
         public static final int crunch=0x7f020005;
         public static final int crunch1=0x7f020006;
-        public static final int exercise=0x7f020007;
-        public static final int exercise_tab=0x7f020008;
-        public static final int finish=0x7f020009;
-        public static final int finish1=0x7f02000a;
-        public static final int home=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
-        public static final int icon=0x7f02000d;
-        public static final int loading=0x7f02000e;
-        public static final int new_drawable=0x7f02000f;
-        public static final int rest1=0x7f020010;
-        public static final int rest2=0x7f020011;
-        public static final int setting=0x7f020012;
-        public static final int squat=0x7f020013;
-        public static final int squat1=0x7f020014;
+        public static final int customdivider=0x7f020007;
+        public static final int exercise=0x7f020008;
+        public static final int exercise_tab=0x7f020009;
+        public static final int finish=0x7f02000a;
+        public static final int finish1=0x7f02000b;
+        public static final int home=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int icon=0x7f02000e;
+        public static final int loading=0x7f02000f;
+        public static final int new_drawable=0x7f020010;
+        public static final int rest1=0x7f020011;
+        public static final int rest2=0x7f020012;
+        public static final int setting=0x7f020013;
+        public static final int squat=0x7f020014;
+        public static final int squat1=0x7f020015;
     }
     public static final class id {
-        public static final int action_acheivementrate=0x7f0a0019;
-        public static final int action_blutooth=0x7f0a0016;
-        public static final int action_camera=0x7f0a0017;
-        public static final int action_exercise=0x7f0a0018;
-        public static final int action_settings=0x7f0a0015;
+        public static final int action_acheivementrate=0x7f0a001d;
+        public static final int action_blutooth=0x7f0a001a;
+        public static final int action_camera=0x7f0a001b;
+        public static final int action_exercise=0x7f0a001c;
+        public static final int action_settings=0x7f0a0019;
+        public static final int btnChangeTime=0x7f0a0011;
+        public static final int button_setAlarm=0x7f0a000d;
         public static final int crunch=0x7f0a0002;
         public static final int crunchBar=0x7f0a0003;
         public static final int dateBtn=0x7f0a0001;
-        public static final int date_picker=0x7f0a000d;
+        public static final int day=0x7f0a0017;
         public static final int finish=0x7f0a0004;
         public static final int focus=0x7f0a0008;
-        public static final int home=0x7f0a001a;
-        public static final int image=0x7f0a0013;
+        public static final int home=0x7f0a001e;
+        public static final int image=0x7f0a000f;
         public static final int imageView1=0x7f0a0005;
         public static final int layoutGraphView=0x7f0a0000;
-        public static final int layout_root=0x7f0a0012;
-        public static final int reset=0x7f0a000f;
+        public static final int layout_root=0x7f0a000e;
+        public static final int lblTime=0x7f0a0012;
+        public static final int month=0x7f0a0016;
+        public static final int pickers=0x7f0a0015;
         public static final int rest=0x7f0a0009;
         public static final int restBar=0x7f0a000a;
-        public static final int set=0x7f0a0010;
         public static final int squat=0x7f0a000b;
         public static final int squatBar=0x7f0a000c;
         public static final int start=0x7f0a0006;
         public static final int temp=0x7f0a0007;
-        public static final int text=0x7f0a0014;
-        public static final int text_view=0x7f0a0011;
-        public static final int time_picker=0x7f0a000e;
+        public static final int text=0x7f0a0010;
+        public static final int timePicker1=0x7f0a0014;
+        public static final int tvTime=0x7f0a0013;
+        public static final int year=0x7f0a0018;
     }
     public static final class layout {
         public static final int acheivement_tab=0x7f030000;
         public static final int activity_=0x7f030001;
         public static final int activity_acheivement=0x7f030002;
-        public static final int activity_btconnect=0x7f030003;
-        public static final int activity_camera=0x7f030004;
-        public static final int activity_crunch=0x7f030005;
-        public static final int activity_finish=0x7f030006;
-        public static final int activity_loading=0x7f030007;
-        public static final int activity_main=0x7f030008;
-        public static final int activity_menu=0x7f030009;
-        public static final int activity_preview=0x7f03000a;
-        public static final int activity_rest=0x7f03000b;
-        public static final int activity_setting=0x7f03000c;
-        public static final int activity_squat=0x7f03000d;
-        public static final int activity_test=0x7f03000e;
-        public static final int activity_user_info_setting=0x7f03000f;
-        public static final int alarm_dialog=0x7f030010;
-        public static final int item_device=0x7f030011;
-        public static final int setting_tab=0x7f030012;
+        public static final int activity_alarm_alert=0x7f030003;
+        public static final int activity_btconnect=0x7f030004;
+        public static final int activity_camera=0x7f030005;
+        public static final int activity_crunch=0x7f030006;
+        public static final int activity_dialog=0x7f030007;
+        public static final int activity_finish=0x7f030008;
+        public static final int activity_loading=0x7f030009;
+        public static final int activity_main=0x7f03000a;
+        public static final int activity_menu=0x7f03000b;
+        public static final int activity_preview=0x7f03000c;
+        public static final int activity_rest=0x7f03000d;
+        public static final int activity_setting=0x7f03000e;
+        public static final int activity_squat=0x7f03000f;
+        public static final int activity_test=0x7f030010;
+        public static final int activity_user_info_setting=0x7f030011;
+        public static final int alarm_dialog=0x7f030012;
+        public static final int dialog_timepicker=0x7f030013;
+        public static final int fragment_datepicker=0x7f030014;
+        public static final int item_device=0x7f030015;
+        public static final int setting_tab=0x7f030016;
     }
     public static final class menu {
         public static final int acheivement=0x7f090000;
-        public static final int bottommenu=0x7f090001;
-        public static final int btconnect=0x7f090002;
-        public static final int camera=0x7f090003;
-        public static final int crunch=0x7f090004;
-        public static final int db=0x7f090005;
-        public static final int exercise=0x7f090006;
-        public static final int finish=0x7f090007;
-        public static final int legraise=0x7f090008;
-        public static final int loading=0x7f090009;
-        public static final int lunge=0x7f09000a;
-        public static final int main=0x7f09000b;
-        public static final int menu=0x7f09000c;
-        public static final int rest=0x7f09000d;
-        public static final int setting=0x7f09000e;
-        public static final int squat=0x7f09000f;
-        public static final int test=0x7f090010;
-        public static final int user_info_setting=0x7f090011;
+        public static final int alarm_alert=0x7f090001;
+        public static final int bottommenu=0x7f090002;
+        public static final int btconnect=0x7f090003;
+        public static final int camera=0x7f090004;
+        public static final int crunch=0x7f090005;
+        public static final int db=0x7f090006;
+        public static final int dialog=0x7f090007;
+        public static final int exercise=0x7f090008;
+        public static final int finish=0x7f090009;
+        public static final int legraise=0x7f09000a;
+        public static final int loading=0x7f09000b;
+        public static final int lunge=0x7f09000c;
+        public static final int main=0x7f09000d;
+        public static final int menu=0x7f09000e;
+        public static final int rest=0x7f09000f;
+        public static final int setting=0x7f090010;
+        public static final int squat=0x7f090011;
+        public static final int test=0x7f090012;
+        public static final int user_info_setting=0x7f090013;
     }
     public static final class string {
         public static final int action_acheivementrate=0x7f060007;
@@ -142,10 +153,12 @@ public final class R {
         public static final int hello_world=0x7f060002;
         public static final int title_activity_=0x7f060012;
         public static final int title_activity_acheivement=0x7f060008;
+        public static final int title_activity_alarm_alert=0x7f06001a;
         public static final int title_activity_btconnect=0x7f060010;
         public static final int title_activity_camera=0x7f060011;
         public static final int title_activity_crunch=0x7f060015;
         public static final int title_activity_db=0x7f060013;
+        public static final int title_activity_dialog=0x7f06001b;
         public static final int title_activity_exercise=0x7f060009;
         public static final int title_activity_finish=0x7f060018;
         public static final int title_activity_legraise=0x7f060017;
@@ -161,6 +174,12 @@ public final class R {
     }
     public static final class style {
         public static final int ActionBarTextColor=0x7f070004;
+        /**  
+        android.R.style.Theme_Black_NoTitleBar_Fullscreen
+       android.R.style.Theme_Holo_Light_Dialog_NoActionBar
+        
+         */
+        public static final int AlertDialogCustom=0x7f070005;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.

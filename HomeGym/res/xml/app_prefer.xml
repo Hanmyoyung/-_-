@@ -38,9 +38,9 @@
             android:summary="운동 시간이 되면 알림"
             android:defaultValue="true"/>
         <Preference
-            android:key="setting_activity_alarm_reiceive"
-            android:title="알림시간" android:defaultValue="true"
-            android:dependency="excercise_alarm"/>
+   			android:key="btnDateFilter"
+    		android:summary="Reschedule using current setting"
+    		android:title="알람시간" />
     </PreferenceCategory>
      
 </PreferenceScreen>
