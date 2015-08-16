@@ -17,7 +17,6 @@ import com.handstudio.android.hzgrapherlib.vo.radargraph.RadarGraphVO;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;

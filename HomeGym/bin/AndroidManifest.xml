@@ -10,16 +10,21 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/><!-- 내부저장장치사용권한 -->
-    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/><!-- 내부저장장치사용권한 -->
-    
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>		<!-- 외부저장장치사용권한 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>	
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <!-- 내부저장장치사용권한 -->
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <!-- 내부저장장치사용권한 -->
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-   
-    <uses-feature android:name="android.hardware.camera"/>	
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 외부저장장치사용권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -35,14 +40,11 @@
             android:name="com.HomeGym.Activity.LoadingActivity"
             android:label="@string/title_activity_loading"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
-            
             <intent-filter>
-                 
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-            
             </intent-filter>
-			       
         </activity>
         <activity
             android:name="com.HomeGym.Activity.MainActivity"
@@ -110,8 +112,58 @@
         <activity
             android:name="com.HomeGym.Activity.TestActivity"
             android:label="@string/title_activity_test" >
+
+            <!--
+            <intent-filter>
+                 
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            
+            </intent-filter>
+            -->
+        </activity>
+        <!-- 
+        <activity
+            android:name="com.HomeGym.Activity.AlarmAlert"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_alarm_alert"
+            android:taskAffinity="com.HomeGym.Activity.AlarmAlert"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+		 -->
+
+		<activity
+            android:name="com.HomeGym.Activity.AlarmAlert"
+            android:label="@string/title_activity_alarm_alert" >
+        </activity>
+		 
+        <service
+            android:name="com.HomeGym.Controller.ScreenService"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <!--
+        <service 
+            android:name="com.HomeGym.Controller.ScreenService"
+            android:enabled="true" />
+        -->
+        <receiver
+            android:name="com.HomeGym.Controller.AlarmReceiver"
+            android:process=":remote" />
+
+        <!-- android:theme="@android:style/Theme.Translucent" -->
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:name="com.HomeGym.Activity.DialogActivity"
+            android:label="@string/title_activity_dialog"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true"
+            android:taskAffinity="com.HomeGym.Activity.DialogActivity.popup">
         </activity>
     </application>
-    
 
 </manifest>

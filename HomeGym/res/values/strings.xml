@@ -28,5 +28,7 @@
     <string name="title_activity_legraise">LegraiseActivity</string>
     <string name="title_activity_finish">FinishActivity</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_alarm_alert">AlarmAlert</string>
+    <string name="title_activity_dialog">DialogActivity</string>
 
 </resources>
