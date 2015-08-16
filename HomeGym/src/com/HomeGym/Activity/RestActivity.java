@@ -10,13 +10,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 public class RestActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
-	private int fillBarPercent = tSetting.restTime();
+	private int fillBarPercent = 10;// tSetting.restTime();
 	TimeProgress tp = new TimeProgress();
 	public String sString;
 	BluetoothSetting btSetting;
@@ -25,6 +26,7 @@ public class RestActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rest);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
 		pb = (ProgressBar)findViewById(R.id.restBar);
 

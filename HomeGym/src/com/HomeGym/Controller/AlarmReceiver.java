@@ -11,39 +11,39 @@ import android.os.PowerManager;
 import android.util.Log;
 
 public class AlarmReceiver extends BroadcastReceiver {
-	
-	MediaPlayer player;
-	private NotificationManager notiManager;
-	private Context aContext;
-	private static PowerManager.WakeLock sCpuWakeLock;    
-	
+   
+   MediaPlayer player;
+   private NotificationManager notiManager;
+   private Context aContext;
+   private static PowerManager.WakeLock sCpuWakeLock;    
+   
 
  
-	@Override
-	public void onReceive(Context context, Intent intent) {
-		
-		aContext = context;
-		Log.i("잉... 여기까지 안오는것같은데", "개슬픔");
-		Log.i("잉...", intent.getAction());
-		/*
-		if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {	
-			Intent i = new Intent(context, AlarmAlert.class);
-			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			context.startActivity(i);			
+   @Override
+   public void onReceive(Context context, Intent intent) {
+      
+      aContext = context;
+      Log.i("잉... 여기까지 안오는것같은데", "개슬픔");
+      Log.i("잉...", intent.getAction());
+      /*
+      if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {   
+         Intent i = new Intent(context, AlarmAlert.class);
+         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+         context.startActivity(i);         
 
-		}
-		*/
-		if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-			Intent i = new Intent();
-			//i.setClassName(context,"com.HomeGym.Activity.AlarmAlert");
-			i.setClassName(context,"com.HomeGym.Activity.DialogActivity");
-			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			context.startActivity(i);
-		}
-		
-		
-		/*
-		PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);         
+      }
+      */
+      if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+         Intent i = new Intent();
+         //i.setClassName(context,"com.HomeGym.Activity.AlarmAlert");
+         i.setClassName(context,"com.HomeGym.Activity.DialogActivity");
+         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+         context.startActivity(i);
+      }
+      
+      
+      /*
+      PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);         
         sCpuWakeLock = pm.newWakeLock(                
                 PowerManager.SCREEN_BRIGHT_WAKE_LOCK |                
                 PowerManager.ACQUIRE_CAUSES_WAKEUP |                
@@ -51,11 +51,11 @@ public class AlarmReceiver extends BroadcastReceiver {
          
         sCpuWakeLock.acquire();    
        */
-		/*
+      /*
         try {   
 
                //Intent mIntent = new Intent(context, MainActivity.class);    // SnoozeActivity는 알람 끄고 스누즈 시키는 화면
-        		Intent mIntent = new Intent(context, AlarmAlert.class);    // SnoozeActivity는 알람 끄고 스누즈 시키는 화면
+              Intent mIntent = new Intent(context, AlarmAlert.class);    // SnoozeActivity는 알람 끄고 스누즈 시키는 화면
                mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                context.startActivity(mIntent);
               
@@ -63,28 +63,27 @@ public class AlarmReceiver extends BroadcastReceiver {
                Log.e("ALARM", Log.getStackTraceString(e));
         }
        
-		/*
+      /*
         try {
 
-			Intent intentAlarm = new Intent(context,AlarmAlert.class);
+         Intent intentAlarm = new Intent(context,AlarmAlert.class);
 
-			PendingIntent pIntent = PendingIntent.getActivity(context, 0, intentAlarm, PendingIntent.FLAG_ONE_SHOT);
+         PendingIntent pIntent = PendingIntent.getActivity(context, 0, intentAlarm, PendingIntent.FLAG_ONE_SHOT);
 
-			pIntent.send();
+         pIntent.send();
 
-		} catch (CanceledException e) {
+      } catch (CanceledException e) {
 
-			// TODO Auto-generated catch block
+         // TODO Auto-generated catch block
 
-			e.printStackTrace();
+         e.printStackTrace();
 
-		}
+      }
 
-		*/
+      */
 
-	}
-	
+   }
+   
 
-	
+   
 }
-

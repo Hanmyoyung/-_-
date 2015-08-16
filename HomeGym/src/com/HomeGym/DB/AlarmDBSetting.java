@@ -11,77 +11,59 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class ImgDBSetting {
-
+public class AlarmDBSetting {
+	
 	private SQLiteDatabase db;
-	private ImageDBManager helper;
+	private AlarmDBManager helper;
 	private Context dbContext;
-	private BluetoothGetData btGet;
 	
 	/*------테이블 내용---------------------------
-	   	String sql = "CREATE TABLE ImgInfo("+
+	   	String sql = "CREATE TABLE AlarmInfo("+
     				"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
-    				"type INTEGER, "+ //1:before/ 2: after  
-    				"path String, "+
-    				"date DATE);";
+    				"alarm String);";
 	------------------------------------------*/
 	
-	public ImgDBSetting(Context context){
+	public AlarmDBSetting(Context context){
 		dbContext = context;
-		Log.i("뭐야 이거", "디비 이미지 세팅 클래스 생성자입니다.");
-		
-		helper = new ImageDBManager(dbContext,"ImgInfo",null,2); // 버전 조심해야함!! 현재 버전이 1.0
+		Log.i("뭐야 이거", "디비 이미지 세팅 클래스 생성자입니다.");	
+		helper = new AlarmDBManager(dbContext,"AlarmInfo",null,1); // 버전 조심해야함!! 현재 버전이 1.0
 		
 	}
 	
 	
-	public void insert(String imgPath, int type){
+	public void insert(String alarmset){
 		db = helper.getWritableDatabase();
 		
 		ContentValues values = new ContentValues();
-		
-		// set the format to sql date time
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-		Date date = new Date();
+			
+		values.put("alarm", alarmset);
 	
-		values.put("path", imgPath);
-		values.put("date", dateFormat.format(date));
-		values.put("type", type);
-		
-		db.insert("ImgInfo", null, values);
+		db.insert("AlarmInfo", null, values);
 	}
 	
-	public void update(){
-		db = helper.getWritableDatabase();	
-		db.execSQL("UPDATE ImgInfo SET COLUMN_NAME = datetime('now')");
-	}
-	
-	public void delete(String name){
-		db = helper.getWritableDatabase();
-		db.delete("ImgInfo", "path?", new String[]{name});
-	}
+
 	
 	
-	public String selectPatheValue(int thisType){
+	public String selectValue(){
 		db = helper.getReadableDatabase();
 		//String sQuery = "SELECT percent FROM UserInfo WHERE state = 3 AND date = '"+today+"'";
 		
-		String sQuery = "SELECT path FROM ImgInfo WHERE id = (SELECT MAX(id) FROM ImgInfo WHERE type = "+thisType+")" ;		
-		Log.v("여기는요 패스 받아와서  출력하려고 해요", "왜 안들어가냐 진짜");		
+		String sQuery = "SELECT alarm FROM AlarmInfo WHERE id = (SELECT MAX(id) FROM AlarmInfo)" ;		
+		Log.v("여기는요 알람 받아와서  출력하려고 해요", "왜 안들어가냐 진짜");		
 		Cursor c = db.rawQuery(sQuery, null);		
-		String path="";		
+		String alarmSet="";		
 		if(c.moveToFirst()){
 				do{
-					path = c.getString(c.getColumnIndex("path"));
-					Log.i("-------디비디비디비-------","-------path만 출력-------");
-					Log.i("경로는요?",path);
-					Log.i("-------디비디비디비-------","-------path만 출력-------");
+					alarmSet = c.getString(c.getColumnIndex("alarm"));
+					Log.i("-------디비디비디비-------","-------alarm 출력-------");
+					Log.i("알람 시간은요?",alarmSet);
+					Log.i("-------디비디비디비-------","-------alarm 출력-------");
 				}while(c.moveToNext());
 				
 			}
 	
 		
-		return path;
+		return alarmSet;
 		
 		
 	}

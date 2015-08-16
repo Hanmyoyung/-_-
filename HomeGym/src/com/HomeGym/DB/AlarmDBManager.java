@@ -6,27 +6,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
-public class ImageDBManager extends SQLiteOpenHelper{
+public class AlarmDBManager extends SQLiteOpenHelper {
 
-	public ImageDBManager(Context context, String name, CursorFactory factory, int version) {
+
+    public AlarmDBManager(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
-        Log.i("뭐야 이거", "이미지 디비 메니저 생성자입니다.");
     }
  
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	String sql = "CREATE TABLE ImgInfo("+
+    	String sql = "CREATE TABLE AlarmInfo("+
     				"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
-    				"type INTEGER, "+ //1:before/ 2: after  
-    				"path String, "+
-    				"date DATE);";
-    	Log.i("뭐야 이거", "그럼 여기서 생성이 되어야 한다고.");
+    				"alarm String);";
+    	Log.i("에휴", "여기로 오긴 하는 겁니까");
+    	
     	db.execSQL(sql);
     }
  
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    	String sql = "drop table if exists ImgInfo";
+    	String sql = "drop table if exists AlarmInfo";
     	db.execSQL(sql);
     	
     	Log.i("핳핳핳핳핳", "디비가 업그레이드 됐습니다.");
@@ -34,5 +33,3 @@ public class ImageDBManager extends SQLiteOpenHelper{
     	
     }
 }
-
-
