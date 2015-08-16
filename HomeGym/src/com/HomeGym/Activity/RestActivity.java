@@ -1,6 +1,7 @@
 package com.HomeGym.Activity;
 
 import com.HomeGym.Bluetooth.BluetoothSetting;
+import com.HomeGym.Controller.ExTimeSetting;
 import com.HomeGym.Controller.TimeProgress;
 import com.example.homegym.R;
 
@@ -13,8 +14,9 @@ import android.widget.ProgressBar;
 
 public class RestActivity extends Activity {
 
+	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
-	private int fillBarPercent = 25;
+	private int fillBarPercent = tSetting.restTime();
 	TimeProgress tp = new TimeProgress();
 	public String sString;
 	BluetoothSetting btSetting;

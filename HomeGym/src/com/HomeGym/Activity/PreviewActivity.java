@@ -3,12 +3,16 @@ package com.HomeGym.Activity;
 import com.HomeGym.Bluetooth.BluetoothGetData;
 import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.HomeGym.Controller.CameraSetting;
+import com.HomeGym.Controller.SetImage;
 import com.HomeGym.Controller.ValueSetting;
 import com.example.homegym.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
@@ -20,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PreviewActivity extends Activity {
@@ -35,7 +40,12 @@ public class PreviewActivity extends Activity {
 	String goal;
 	String temperature;
 	SharedPreferences prefs;
-	
+	CameraSetting cSetting;
+	Uri currImageURI;
+	String path;
+	SetImage setImage;
+	//ImageView iv;
+	public static boolean isResume = false;
 
     
 	@Override
@@ -60,7 +70,7 @@ public class PreviewActivity extends Activity {
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
-		
+		cSetting = new CameraSetting(PreviewActivity.this);
 		
 		//sString = "0";// 온도 받아오기
 		//btSetting.sendStringData(sString);
@@ -111,7 +121,7 @@ public class PreviewActivity extends Activity {
 				return true;
 				
 			case R.id.action_camera:
-				//cSetting.setCameraDialog();
+				cSetting.setBeforeAfterDialog();
 				return true;
 		
 			case R.id.action_exercise:
@@ -150,5 +160,47 @@ public class PreviewActivity extends Activity {
 	    //	Log.v("alarm", "true");
 	    //}else Log.v("alarm", "false");
 		
+	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		setImage = new SetImage();
+		if(resultCode == RESULT_OK)
+		{
+			MainActivity.MainAct.finish();
+			isResume = true;
+			//카메라로찍었을때
+			Log.v("RESULT_OK??", "ㅅㅄㅂ");
+			if(requestCode == CameraSetting.TAKE_CAMERA) //1
+			{
+				//찍은 사진을 이미지뷰에 보여줌
+				Log.v("들어오니", "ㅅㅄㅂ");
+				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
+				Intent intentToMain = new Intent(this, MainActivity.class);
+				intentToMain.putExtra("cameraSetting","camera");
+				startActivity(intentToMain);
+				finish();
+			}
+				
+			//앨범에서 가져올 때
+			else if(requestCode==CameraSetting.TAKE_GALLERY)//2
+			{
+				
+				currImageURI=data.getData();
+				path = cSetting.getRealPathFromURI(currImageURI);
+				CameraSetting.tempPicturePath = path;
+				//이미지뷰에 보여줌
+				Intent intentToMain = new Intent(this, MainActivity.class);
+				intentToMain.putExtra("cameraSetting","gallery");
+				startActivity(intentToMain);
+				finish();
+				//setImage.setAlbumImageBackground(CameraSetting.tempPicturePath, iv);
+				}
+			}
+		else
+		{
+			Log.e("camera return error","에러");
+			return;
+		}
 	}
 }

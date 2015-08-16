@@ -1,19 +1,22 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.Controller.ExTimeSetting;
 import com.HomeGym.Controller.TimeProgress;
 import com.example.homegym.R;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 
 public class SquatActivity extends Activity {
 
+	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
 	private String next = "Crunch";
-	private int fillBarPercent = 2;// 나중에 2로 바꿔야함
+	private int fillBarPercent = tSetting.lowerTime();// 나중에 2로 바꿔야함
 	
 	TimeProgress tp = new TimeProgress();
 	
@@ -21,7 +24,6 @@ public class SquatActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_squat);
-		
 		pb = (ProgressBar)findViewById(R.id.squatBar);
 		tp.timeProgress(SquatActivity.this, next, pb, fillBarPercent);
 

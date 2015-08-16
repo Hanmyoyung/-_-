@@ -1,5 +1,6 @@
 package com.HomeGym.Activity;
 
+import com.HomeGym.Controller.ExTimeSetting;
 import com.HomeGym.Controller.TimeProgress;
 import com.example.homegym.R;
 
@@ -11,9 +12,10 @@ import android.widget.ProgressBar;
 
 public class CrunchActivity extends Activity {
 
+	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
 	private String next = "finish";
-	private int fillBarPercent = 2;// 나중에 2로 바꿔야함
+	private int fillBarPercent = tSetting.stomachTime();// 나중에 2로 바꿔야함
 	
 	TimeProgress tp = new TimeProgress();
 	

@@ -28,29 +28,39 @@ import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 	
+	public static Activity MainAct;
+	
 	public static Uri currImageURI, OutputFileUri;
 	private static final int TAKE_GALLERY = 2222;
 	private static final int TAKE_CAMERA = 1111;
 	public String sString;
-	public ImageView iv;
+	public ImageView iv, biv, aiv;
 	public int flag;
 	BluetoothSetting btSetting;
 	//StorageLocationSetting clSetting;
 	public String  Folder, Name;
-	public static String tempPicturePath;
 	public String path;
 	CameraSetting cSetting;
 	Bitmap profileBitmap;
 	public String name = "HomeGym/";
 	File file;
+	SetImage setImage;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		iv = (ImageView) findViewById(R.id.imageView1);
+		biv = (ImageView) findViewById(R.id.beforeImg);
+		aiv = (ImageView) findViewById(R.id.afterImg);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		//aiv.setImageResource(R.drawable.after);
+		//biv.setImageResource(R.drawable.before);
+		
 				
+		MainAct = this;
+		setImage = new SetImage();
 		cSetting = new CameraSetting(MainActivity.this);
 		//clSetting = new StorageLocationSetting();
 		btSetting= new BluetoothSetting(MainActivity.this);	
@@ -78,7 +88,8 @@ public class MainActivity extends Activity {
 				return true;
 				
 			case R.id.action_camera:
-				cSetting.setCameraDialog();
+				//cSetting.setCameraDialog();
+				cSetting.setBeforeAfterDialog();
 				return true;
 		
 			case R.id.action_exercise:
@@ -102,10 +113,34 @@ public class MainActivity extends Activity {
 
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+    public void onResume()
+    {
+     Log.d("start", "onResume");
+     super.onResume();
+     
+     if(PreviewActivity.isResume == true){
+    	 PreviewActivity.isResume = false;
+    	 Intent intent = getIntent();
+    	 String cs = intent.getExtras().getString("cameraSetting");
+     	if(cs.equals("camera")){
+     		BitmapFactory.Options options = new BitmapFactory.Options();
+     		options.inSampleSize = 8;
+     		Bitmap bm = BitmapFactory.decodeFile(CameraSetting.tempPicturePath, options);
+     		
+     		setImage.setCameraImageBackground(bm, iv, CameraSetting.tempPicturePath); 
+     	}
+     	else if(cs.equals("gallery")){
+     		setImage.setAlbumImageBackground(CameraSetting.tempPicturePath, iv);
+     	}
+     }
+    }
+
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
-		SetImage setImage = new SetImage();
+		
 		if(resultCode == RESULT_OK)
 		{
 			//카메라로찍었을때
@@ -118,13 +153,25 @@ public class MainActivity extends Activity {
 				BitmapFactory.Options options = new BitmapFactory.Options();
 				options.inSampleSize = 8;
 				Bitmap bm = BitmapFactory.decodeFile(CameraSetting.tempPicturePath, options);
+				if(CameraSetting.baflag == 1){
+					iv = biv;
+				}else iv = aiv;
+				iv.setImageDrawable(null);
 				setImage.setCameraImageBackground(bm, iv, CameraSetting.tempPicturePath);
 				}
 				
 			//앨범에서 가져올 때
 			else if(requestCode==TAKE_GALLERY)//2
 			{
-				
+				if(CameraSetting.baflag == 1){
+					iv = biv;
+					CameraSetting.btempPicturePath = CameraSetting.tempPicturePath;
+				}
+				else{
+					iv = aiv;
+					CameraSetting.atempPicturePath = CameraSetting.tempPicturePath;
+				}
+				iv.setImageDrawable(null);
 				currImageURI=data.getData();
 				path = cSetting.getRealPathFromURI(currImageURI);
 				CameraSetting.tempPicturePath = path;
@@ -138,6 +185,8 @@ public class MainActivity extends Activity {
 			return;
 		}
 	}
+	
+
 
 }
 
