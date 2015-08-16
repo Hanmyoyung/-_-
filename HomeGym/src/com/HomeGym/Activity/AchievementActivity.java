@@ -6,6 +6,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.HomeGym.Bluetooth.BluetoothSetting;
+import com.HomeGym.Controller.CameraSetting;
+import com.HomeGym.Controller.SetImage;
 import com.HomeGym.DB.DBSetting;
 import com.example.homegym.R;
 import com.handstudio.android.hzgrapherlib.graphview.RadarGraphView;
@@ -16,6 +18,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -44,6 +47,9 @@ public class AchievementActivity extends Activity {
 	private RadarGraphView rgView;
 	int thisYear, thisMonth, thisDay,reMonth;
 	GregorianCalendar calendar;
+	CameraSetting cSetting;
+	Uri currImageURI;
+	String path;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,7 @@ public class AchievementActivity extends Activity {
 		getDBData();
 		setRadarGraph();
 		layoutGraphView.invalidate();
+		cSetting = new CameraSetting(AchievementActivity.this);
 		
          dateBtn.setOnClickListener(new OnClickListener(){
         	 @Override
@@ -186,7 +193,7 @@ public class AchievementActivity extends Activity {
 				return true;
 				
 			case R.id.action_camera:
-				//cSetting.setCameraDialog();
+				cSetting.setBeforeAfterDialog();
 				return true;
 		
 			case R.id.action_exercise:
@@ -206,5 +213,47 @@ public class AchievementActivity extends Activity {
 		}
 		
 		return super.onOptionsItemSelected(item);
+	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		SetImage setImage = new SetImage();
+		if(resultCode == RESULT_OK)
+		{
+			MainActivity.MainAct.finish();
+			PreviewActivity.isResume = true;
+			//카메라로찍었을때
+			Log.v("RESULT_OK??", "ㅅㅄㅂ");
+			if(requestCode == CameraSetting.TAKE_CAMERA) //1
+			{
+				//찍은 사진을 이미지뷰에 보여줌
+				Log.v("들어오니", "ㅅㅄㅂ");
+				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
+				Intent intentToMain = new Intent(this, MainActivity.class);
+				intentToMain.putExtra("cameraSetting","camera");
+				startActivity(intentToMain);
+				finish();
+			}
+				
+			//앨범에서 가져올 때
+			else if(requestCode==CameraSetting.TAKE_GALLERY)//2
+			{
+				
+				currImageURI=data.getData();
+				path = cSetting.getRealPathFromURI(currImageURI);
+				CameraSetting.tempPicturePath = path;
+				//이미지뷰에 보여줌
+				Intent intentToMain = new Intent(this, MainActivity.class);
+				intentToMain.putExtra("cameraSetting","gallery");
+				startActivity(intentToMain);
+				finish();
+				//setImage.setAlbumImageBackground(CameraSetting.tempPicturePath, iv);
+				}
+			}
+		else
+		{
+			Log.e("camera return error","에러");
+			return;
+		}
 	}
 }
