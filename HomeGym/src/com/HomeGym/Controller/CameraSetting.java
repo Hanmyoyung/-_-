@@ -3,6 +3,7 @@ package com.HomeGym.Controller;
 import java.io.File;
 
 import com.HomeGym.Activity.MainActivity;
+import com.HomeGym.DB.ImgDBSetting;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,11 +32,15 @@ public class CameraSetting {
 	public String name = "HomeGym/";
 	File file;
 	Intent intent;
+	ImgDBSetting imgSetting;
 	MainActivity mainActivity = new MainActivity();
 	StorageLocationSetting slSetting = new StorageLocationSetting();
+	
 	public CameraSetting(Context applicationContext){
 		// TODO Auto-generated constructor stub
-		 cameraContext= applicationContext;					
+		 cameraContext= applicationContext;	
+		 imgSetting = new ImgDBSetting(cameraContext);
+		 Log.i("뭐야 이거", "카메라 세팅 새성자입니다.");
 	}
 	
 	public void setBeforeAfterDialog(){
@@ -120,7 +125,14 @@ public class CameraSetting {
 				
 				if(baflag==1){ //before변경
 					btempPicturePath = tempPicturePath;
-				}else atempPicturePath = tempPicturePath;
+					imgSetting.insert(btempPicturePath,1);
+					//imgSetting.select();
+					
+				}else{
+					atempPicturePath = tempPicturePath;
+					imgSetting.insert(atempPicturePath,2);
+					//imgSetting.select();
+				}
 				
 				Log.v("파일경로", tempPicturePath);
 				intent1.putExtra( MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));

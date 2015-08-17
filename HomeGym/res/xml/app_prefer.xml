@@ -40,7 +40,8 @@
         <Preference
    			android:key="btnDateFilter"
     		android:summary="Reschedule using current setting"
-    		android:title="알람시간" />
+    		android:title="알람시간"
+    		android:dependency="excercise_alarm" />
     </PreferenceCategory>
      
 </PreferenceScreen>

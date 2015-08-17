@@ -3,23 +3,18 @@ package com.HomeGym.Activity;
 import java.io.File;
 
 import com.HomeGym.Bluetooth.BluetoothSetting;
-import com.HomeGym.Controller.StorageLocationSetting;
 import com.HomeGym.Controller.CameraSetting;
 import com.HomeGym.Controller.SetImage;
+import com.HomeGym.DB.ImgDBSetting;
 import com.example.homegym.R;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,8 +38,10 @@ public class MainActivity extends Activity {
 	CameraSetting cSetting;
 	Bitmap profileBitmap;
 	public String name = "HomeGym/";
+	private ImgDBSetting imgSetting;
 	File file;
 	SetImage setImage;
+	SharedPreferences prefs;
 	
 	
 	@Override
@@ -60,13 +57,22 @@ public class MainActivity extends Activity {
 		
 				
 		MainAct = this;
+		imgSetting=new ImgDBSetting(MainActivity.this);
 		setImage = new SetImage();
 		cSetting = new CameraSetting(MainActivity.this);
 		//clSetting = new StorageLocationSetting();
 		btSetting= new BluetoothSetting(MainActivity.this);	
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();		
-	    
+		
+		setMainImage();
+		
+
+	}
+	
+	public void setMainImage(){
+		setImage.setAlbumImageBackground(imgSetting.selectPatheValue(1), biv);
+		setImage.setAlbumImageBackground(imgSetting.selectPatheValue(2), aiv);
 	}
 
 	@Override
@@ -166,7 +172,6 @@ public class MainActivity extends Activity {
 			//앨범에서 가져올 때
 			else if(requestCode==TAKE_GALLERY)//2
 			{
-				
 				currImageURI=data.getData();
 				path = cSetting.getRealPathFromURI(currImageURI);
 				CameraSetting.tempPicturePath = path;
@@ -174,10 +179,14 @@ public class MainActivity extends Activity {
 				if(CameraSetting.baflag == 1){
 					iv = biv;
 					CameraSetting.btempPicturePath = CameraSetting.tempPicturePath;
+					imgSetting.insert(path, 1);
+					//imgSetting.select();
 				}
 				else{
 					iv = aiv;
 					CameraSetting.atempPicturePath = CameraSetting.tempPicturePath;
+					imgSetting.insert(path, 2);
+					//imgSetting.select();
 				}
 				iv.setImageDrawable(null);
 				setImage.setAlbumImageBackground(CameraSetting.tempPicturePath, iv);

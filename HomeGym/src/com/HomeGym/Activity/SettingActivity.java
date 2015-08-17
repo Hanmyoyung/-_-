@@ -6,6 +6,7 @@ import com.HomeGym.Bluetooth.BluetoothSetting;
 import com.HomeGym.Controller.CameraSetting;
 import com.HomeGym.Controller.ScreenService;
 import com.HomeGym.Controller.SetImage;
+import com.HomeGym.DB.AlarmDBSetting;
 import com.example.homegym.R;
 
 import android.annotation.TargetApi;
@@ -16,10 +17,13 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -30,15 +34,17 @@ import android.widget.TimePicker;
 public class SettingActivity extends PreferenceActivity implements OnDateSetListener {
 	
 	public String sString;
+	private AlarmDBSetting alarmSetting;	
 	BluetoothSetting btSetting;
-	
+	Calendar calendar = Calendar.getInstance();	
+	SharedPreferences prefs;
 	AlarmManager am;
     Intent intent;
     PendingIntent sender;
-    
-    CameraSetting cSetting;
+     CameraSetting cSetting;
 	Uri currImageURI;
 	String path;
+    String summaryString;
     
 	@SuppressWarnings("deprecation")
 	@Override
@@ -48,8 +54,11 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		Preference btnDateFilter = (Preference) findPreference("btnDateFilter");
 	    
-		 am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-
+		am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+		alarmSetting = new AlarmDBSetting(SettingActivity.this);
+		
+		prefs=PreferenceManager.getDefaultSharedPreferences(this);
+	    SharedPreferences.Editor editor= prefs.edit();
 		
 		btnDateFilter.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 	        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -60,13 +69,49 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 	        }
 	    });
 		
+
 		btSetting= new BluetoothSetting(SettingActivity.this);	
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
 		cSetting = new CameraSetting(SettingActivity.this);
 		
+		//findPreference("btnDateFilter").setSummary(summary);
+		setOnPreferenceChange(findPreference("btnDateFilter"));
 	}
 	
+
+	
+	private Preference.OnPreferenceChangeListener onPreferenceChangeListener = new Preference.OnPreferenceChangeListener() {
+		 
+	    @Override
+	    public boolean onPreferenceChange(Preference preference, Object newValue) {
+	    	
+	    	if (preference instanceof Preference) {	
+	    	    preference.setSummary(alarmSetting.selectValue());  
+	    	    Log.i("수강신청이라니...", "여기는 서머리에요....");
+	    	}else if(preference instanceof CheckBoxPreference){
+	    		Log.i("수강신청이라니...", "여기 들어오긴 하나요");
+	    		if(prefs.getBoolean("excercise_alarm", true)==false){
+	    			//am.cancel(pendingIntent());
+	    			Log.i("수강신청이라니...", "여기 들어오긴 하나요");
+	    		}
+	    		
+	    		
+	    	}
+
+	        return true;
+	    }
+	 
+	};
+
+	
+	private void setOnPreferenceChange(Preference mPreference) {
+	    mPreference.setOnPreferenceChangeListener(onPreferenceChangeListener);
+	 
+	    onPreferenceChangeListener.onPreferenceChange(mPreference,
+	        PreferenceManager.getDefaultSharedPreferences(mPreference.getContext()).getString(mPreference.getKey(), ""));
+	}
+
 	
 	
 	private TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener(){
@@ -77,14 +122,17 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 			// TODO Auto-generated method stub
 
 			Log.i("여기 몇번 읽히는거야", "알랴줫");
-			Calendar calendar = Calendar.getInstance();
 			calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 			calendar.set(Calendar.MINUTE, minute);
 			calendar.set(Calendar.SECOND, 0);
 			calendar.set(Calendar.MILLISECOND, 0);
 			
 			Log.i("설정 시간을 출력합니다", Integer.toString(hourOfDay)+" 시 "+Integer.toString(minute)+" 분 ");
-	        
+			summaryString=Integer.toString(hourOfDay)+" 시 "+Integer.toString(minute)+" 분 ";
+			alarmSetting.insert(summaryString);
+			
+			setOnPreferenceChange(findPreference("btnDateFilter"));
+			
 	        PendingIntent pendingAlaramService = pendingIntent();
 	        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 	        //am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingAlaramService);
@@ -95,7 +143,6 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 	};
 
 	private void showDateDialog(){
-	    // Use the current date as the default date in the picker
 	    final Calendar c = Calendar.getInstance();
 	    int hour = c.get(Calendar.HOUR_OF_DAY);
 	    int minute = c.get(Calendar.MINUTE);
@@ -103,10 +150,7 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 	}
 	
 	private PendingIntent pendingIntent(){
-	//Intent intent = new Intent(this, AlarmReceiver.class);
 		Intent intent = new Intent(this, ScreenService.class);
-		//startService(intent);	
-        //PendingIntent sender = PendingIntent.getBroadcast(this, 0, intent, 0);
 		PendingIntent sender = PendingIntent.getService(this, 0, intent, 0);
 		return sender;
 	}

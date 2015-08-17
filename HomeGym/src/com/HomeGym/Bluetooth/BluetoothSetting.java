@@ -26,6 +26,7 @@ public class BluetoothSetting {
 	private LinkedList<BluetoothDevice> mBluetoothDevices = new LinkedList<BluetoothDevice>();
 	private ArrayAdapter<String> mDeviceArrayAdapter;
 	private ProgressDialog mLoadingDialog;
+	public static boolean isConnected;
 	
 	public BluetoothSetting(Context applicationContext){
 		// TODO Auto-generated constructor stub
@@ -102,12 +103,14 @@ public class BluetoothSetting {
 		BluetoothSerialClient btSet =  BluetoothSerialClient.getInstance();
 		
 		if(btSet.connect(btContext, device, mBTHandler)==true){
-			alertDialog(true);
+			isConnected = true;
+			alertDialog(isConnected);
 			String sString = "0";// 온도 받아오기
 			sendStringData(sString);
 			
 		}else{
-			alertDialog(false);
+			isConnected = false;
+			alertDialog(isConnected);
 		}
 	}
 	

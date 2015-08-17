@@ -3,9 +3,10 @@
     tools:context="com.example.homegym.PreviewActivity" 
     android:background="#016889">
 
+    <!-- android:icon="@drawable/bluetoothoff" -->
     <item
         android:id="@+id/action_blutooth"
-        android:icon="@drawable/bluetooth"
+        android:icon="@drawable/bluetoothoff"
         android:showAsAction="ifRoom"
         android:title="@string/action_blutooth"/>
     

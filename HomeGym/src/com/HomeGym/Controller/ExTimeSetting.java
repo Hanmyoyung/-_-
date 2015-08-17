@@ -6,9 +6,9 @@ import android.util.Log;
 
 public class ExTimeSetting {
 	
-	public BluetoothGetData btGet = BluetoothGetData.getInstance();
-		
+	public BluetoothGetData btGet = BluetoothGetData.getInstance();	
 	int fillPercent;
+	
 	public int upperTime(){
 		if(ValueSetting.focus.equals("ªÛ√º")){		
 			fillPercent = 1;		

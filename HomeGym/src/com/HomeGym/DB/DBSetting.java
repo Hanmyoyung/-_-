@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.HomeGym.Bluetooth.BluetoothGetData;
+import com.HomeGym.Controller.ValueSetting;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -41,15 +42,15 @@ public class DBSetting {
 			int state;
 			int exerciseSeq;
 			int exerciseTime;  
-			int targetCount=25; 
+			int targetCount; 
 			int doneCount;
 			double percent;
 			
 			if(inputData.charAt(0)=='3'){// 스쿼트 횟수를 담은 데이터라면
 				state = 3;
 				exerciseSeq =1234;
-				exerciseTime = 50;// 설정값에 따라서 바뀌어야됨
-				targetCount=25;
+				exerciseTime = ValueSetting.fullSquatTime;// 설정값에 따라서 바뀌어야됨
+				targetCount=ValueSetting.fullSquat;
 				doneCount = Integer.valueOf(inputData.substring(2));
 				percent = (Double.valueOf(doneCount)/Double.valueOf(targetCount))*100;
 				
@@ -58,8 +59,8 @@ public class DBSetting {
 			}else if(inputData.charAt(0)=='4'){//크런치 횟수를 답은 데이터라면
 				state = 4;
 				exerciseSeq =1234;
-				exerciseTime = 50;// 설정값에 따라서 바뀌어야됨
-				targetCount=25;
+				exerciseTime = ValueSetting.fullCrunchTime;// 설정값에 따라서 바뀌어야됨
+				targetCount=ValueSetting.fullCrunch;
 				doneCount = Integer.valueOf(inputData.substring(2));
 				percent = (Double.valueOf(doneCount)/Double.valueOf(targetCount))*100;
 				
