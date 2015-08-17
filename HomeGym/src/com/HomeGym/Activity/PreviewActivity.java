@@ -34,6 +34,9 @@ public class PreviewActivity extends Activity {
 	public String sString;
 	public TextView focus;
 	public TextView temp;
+	public TextView squatInfo;
+	public TextView restInfo;
+	public TextView crunchInfo;
 	public BluetoothGetData btGet;
 	BluetoothSetting btSetting;
 	ValueSetting vs = new ValueSetting();
@@ -66,6 +69,9 @@ public class PreviewActivity extends Activity {
 		start = (Button)findViewById(R.id.start);	
 		focus = (TextView)findViewById(R.id.focus);
 		temp = (TextView)findViewById(R.id.temp);
+		squatInfo = (TextView)findViewById(R.id.squatInfo);
+		restInfo = (TextView)findViewById(R.id.restInfo);
+		crunchInfo = (TextView)findViewById(R.id.crunchInfo);
 		
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
@@ -154,6 +160,30 @@ public class PreviewActivity extends Activity {
 		ValueSetting.alarmCheck = prefs.getBoolean("excercise_alarm", true);
 		ValueSetting.goal = prefs.getString("excercise_goal" , "");
 		ValueSetting.focus = prefs.getString("excercise_focus" , "");
+		
+		Log.i("focus값은", ValueSetting.focus);
+		/*
+		if(Double.parseDouble(btGet.getTemp())<= 26){
+			restInfo.setText(("[휴식] 10초"));
+		}else restInfo.setText(("[휴식] 20초"));
+		*/
+		if(vs.getFocus().equals("상체")){
+			Log.i("dididkdkdkdk", "들어오냐고오오오오");
+			squatInfo.setText("[스쿼트] 25회/50초");
+			crunchInfo.setText("[크런치] 25회/50초");	
+		}
+		else if(vs.getFocus().equals("하체")){
+			squatInfo.setText("[스쿼트] 50회/100초");
+			crunchInfo.setText("[크런치] 25회/50초");	
+		}
+		else if(vs.getFocus().equals("복근")){
+			squatInfo.setText("[스쿼트] 25회/50초");
+			crunchInfo.setText("[크런치] 50회/100초");	
+		}
+		else if(vs.getFocus().equals("전신")){
+			squatInfo.setText("[스쿼트] 25회/50초");
+			crunchInfo.setText("[크런치] 25회/50초");	
+		}
 	    //Log.v("excercise_goal", goal);
 	    //Log.v("excercise_focus", focus);
 	   // if(ValueSetting.alarmCheck == true){

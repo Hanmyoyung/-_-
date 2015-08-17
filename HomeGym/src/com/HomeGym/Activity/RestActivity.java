@@ -16,7 +16,7 @@ public class RestActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
-	private int fillBarPercent = tSetting.restTime();
+	private int fillBarPercent = 10; //tSetting.restTime();
 	TimeProgress tp = new TimeProgress();
 	public String sString;
 	BluetoothSetting btSetting;

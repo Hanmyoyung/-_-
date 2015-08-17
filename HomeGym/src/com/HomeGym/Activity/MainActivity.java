@@ -122,6 +122,9 @@ public class MainActivity extends Activity {
      
      if(PreviewActivity.isResume == true){
     	 PreviewActivity.isResume = false;
+    	 if(CameraSetting.baflag == 1){
+    		 iv = biv;
+    	 }else iv = aiv;
     	 Intent intent = getIntent();
     	 String cs = intent.getExtras().getString("cameraSetting");
      	if(cs.equals("camera")){
@@ -163,6 +166,11 @@ public class MainActivity extends Activity {
 			//앨범에서 가져올 때
 			else if(requestCode==TAKE_GALLERY)//2
 			{
+				
+				currImageURI=data.getData();
+				path = cSetting.getRealPathFromURI(currImageURI);
+				CameraSetting.tempPicturePath = path;
+				//이미지뷰에 보여줌
 				if(CameraSetting.baflag == 1){
 					iv = biv;
 					CameraSetting.btempPicturePath = CameraSetting.tempPicturePath;
@@ -172,10 +180,6 @@ public class MainActivity extends Activity {
 					CameraSetting.atempPicturePath = CameraSetting.tempPicturePath;
 				}
 				iv.setImageDrawable(null);
-				currImageURI=data.getData();
-				path = cSetting.getRealPathFromURI(currImageURI);
-				CameraSetting.tempPicturePath = path;
-				//이미지뷰에 보여줌
 				setImage.setAlbumImageBackground(CameraSetting.tempPicturePath, iv);
 				}
 			}
