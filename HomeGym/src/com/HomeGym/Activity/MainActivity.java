@@ -48,8 +48,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		biv = (ImageView) findViewById(R.id.beforeImg);
-		aiv = (ImageView) findViewById(R.id.afterImg);
+		//biv = (ImageView) findViewById(R.id.beforeImg);
+		//aiv = (ImageView) findViewById(R.id.afterImg);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		//aiv.setImageResource(R.drawable.after);
@@ -71,8 +71,14 @@ public class MainActivity extends Activity {
 	}
 	
 	public void setMainImage(){
-		setImage.setAlbumImageBackground(imgSetting.selectPatheValue(1), biv);
-		setImage.setAlbumImageBackground(imgSetting.selectPatheValue(2), aiv);
+		if(biv!=null && aiv!=null){
+			setImage.setAlbumImageBackground(imgSetting.selectPatheValue(1), biv);
+			setImage.setAlbumImageBackground(imgSetting.selectPatheValue(2), aiv);
+		}else if(biv==null && aiv==null){
+			biv = (ImageView) findViewById(R.id.beforeImg);
+			aiv = (ImageView) findViewById(R.id.afterImg);
+			
+		}
 	}
 
 	@Override
