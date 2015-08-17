@@ -23,7 +23,6 @@ public class ExTimeSetting {
 			fillPercent = 1;		
 		}
 		else fillPercent = 2; 	
-		Log.i("percent´Â¿ä",Float.toString(fillPercent));
 		return fillPercent;
 		
 	}

@@ -1,8 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="3" 
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="9" >
+		
+		<TextView
+        android:id="@+id/temp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+		/>
+    
+        <ImageButton
+            android:id="@+id/squaticon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/squaticon"
+            android:background="#00000000" 
+            android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp"/>
+
+        <ImageButton
+            android:id="@+id/resticon1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/resticon"
+            android:background="#00000000"
+            android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp" />
+        
+        <ImageButton
+            android:id="@+id/crunchicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/crunchicon"
+            android:background="#00000000"
+            android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp" />
+        
+        <ImageButton
+            android:id="@+id/resticon2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+            android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp" />
+        
+        <ImageButton
+            android:id="@+id/lungeicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+		 	android:background="#00000000"
+		 	android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp"/>
+        
+        <ImageButton
+            android:id="@+id/resticon3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+            android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp"/>
+        
+        <ImageButton
+            android:id="@+id/legraiseicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+		 	android:background="#00000000"
+		 	android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp"/>
+     	
+        <ImageButton
+            android:id="@+id/finishicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+		 	android:background="#00000000"
+		 	android:layout_marginTop="3dp"
+		    android:layout_marginBottom="3dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="9" 
+        >
+
+        <TextView
+            android:id="@+id/focus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" />
+        
+		<TextView
+		    android:id="@+id/squatInfo"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+		
+		<TextView
+		    android:id="@+id/restInfo"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center"/>
+		
+		<TextView
+		    android:id="@+id/crunchInfo"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+		
+		<TextView
+		    android:id="@+id/restInfo2"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+
+		<TextView
+		    android:id="@+id/lungeInfo"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+		
+		<TextView
+		    android:id="@+id/restInfo3"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+		
+		<TextView
+		    android:id="@+id/legraiseInfo"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+            android:layout_weight="1"
+		    android:gravity="center" />
+		
+		<Button
+        	android:id="@+id/start"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"
+			android:layout_gravity ="center"
+        	android:text="Start" />    
+        
+    </LinearLayout>
+</LinearLayout>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+     <ToggleButton 
+	    android:id="@+id/button1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textOn="quality stop"
+	    android:textOff="quality start"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="resolution" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="term" />
+
+    <ToggleButton 
+	    android:id="@+id/button4"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textOn="LEDon"
+	    android:textOff="LEDoff"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="audio" />
+
+</LinearLayout>
+-->
+
+
+<!-- 
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent" >
 
-    <!--PPT색조합 http://m.post.naver.com/viewer/postView.nhn?volumeNo=1541943&memberNo=6532296&searchKeyword=ppt%EC%83%89%EC%A1%B0%ED%95%A9&searchRank=9 -->
+    
     <Button
         android:id="@+id/start"
         android:layout_width="wrap_content"
@@ -33,3 +259,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </RelativeLayout>
+
+-->
+<!--PPT색조합 http://m.post.naver.com/viewer/postView.nhn?volumeNo=1541943&memberNo=6532296&searchKeyword=ppt%EC%83%89%EC%A1%B0%ED%95%A9&searchRank=9 -->

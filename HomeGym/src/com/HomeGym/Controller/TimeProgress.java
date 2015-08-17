@@ -12,7 +12,7 @@ import android.util.Log;
 import android.widget.ProgressBar;
 
 public class TimeProgress {
-   
+  
    private Handler hand = new Handler();
    private Thread TimeThread;
    private static final int PB_START = 0x1;
@@ -33,6 +33,7 @@ public class TimeProgress {
       intent = intentToRest;
       intent.putExtra("next", next);
       if(next.equals("finish")){
+
             intent = new Intent(context, FinishActivity.class);
          }
    }

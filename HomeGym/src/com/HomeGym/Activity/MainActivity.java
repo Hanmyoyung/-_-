@@ -48,14 +48,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//biv = (ImageView) findViewById(R.id.beforeImg);
-		//aiv = (ImageView) findViewById(R.id.afterImg);
+		biv = (ImageView) findViewById(R.id.beforeImg);
+		aiv = (ImageView) findViewById(R.id.afterImg);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		
-		//aiv.setImageResource(R.drawable.after);
-		//biv.setImageResource(R.drawable.before);
-		
-				
+						
 		MainAct = this;
 		imgSetting=new ImgDBSetting(MainActivity.this);
 		setImage = new SetImage();
@@ -70,15 +66,21 @@ public class MainActivity extends Activity {
 
 	}
 	
-	public void setMainImage(){
-		if(biv!=null && aiv!=null){
+	public void setMainImage(){	
+		try{
+			biv.setImageDrawable(null);
 			setImage.setAlbumImageBackground(imgSetting.selectPatheValue(1), biv);
+		}catch(Exception e){		
+			biv.setImageResource(R.drawable.before);		
+		}	
+		
+		try{
+			aiv.setImageDrawable(null);
 			setImage.setAlbumImageBackground(imgSetting.selectPatheValue(2), aiv);
-		}else if(biv==null && aiv==null){
-			biv = (ImageView) findViewById(R.id.beforeImg);
-			aiv = (ImageView) findViewById(R.id.afterImg);
-			
+		}catch(Exception e){		
+			aiv.setImageResource(R.drawable.after);			
 		}
+
 	}
 
 	@Override
@@ -134,6 +136,9 @@ public class MainActivity extends Activity {
      
      if(PreviewActivity.isResume == true){
     	 PreviewActivity.isResume = false;
+    	 if(CameraSetting.baflag == 1){
+    		 iv = biv;
+    	 }else iv = aiv;
     	 Intent intent = getIntent();
     	 String cs = intent.getExtras().getString("cameraSetting");
      	if(cs.equals("camera")){
@@ -175,7 +180,6 @@ public class MainActivity extends Activity {
 			//앨범에서 가져올 때
 			else if(requestCode==TAKE_GALLERY)//2
 			{
-
 				currImageURI=data.getData();
 				path = cSetting.getRealPathFromURI(currImageURI);
 				CameraSetting.tempPicturePath = path;
