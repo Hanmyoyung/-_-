@@ -165,7 +165,7 @@ public class AchievementActivity extends Activity {
 
 		List<RadarGraph> arrGraph 		= new ArrayList<RadarGraph>();		
 		//arrGraph.add(new RadarGraph("exercise", 0xaa00ffff, graph1));
-		arrGraph.add(new RadarGraph("exercise", 0xB0C4DEFF, graph1));
+		arrGraph.add(new RadarGraph("exercise", 0xAA3333AA, graph1));
 		RadarGraphVO vo = new RadarGraphVO(legendArr, arrGraph);
 		return vo;
 	}

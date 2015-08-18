@@ -71,20 +71,17 @@ public class PreviewActivity extends Activity {
 	    btGet = BluetoothGetData.getInstance();	
 	    
 		start = (Button)findViewById(R.id.start);	
-		//focus = (TextView)findViewById(R.id.focus);
-		//temp = (TextView)findViewById(R.id.temp);
-		//squatInfo = (TextView)findViewById(R.id.squatInfo);
-		//restInfo = (TextView)findViewById(R.id.restInfo);
-		//crunchInfo = (TextView)findViewById(R.id.crunchInfo);
+		focus = (TextView)findViewById(R.id.focus);
+		temp = (TextView)findViewById(R.id.temp);
+		squatInfo = (TextView)findViewById(R.id.squatInfo);
+		restInfo = (TextView)findViewById(R.id.restInfo);
+		crunchInfo = (TextView)findViewById(R.id.crunchInfo);
 		
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
 		btSetting.initProgressDialog();
 		cSetting = new CameraSetting(PreviewActivity.this);
-		
-		//sString = "0";// 온도 받아오기
-		//btSetting.sendStringData(sString);
-		
+	
 		setting();
 		
 		start.setOnClickListener(new OnClickListener(){
@@ -97,10 +94,10 @@ public class PreviewActivity extends Activity {
 			}
 		});
 		
-		//focus.setText("집중부위 : "+vs.getFocus());
-		//Log.v("집중부위",vs.getFocus());
-		//temp.setText("온도는요?   "+btGet.getTemp());
-		//Log.v("온도는요?",btGet.getTemp()); 
+		focus.setText("집중부위 : "+vs.getFocus());
+		Log.v("집중부위",vs.getFocus());
+		temp.setText("온도는요?   "+btGet.getTemp());
+		Log.v("온도는요?",btGet.getTemp()); 
 		
 		
 	}
@@ -167,11 +164,11 @@ public class PreviewActivity extends Activity {
 
 		
 		Log.i("focus값은", ValueSetting.focus);
-		/*
+		
 		if(Double.parseDouble(btGet.getTemp())<= 26){
 			restInfo.setText(("[휴식] 10초"));
 		}else restInfo.setText(("[휴식] 20초"));
-		*/
+		
 		if(vs.getFocus().equals("상체")){
 			Log.i("dididkdkdkdk", "들어오냐고오오오오");
 			squatInfo.setText("[스쿼트] 25회/50초");

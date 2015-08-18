@@ -158,16 +158,16 @@ public class MainActivity extends Activity {
      		if(vs.getHeight().equals("")||vs.getWeight().equals("")){
      			height = "0.0";
      			weight = "0.0";
-     			uBMI.setText("나의 BMI : ");
-     			bmiInfo.setText("나의 비만도 : ");
+     			uBMI.setText("나의 BMI : "+getBMI());
+     			bmiInfo.setText("나의 비만도 : "+getBMIinfo());
      		}else{
         		height = vs.getHeight();
         		Log.i("키",vs.getHeight());
          		weight = vs.getWeight();
          		Log.i("몸무게",vs.getWeight());
-         		getBMI();
-         		bmiInfo.setText("나의 비만도 : "+getBMIinfo());
          		uBMI.setText("나의 BMI : "+getBMI());
+         		bmiInfo.setText("나의 비만도 : "+getBMIinfo());
+         		
      		}
      		    		
 		uHeight.setText("나의 키 : "+height);
@@ -250,6 +250,11 @@ public class MainActivity extends Activity {
 	}
 	
 	public String getBMI(){
+		String bmi="";
+		if(height.equals("0.0")|| weight.equals("0.0")){
+			bmi = "값을 입력하세요";
+			return bmi;
+		}
 		double dheight = Double.valueOf(height).doubleValue()/100.0;
 		Log.i("미터키", Double.toString(dheight));
 		double ddheight = dheight*dheight;
@@ -257,7 +262,7 @@ public class MainActivity extends Activity {
 
 		dBmi = dweight/ddheight;
 		Log.i("bmi", Double.toString(dBmi));
-		String bmi = String.format("%.2f", dBmi);
+		bmi = String.format("%.2f", dBmi);
 		
 		return bmi;
 				
@@ -267,16 +272,15 @@ public class MainActivity extends Activity {
 		
 		String bmiInfo;
 		
-		if (dBmi<18.5){
+		if(height.equals("0.0")|| weight.equals("0.0")){
+			bmiInfo="값을 입력하세요";
+		}else if (dBmi<18.5){
 			bmiInfo = "저체중";
-		}
-		else if(dBmi<23){
+		}else if(dBmi<23){
 			bmiInfo = "정상";
-		}
-		else if(dBmi<25){
+		}else if(dBmi<25){
 			bmiInfo = "과체중";
-		}
-		else if(dBmi<30){
+		}else if(dBmi<30){
 			bmiInfo = "비만";
 		}
 		else bmiInfo = "고도비만";
