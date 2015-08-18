@@ -252,7 +252,7 @@ public class MainActivity extends Activity {
 	public String getBMI(){
 		String bmi="";
 		if(height.equals("0.0")|| weight.equals("0.0")){
-			bmi = "값을 입력하세요";
+			bmi = "키와 몸무게를 입력하세요";
 			return bmi;
 		}
 		double dheight = Double.valueOf(height).doubleValue()/100.0;
@@ -273,7 +273,7 @@ public class MainActivity extends Activity {
 		String bmiInfo;
 		
 		if(height.equals("0.0")|| weight.equals("0.0")){
-			bmiInfo="값을 입력하세요";
+			bmiInfo="키와 몸무게를 입력하세요";
 		}else if (dBmi<18.5){
 			bmiInfo = "저체중";
 		}else if(dBmi<23){

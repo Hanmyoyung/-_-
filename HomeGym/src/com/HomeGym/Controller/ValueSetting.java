@@ -11,6 +11,7 @@ public class ValueSetting {
 	public static int fullCrunch = 25;
 	public static int fullSquatTime = 50;
 	public static int fullCrunchTime = 50;
+	public static String temp = "0.0";
 
 	public String getGoal(){
 		return goal;
@@ -60,6 +61,10 @@ public class ValueSetting {
 	
 	public String getWeight(){
 		return userWeight;
+	}
+	
+	public String getTemp(){
+		return temp;
 	}
 
 }

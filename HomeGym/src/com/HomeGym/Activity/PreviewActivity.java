@@ -96,8 +96,8 @@ public class PreviewActivity extends Activity {
 		
 		focus.setText("집중부위 : "+vs.getFocus());
 		Log.v("집중부위",vs.getFocus());
-		temp.setText("온도는요?   "+btGet.getTemp());
-		Log.v("온도는요?",btGet.getTemp()); 
+		temp.setText("온도는요?   "+ValueSetting.temp);
+		Log.v("온도는요?",ValueSetting.temp); 
 		
 		
 	}
@@ -165,7 +165,7 @@ public class PreviewActivity extends Activity {
 		
 		Log.i("focus값은", ValueSetting.focus);
 		
-		if(Double.parseDouble(btGet.getTemp())<= 26){
+		if(Double.parseDouble(ValueSetting.temp)<= 26){
 			restInfo.setText(("[휴식] 10초"));
 		}else restInfo.setText(("[휴식] 20초"));
 		

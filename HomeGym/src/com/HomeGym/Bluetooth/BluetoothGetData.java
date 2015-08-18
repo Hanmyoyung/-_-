@@ -1,5 +1,7 @@
 package com.HomeGym.Bluetooth;
 
+import com.HomeGym.Controller.ValueSetting;
+
 import android.util.Log;
 
 public class BluetoothGetData {
@@ -76,6 +78,7 @@ public class BluetoothGetData {
 					tempData="";
 				}
 				tempData = resultData.substring(2);
+				ValueSetting.temp = tempData; 
 				//Log.v("온도 데이터 입니다", tempData);
 			}else if(resultData.charAt(0)=='3'){
 				//Log.v("스쿼트 횟수 데이터 입니다", "핳");
