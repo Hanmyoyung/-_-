@@ -41,6 +41,7 @@ public class AchievementActivity extends Activity {
 	private float legRaisePercent;
 	private float lungePercent;
 	private float todayPercent;
+	private float monthPercent;
 	private TextView dateBtn;
 	private String thisDate;
 	private RadarGraphView rgView;
@@ -137,7 +138,8 @@ public class AchievementActivity extends Activity {
 		crunchPercent=Float.valueOf(Double.toString(dbSetting.selectExerciseValue("crunch",thisDate)));
 		legRaisePercent = crunchPercent;
 		lungePercent = squatPercent;
-		todayPercent = Float.valueOf(Double.toString(dbSetting.selectTotalValue(thisDate)));
+		todayPercent = Float.valueOf(Double.toString(dbSetting.selectTodayValue(thisDate)));
+		monthPercent = Float.valueOf(Double.toString(dbSetting.selectMonthValue(thisYear,thisMonth)));
 		//squatPercent=Integer.valueOf(stringValue).intValue();
 		Log.e("뭐지 이 그지같은이이이이이", String.valueOf(squatPercent));
 		// 상체 하체 복근 전신 오늘 운동한 양
@@ -158,11 +160,12 @@ public class AchievementActivity extends Activity {
 	
 	private RadarGraphVO makeRadarGraphDefaultSetting() {
 		
-		String[] legendArr 	= {"Cunch","Squat","Leg Raise","Lunge","Today","ThisMonth"};
-		float[] graph1 		= {crunchPercent,squatPercent,legRaisePercent,lungePercent,todayPercent, squatPercent};
+		String[] legendArr 	= {"Cunch","Squat","Leg Raise","Lunge","Today","Month"};
+		float[] graph1 		= {crunchPercent,squatPercent,legRaisePercent,lungePercent,todayPercent, monthPercent};
 
 		List<RadarGraph> arrGraph 		= new ArrayList<RadarGraph>();		
-		arrGraph.add(new RadarGraph("exercise", 0xaa00ffff, graph1));
+		//arrGraph.add(new RadarGraph("exercise", 0xaa00ffff, graph1));
+		arrGraph.add(new RadarGraph("exercise", 0xB0C4DEFF, graph1));
 		RadarGraphVO vo = new RadarGraphVO(legendArr, arrGraph);
 		return vo;
 	}

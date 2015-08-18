@@ -3,7 +3,7 @@
     tools:context="com.example.homegym.PreviewActivity" 
     android:background="#016889">
 
-    <!-- android:icon="@drawable/bluetoothoff" -->
+    <!--  android:background="#016889"android:icon="@drawable/bluetoothoff" -->
     <item
         android:id="@+id/action_blutooth"
         android:icon="@drawable/bluetoothoff"

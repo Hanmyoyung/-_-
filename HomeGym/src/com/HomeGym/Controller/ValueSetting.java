@@ -3,12 +3,12 @@ package com.HomeGym.Controller;
 public class ValueSetting {
 	
 	public static String goal;
-	public static String focus;
+	public static String focus = "full";
 	public static Boolean alarmCheck;
-	public static int fullSquat;
-	public static int fullCrunch;
-	public static int fullSquatTime;
-	public static int fullCrunchTime;
+	public static int fullSquat = 25;
+	public static int fullCrunch = 25;
+	public static int fullSquatTime = 50;
+	public static int fullCrunchTime = 50;
 	
 	public String getGoal(){
 		return goal;
