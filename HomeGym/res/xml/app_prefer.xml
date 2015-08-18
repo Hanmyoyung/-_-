@@ -27,7 +27,23 @@
             />
         <!-- android:defaultValue="full" -->
     </PreferenceCategory>
-     
+    
+    <PreferenceCategory
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:key="setting_activity_UserInfo"
+        android:title="사용자 정보">
+        <EditTextPreference
+            android:key="userHeight"
+            android:summary="키를 입력하세요"
+            android:title="키"
+            android:defaultValue="0.0" />
+        <EditTextPreference
+            android:key="userWeight"
+            android:summary="몸무게를 입력하세요"
+            android:title="몸무게" 
+            android:defaultValue="0.0"/>
+    </PreferenceCategory> 
+  
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:key="setting_activity_alarm"

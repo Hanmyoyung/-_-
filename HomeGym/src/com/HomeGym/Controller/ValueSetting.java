@@ -9,6 +9,8 @@ public class ValueSetting {
 	public static int fullCrunch;
 	public static int fullSquatTime;
 	public static int fullCrunchTime;
+	public static String userHeight;
+	public static String userWeight;
 	
 	public String getGoal(){
 		return goal;
@@ -50,6 +52,14 @@ public class ValueSetting {
 	
 	public Boolean getAlarm(){
 		return alarmCheck;
-	}	
+	}
+	
+	public String getHeight(){
+		return userHeight;
+	}
+	
+	public String getWeight(){
+		return userWeight;
+	}
 
 }

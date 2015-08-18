@@ -29,6 +29,8 @@ import android.widget.TextView;
 
 public class PreviewActivity extends Activity {
 	
+	public static Activity PrevAct;
+	
 	public ImageButton bluetoothSync;
 	public Button start;
 	public String sString;
@@ -53,6 +55,8 @@ public class PreviewActivity extends Activity {
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		PrevAct = this;
 		
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//String.xml가면 타이틀 바 이름 바꿀 수 있음
@@ -160,6 +164,7 @@ public class PreviewActivity extends Activity {
 		ValueSetting.alarmCheck = prefs.getBoolean("excercise_alarm", true);
 		ValueSetting.goal = prefs.getString("excercise_goal" , "");
 		ValueSetting.focus = prefs.getString("excercise_focus" , "");
+
 		
 		Log.i("focus값은", ValueSetting.focus);
 		/*

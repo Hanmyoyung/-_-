@@ -2,7 +2,101 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="4" >
+    android:weightSum="9" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="온도는요"
+            android:gravity="center"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="온도는요"
+            android:gravity="center"
+        />
+    </LinearLayout>    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/squaticon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="스쿼트정보"
+            android:gravity="center"/>
+        
+    </LinearLayout>    
+	   
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/resticon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="휴식정보"
+            android:gravity="center"/>
+        
+    </LinearLayout>  
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/resticon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="휴식정보"
+            android:gravity="center"/>     
+    </LinearLayout>  
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,62 +105,41 @@
         android:orientation="horizontal"
         android:weightSum="1" >
         
-        <TextView
-        android:id="@+id/temp"
-        android:layout_weight="0.5" 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    	<TextView
-        android:id="@+id/focus"
-        android:layout_weight="0.5" 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-        
-   </LinearLayout>
-   <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="1" >   
-        
-            <ImageView
-    		    android:id="@+id/squaticon"
-    		    android:layout_width="match_parent"
-    		    android:layout_height="match_parent"
-    		    android:layout_weight="0.5"
-    		    android:gravity="center"
-    		    android:src="@drawable/squaticon" />
-
-    		<TextView
-    		    android:id="@+id/squatinfo"
-    		    android:gravity="center"
-    		    android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-			/>
+    </LinearLayout>  
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="1" >  
-    </LinearLayout>
+        android:orientation="horizontal"
+        android:weightSum="1" >
+        
+    </LinearLayout> 
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="1" >  
-    </LinearLayout>
-
-
-</LinearLayout>
-
+        android:orientation="horizontal"
+        android:weightSum="1" >
+        
+    </LinearLayout>  
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+        
+    </LinearLayout>  
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+        
+    </LinearLayout>  
 </LinearLayout>
