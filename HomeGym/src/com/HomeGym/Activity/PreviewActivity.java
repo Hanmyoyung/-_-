@@ -71,11 +71,11 @@ public class PreviewActivity extends Activity {
 	    btGet = BluetoothGetData.getInstance();	
 	    
 		start = (Button)findViewById(R.id.start);	
-		focus = (TextView)findViewById(R.id.focus);
-		temp = (TextView)findViewById(R.id.temp);
-		squatInfo = (TextView)findViewById(R.id.squatInfo);
-		restInfo = (TextView)findViewById(R.id.restInfo);
-		crunchInfo = (TextView)findViewById(R.id.crunchInfo);
+		//focus = (TextView)findViewById(R.id.focus);
+		//temp = (TextView)findViewById(R.id.temp);
+		//squatInfo = (TextView)findViewById(R.id.squatInfo);
+		//restInfo = (TextView)findViewById(R.id.restInfo);
+		//crunchInfo = (TextView)findViewById(R.id.crunchInfo);
 		
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
@@ -97,10 +97,10 @@ public class PreviewActivity extends Activity {
 			}
 		});
 		
-		focus.setText("집중부위 : "+vs.getFocus());
-		Log.v("집중부위",vs.getFocus());
-		temp.setText("온도는요?   "+btGet.getTemp());
-		Log.v("온도는요?",btGet.getTemp()); 
+		//focus.setText("집중부위 : "+vs.getFocus());
+		//Log.v("집중부위",vs.getFocus());
+		//temp.setText("온도는요?   "+btGet.getTemp());
+		//Log.v("온도는요?",btGet.getTemp()); 
 		
 		
 	}

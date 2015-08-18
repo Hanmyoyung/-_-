@@ -21,6 +21,7 @@ public class DBSetting {
 		
 		/*------테이블 내용---------------------------
 		String sql = "CREATE TABLE UserInfo("+
+				"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
 				"state INTEGER, "+
 				"date DATE, "+
 				"exerciseSeq INTEGER, "+
@@ -32,7 +33,7 @@ public class DBSetting {
 		
 		public DBSetting(Context context){
 			dbContext = context;
-			helper = new DBManager(dbContext,"UserData",null,1); // 버전 조심해야함!! 현재 버전이 4.0
+			helper = new DBManager(dbContext,"UserExcerInfo",null,1); // 버전 조심해야함!! 현재 버전이 4.0
 			
 		}
 		
@@ -114,7 +115,7 @@ public class DBSetting {
 			}
 			
 			//String sQuery = "SELECT percent FROM UserInfo WHERE state = 3 AND date = '"+today+"'";
-			String sQuery = "SELECT percent FROM UserInfo WHERE state = "+state+" AND date = '"+date+"'";
+			String sQuery = "SELECT percent FROM UserInfo WHERE id = (SELECT MAX(id) FROM UserInfo WHERE date = '"+date+"' AND state = "+state+")";
 			
 			Log.v("여기는요디비세팅인데요지금 받아와서 달성률 출력하려고 해요", "왜 안들어가냐 진짜");
 			
@@ -134,31 +135,50 @@ public class DBSetting {
 		}
 		
 		
-		public double selectTotalValue(String thisDate){
+		public double selectTodayValue(String thisDate){
 			db = helper.getReadableDatabase();
 			String date = thisDate;
 			
 			
-			String sQuery = "SELECT percent FROM UserInfo WHERE date = '"+date+"'";
+			String sQuery = "SELECT AVG(percent) FROM UserInfo GROUP BY date HAVING date = '"+date+"'";
 			
 			Log.v("여기는요디비세팅인데요지금 받아와서 달성률 출력하려고 해요", "왜 안들어가냐 진짜");
 			
 			Cursor c = db.rawQuery(sQuery, null);
+			//Cursor c = db.query("UserInfo", null,null, null, null, null, null, null);
 			double percent = 0;
 			
-			if(c.moveToFirst()){
-					do{
-						percent += c.getDouble(c.getColumnIndex("percent"));
-					}while(c.moveToNext());
-					
+	
+			if(c.moveToLast()){
+						percent =c.getDouble(0);
 			}
-			
-			percent = percent/2;
+	
 			return percent;
 			
 			
 		}
 
+		
+		public double selectMonthValue(int thisYear, int thisMonth){
+			db = helper.getReadableDatabase();
+			
+			String date;
+			double percent = 0;
+			
+			if(thisMonth<10){
+        		date = Integer.toString(thisYear)+"-0"+Integer.toString(thisMonth)+"-01";
+        	}else{
+        		date = Integer.toString(thisYear)+"-"+Integer.toString(thisMonth)+"-01";
+        	}
+						
+			String sQuery = "SELECT AVG(percent) FROM UserInfo GROUP BY date HAVING date > '"+date+"'";					
+			Cursor c = db.rawQuery(sQuery, null);
+								
+			if(c.moveToLast()){
+				percent =c.getDouble(0);
+			}
+			return percent;			
+		}
 
 		
 		public void select(){
