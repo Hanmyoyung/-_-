@@ -36,8 +36,8 @@ public class PreviewActivity extends Activity {
 	public String sString;
 	public TextView focus;
 	public TextView temp;
-	public TextView squatInfo;
-	public TextView restInfo;
+	public TextView squatInfo, lungeInfo, legraiseInfo;
+	public TextView restInfo1,restInfo2,restInfo3;
 	public TextView crunchInfo;
 	public BluetoothGetData btGet;
 	BluetoothSetting btSetting;
@@ -74,8 +74,12 @@ public class PreviewActivity extends Activity {
 		focus = (TextView)findViewById(R.id.focus);
 		temp = (TextView)findViewById(R.id.temp);
 		squatInfo = (TextView)findViewById(R.id.squatInfo);
-		restInfo = (TextView)findViewById(R.id.restInfo);
+		restInfo1 = (TextView)findViewById(R.id.restInfo1);
+		restInfo2 = (TextView)findViewById(R.id.restInfo2);
+		restInfo3 = (TextView)findViewById(R.id.restInfo3);
 		crunchInfo = (TextView)findViewById(R.id.crunchInfo);
+		legraiseInfo = (TextView)findViewById(R.id.legraiseInfo);
+		lungeInfo = (TextView)findViewById(R.id.lungeInfo);
 		
 		btSetting= new BluetoothSetting(PreviewActivity.this);		
 		btSetting.initDeviceListDialog();
@@ -166,23 +170,38 @@ public class PreviewActivity extends Activity {
 		Log.i("focus값은", ValueSetting.focus);
 		
 		if(Double.parseDouble(ValueSetting.temp)<= 26){
-			restInfo.setText(("[휴식] 10초"));
-		}else restInfo.setText(("[휴식] 20초"));
+			restInfo1.setText(("[휴식] 10초"));
+			restInfo2.setText(("[휴식] 10초"));
+			restInfo3.setText(("[휴식] 10초"));
+		}else{ 
+			restInfo1.setText(("[휴식] 20초"));
+			restInfo2.setText(("[휴식] 20초"));
+			restInfo3.setText(("[휴식] 20초"));
+		}
+		
 		
 		if(vs.getFocus().equals("상체")){
 			Log.i("dididkdkdkdk", "들어오냐고오오오오");
 			squatInfo.setText("[스쿼트] 25회/50초");
 			crunchInfo.setText("[크런치] 25회/50초");	
+			lungeInfo.setText("[런지] 25회/50초");	
+			legraiseInfo.setText("[레그레이즈] 25회/50초");	
 		}
 		else if(vs.getFocus().equals("하체")){
 			squatInfo.setText("[스쿼트] 50회/100초");
 			crunchInfo.setText("[크런치] 25회/50초");	
+			lungeInfo.setText("[런지] 50회/100초");	
+			legraiseInfo.setText("[레그레이즈] 25회/50초");	
 		}
 		else if(vs.getFocus().equals("복근")){
+			lungeInfo.setText("[런지] 25회/50초");	
+			legraiseInfo.setText("[레그레이즈] 50회/100초");	
 			squatInfo.setText("[스쿼트] 25회/50초");
 			crunchInfo.setText("[크런치] 50회/100초");	
 		}
 		else if(vs.getFocus().equals("전신")){
+			lungeInfo.setText("[런지] 25회/50초");	
+			legraiseInfo.setText("[레그레이즈] 25회/50초");	
 			squatInfo.setText("[스쿼트] 25회/50초");
 			crunchInfo.setText("[크런치] 25회/50초");	
 		}

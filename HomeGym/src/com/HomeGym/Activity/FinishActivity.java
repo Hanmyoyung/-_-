@@ -41,11 +41,15 @@ public class FinishActivity extends Activity {
 		super.onDestroy();
 		
 		//if(btData.getCrunch()!= null){
+		try{
 			dbSetting.insertValues(btData.getCrunch());
 			dbSetting.insertValues(btData.getSquat());
 			dbSetting.insertValues(btData.getLunge());
 			dbSetting.insertValues(btData.getLegRaise());
 			dbSetting.select();
+		}catch(Exception e){
+			Log.i("당신은 블루투스를 연결하지 않았어요", "연결을 안하고 운동을 하다니....");
+		}
 		//}
 		
 	}

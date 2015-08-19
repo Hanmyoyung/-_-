@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
-public class CrunchActivity extends Activity {
+public class LegraiseActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
-	private String next = "Lunge";
+	private String next = "finish";
 	private int fillBarPercent = tSetting.stomachTime();// 나중에 2로 바꿔야함
 	
 	TimeProgress tp = new TimeProgress();
@@ -23,12 +23,12 @@ public class CrunchActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_crunch);
+		setContentView(R.layout.activity_legraise);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
-		pb = (ProgressBar)findViewById(R.id.crunchBar);
-		tp.timeProgress(CrunchActivity.this, next, pb, fillBarPercent);
+		pb = (ProgressBar)findViewById(R.id.legraiseBar);
+		tp.timeProgress(LegraiseActivity.this, next, pb, fillBarPercent);
 		
 	}
 
