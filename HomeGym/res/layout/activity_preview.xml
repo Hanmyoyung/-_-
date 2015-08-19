@@ -105,7 +105,7 @@
         
         <TextView 
             android:layout_margin="5dp"
-            android:id="@+id/restInfo"
+            android:id="@+id/restInfo1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -179,17 +179,42 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/resticon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:id="@+id/restInfo2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"/>    
         
     </LinearLayout>  
     
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="1dip"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="3" > 
+       
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="1"
+       android:background="#00000000" />
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="2"
+       android:background="#90909090" />
         
     </LinearLayout> 
     
@@ -199,20 +224,112 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lungeicon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:id="@+id/lungeInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"/>  
         
     </LinearLayout>  
     
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="1dip"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="3" > 
+       
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="1"
+       android:background="#00000000" />
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="2"
+       android:background="#90909090" />
         
     </LinearLayout>  
     
+    <LinearLayout
+    	android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/resticon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:id="@+id/restInfo3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"/> 
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:orientation="horizontal"
+        android:weightSum="3" > 
+       
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="1"
+       android:background="#00000000" />
+       <View
+       android:layout_height="1dip"
+       android:layout_width="0dp"
+       android:layout_weight="2"
+       android:background="#90909090" />
+        
+    </LinearLayout>      
+     <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <ImageButton 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/legraiseicon1"
+            android:background="#00000000" />
+        
+        <TextView 
+            android:id="@+id/legraiseInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"/>  
+        
+    </LinearLayout>    
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
