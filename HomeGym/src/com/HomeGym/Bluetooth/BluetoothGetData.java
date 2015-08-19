@@ -12,6 +12,8 @@ public class BluetoothGetData {
 	public String tempData = "";
 	public String squatData;
 	public String crunchData;
+	public String lungeData;
+	public String legRaiseData;
 	
 	private BluetoothGetData(){
 		
@@ -34,6 +36,14 @@ public class BluetoothGetData {
 	
 	public String getCrunch(){
 		return crunchData;
+	}
+	
+	public String getLunge(){
+		return lungeData;
+	}
+	
+	public String getLegRaise(){
+		return legRaiseData;
 	}
 	
 
@@ -91,10 +101,26 @@ public class BluetoothGetData {
 			}else if(resultData.charAt(0)=='4'){
 				//Log.v("크런치 횟수 데이터 입니다", "핳");
 				if(crunchData!=null){
-					squatData="";
+					crunchData="";
 				}
 				//crunchData = Integer.valueOf(resultData.substring(2));
 				crunchData = resultData;
+				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
+			}else if(resultData.charAt(0)=='5'){
+				//Log.v("크런치 횟수 데이터 입니다", "핳");
+				if(lungeData!=null){
+					lungeData="";
+				}
+				//crunchData = Integer.valueOf(resultData.substring(2));
+				lungeData = resultData;
+				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
+			}else if(resultData.charAt(0)=='6'){
+				//Log.v("크런치 횟수 데이터 입니다", "핳");
+				if(legRaiseData!=null){
+					legRaiseData="";
+				}
+				//crunchData = Integer.valueOf(resultData.substring(2));
+				legRaiseData = resultData;
 				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
 			}else{
 				

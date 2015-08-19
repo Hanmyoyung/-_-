@@ -57,6 +57,26 @@ public class DBSetting {
 				
 				insert(state,exerciseSeq,exerciseTime,targetCount ,doneCount,percent);
 							
+			}else if(inputData.charAt(0)=='5'){//크런치 횟수를 답은 데이터라면
+				state = 5;
+				exerciseSeq =1234;
+				exerciseTime = ValueSetting.fullLungeTime;// 설정값에 따라서 바뀌어야됨
+				targetCount=ValueSetting.fullLunge;
+				doneCount = Integer.valueOf(inputData.substring(2));
+				percent = (Double.valueOf(doneCount)/Double.valueOf(targetCount))*100;
+				
+				insert(state,exerciseSeq,exerciseTime,targetCount ,doneCount,percent);
+				
+			}else if(inputData.charAt(0)=='6'){//크런치 횟수를 답은 데이터라면
+				state = 6;
+				exerciseSeq =1234;
+				exerciseTime = ValueSetting.fullLegRaiseTime;// 설정값에 따라서 바뀌어야됨
+				targetCount=ValueSetting.fullLegRaise;
+				doneCount = Integer.valueOf(inputData.substring(2));
+				percent = (Double.valueOf(doneCount)/Double.valueOf(targetCount))*100;
+				
+				insert(state,exerciseSeq,exerciseTime,targetCount ,doneCount,percent);
+				
 			}else if(inputData.charAt(0)=='4'){//크런치 횟수를 답은 데이터라면
 				state = 4;
 				exerciseSeq =1234;
@@ -66,6 +86,8 @@ public class DBSetting {
 				percent = (Double.valueOf(doneCount)/Double.valueOf(targetCount))*100;
 				
 				insert(state,exerciseSeq,exerciseTime,targetCount ,doneCount,percent);
+				
+			}else{
 				
 			}
 			
@@ -112,6 +134,10 @@ public class DBSetting {
 				state = 3;
 			}else if(exerciseString.equals("crunch")){
 				state = 4;
+			}else if(exerciseString.equals("lunge")){
+				state = 5;
+			}else if(exerciseString.equals("legRaise")){
+				state = 6;
 			}
 			
 			//String sQuery = "SELECT percent FROM UserInfo WHERE state = 3 AND date = '"+today+"'";

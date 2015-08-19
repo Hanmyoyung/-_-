@@ -43,6 +43,8 @@ public class FinishActivity extends Activity {
 		//if(btData.getCrunch()!= null){
 			dbSetting.insertValues(btData.getCrunch());
 			dbSetting.insertValues(btData.getSquat());
+			dbSetting.insertValues(btData.getLunge());
+			dbSetting.insertValues(btData.getLegRaise());
 			dbSetting.select();
 		//}
 		

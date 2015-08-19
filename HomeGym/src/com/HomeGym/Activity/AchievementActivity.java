@@ -136,8 +136,8 @@ public class AchievementActivity extends Activity {
 		dbSetting.select();
 		squatPercent=Float.valueOf(Double.toString(dbSetting.selectExerciseValue("squat", thisDate)));
 		crunchPercent=Float.valueOf(Double.toString(dbSetting.selectExerciseValue("crunch",thisDate)));
-		legRaisePercent = crunchPercent;
-		lungePercent = squatPercent;
+		legRaisePercent = Float.valueOf(Double.toString(dbSetting.selectExerciseValue("legRaise", thisDate)));
+		lungePercent = Float.valueOf(Double.toString(dbSetting.selectExerciseValue("lunge", thisDate)));
 		todayPercent = Float.valueOf(Double.toString(dbSetting.selectTodayValue(thisDate)));
 		monthPercent = Float.valueOf(Double.toString(dbSetting.selectMonthValue(thisYear,thisMonth)));
 		//squatPercent=Integer.valueOf(stringValue).intValue();
