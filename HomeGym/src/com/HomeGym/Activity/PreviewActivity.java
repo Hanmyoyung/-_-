@@ -65,7 +65,8 @@ public class PreviewActivity extends Activity {
 		
 		setContentView(R.layout.activity_preview);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
+		getActionBar().setIcon(R.drawable.logo);
+		
 		prefs=PreferenceManager.getDefaultSharedPreferences(this);
 	    SharedPreferences.Editor editor= prefs.edit();
 	    btGet = BluetoothGetData.getInstance();	

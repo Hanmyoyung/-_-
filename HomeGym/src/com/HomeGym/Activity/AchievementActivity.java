@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -42,7 +43,7 @@ public class AchievementActivity extends Activity {
 	private float lungePercent;
 	private float todayPercent;
 	private float monthPercent;
-	private TextView dateBtn;
+	private Button dateBtn;
 	private String thisDate;
 	private RadarGraphView rgView;
 	int thisYear, thisMonth, thisDay,reMonth;
@@ -57,8 +58,9 @@ public class AchievementActivity extends Activity {
 		setContentView(R.layout.activity_acheivement);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setIcon(R.drawable.logo);
 		
-		dateBtn = (TextView)findViewById(R.id.dateBtn);// 버튼이 위로 와야함..뭐 이런 개같은
+		dateBtn = (Button)findViewById(R.id.dateBtn);// 버튼이 위로 와야함..뭐 이런 개같은
 		layoutGraphView = (ViewGroup) findViewById(R.id.layoutGraphView);
 		
 		bluetoothSetting();

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
  
 public class FinishActivity extends Activity {
@@ -20,6 +21,7 @@ public class FinishActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
+        getActionBar().setIcon(R.drawable.logo);
         
         dbSetting = new DBSetting(FinishActivity.this);
                         
@@ -48,10 +50,9 @@ public class FinishActivity extends Activity {
 			dbSetting.insertValues(btData.getLegRaise());
 			dbSetting.select();
 		}catch(Exception e){
-			Log.i("당신은 블루투스를 연결하지 않았어요", "연결을 안하고 운동을 하다니....");
-		}
-		//}
-		
+			Toast toast = Toast.makeText(this, "당신은 블루투스를 연결하지 않았어요...연결을 안하고 운동을 하다니.....", Toast.LENGTH_SHORT); 
+			toast.show(); 
+		}	
 	}
 }
 

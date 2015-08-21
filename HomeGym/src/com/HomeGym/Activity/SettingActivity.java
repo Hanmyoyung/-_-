@@ -52,6 +52,8 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.app_prefer);	
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setIcon(R.drawable.logo);
+		
 		Preference btnDateFilter = (Preference) findPreference("btnDateFilter");
 	    
 		am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
@@ -137,7 +139,7 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 	        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 	        //am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingAlaramService);
 	        am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingAlaramService);
-	       //am.setRepeating(AlarmManager.ELAPSED_REALTIME,calendar.getTimeInMillis(), 1000*60*60*24 , pendingAlaramService);
+	        am.setRepeating(AlarmManager.ELAPSED_REALTIME,calendar.getTimeInMillis(), 1000*60*60*24 , pendingAlaramService);
 		
 		}
 	};
