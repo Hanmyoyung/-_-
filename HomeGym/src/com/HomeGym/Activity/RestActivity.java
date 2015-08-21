@@ -27,6 +27,7 @@ public class RestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rest);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getActionBar().setIcon(R.drawable.logo);
 		
 		pb = (ProgressBar)findViewById(R.id.restBar);
 

@@ -56,6 +56,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		getActionBar().setIcon(R.drawable.logo);
+		
 		biv = (ImageView) findViewById(R.id.beforeImg);
 		aiv = (ImageView) findViewById(R.id.afterImg);
 		uHeight = (TextView) findViewById(R.id.userHeight);

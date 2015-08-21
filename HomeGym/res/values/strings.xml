@@ -2,7 +2,7 @@
 <resources>
 
     <!-- 여기서 타이틀 바 제목 바꾸면 됩니다 -->
-    <string name="app_name">HomeGym</string>
+    <string name="app_name">매일매일 움직움직</string>    
     <string name="hello_world">Hello world!</string>
     <string name="action_home">home</string>
     <string name="action_blutooth">Bluetooth</string>
@@ -10,23 +10,21 @@
     <string name="action_exercise">Exercise</string>
     <string name="action_acheivementrate">Acheivementrate</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_acheivement">AcheivementActivity</string>
-    <string name="title_activity_exercise">ExerciseActivity</string>
-    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="title_activity_acheivement">운동 달성률</string>
+    <string name="title_activity_loading">매일매일 움직움직</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_preview">오늘의 운동</string>
     <string name="title_activity_rest">RestActivity</string>
     <string name="title_activity_setting">SettingActivity</string>
-    <string name="title_activity_user_info_setting">UserInfoSettingActivity</string>
     <string name="title_activity_btconnect">BTConnectActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_">Activity</string>
     <string name="title_activity_db">DBActivity</string>
-    <string name="title_activity_squat">SquatActivity</string>
-    <string name="title_activity_crunch">CrunchActivity</string>
-    <string name="title_activity_lunge">LungeActivity</string>
-    <string name="title_activity_legraise">LegraiseActivity</string>
-    <string name="title_activity_finish">FinishActivity</string>
+    <string name="title_activity_squat">오늘의 운동</string>
+    <string name="title_activity_crunch">오늘의 운동</string>
+    <string name="title_activity_lunge">오늘의 운동</string>
+    <string name="title_activity_legraise">오늘의 운동</string>
+    <string name="title_activity_finish">오늘의 운동</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_alarm_alert">AlarmAlert</string>
     <string name="title_activity_dialog">DialogActivity</string>

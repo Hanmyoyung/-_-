@@ -25,6 +25,7 @@ public class LegraiseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_legraise);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getActionBar().setIcon(R.drawable.logo);
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
 		pb = (ProgressBar)findViewById(R.id.legraiseBar);

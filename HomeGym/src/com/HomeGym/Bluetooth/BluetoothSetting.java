@@ -74,7 +74,7 @@ public class BluetoothSetting {
          }
       });
       AlertDialog.Builder builder = new AlertDialog.Builder(btContext);
-      builder.setTitle("Select bluetooth device");
+      builder.setTitle("연결할 블루투스 장치를 선택하세요");
       builder.setView(listView);
       Log.v("뭐야뭐야", "왜안되는데6?");
       builder.setPositiveButton("Scan",new DialogInterface.OnClickListener() {

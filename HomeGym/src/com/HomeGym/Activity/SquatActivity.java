@@ -25,6 +25,8 @@ public class SquatActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_squat);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getActionBar().setIcon(R.drawable.logo);
+		
 		fillBarPercent = tSetting.lowerTime();
 		pb = (ProgressBar)findViewById(R.id.squatBar);
 		tp.timeProgress(SquatActivity.this, next, pb, fillBarPercent);

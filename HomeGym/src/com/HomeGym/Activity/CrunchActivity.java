@@ -25,6 +25,7 @@ public class CrunchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crunch);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getActionBar().setIcon(R.drawable.logo);
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
 		pb = (ProgressBar)findViewById(R.id.crunchBar);
