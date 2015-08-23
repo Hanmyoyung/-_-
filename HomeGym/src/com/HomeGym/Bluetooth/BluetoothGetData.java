@@ -14,6 +14,8 @@ public class BluetoothGetData {
 	public String crunchData;
 	public String lungeData;
 	public String legRaiseData;
+	public String doNotExcerData;
+
 	
 	private BluetoothGetData(){
 		
@@ -26,6 +28,13 @@ public class BluetoothGetData {
 		return btData;
 	}
 	
+	public String getDoNotExcerData(){
+		return doNotExcerData;
+	}
+	
+	public void setDoNotExcerData(){
+		doNotExcerData="";
+	}
 	public String getTemp(){
 		return tempData;
 	}
@@ -81,51 +90,59 @@ public class BluetoothGetData {
 	
 	public void setData(){
 			
-		
+		try{
 			if(resultData.charAt(0)=='0'){
-				//Log.v("이거 영 맞냐?", resultData.charAt(0));
 				if(tempData!=null){
 					tempData="";
 				}
 				tempData = resultData.substring(2);
 				ValueSetting.temp = tempData; 
-				//Log.v("온도 데이터 입니다", tempData);
 			}else if(resultData.charAt(0)=='3'){
-				//Log.v("스쿼트 횟수 데이터 입니다", "핳");
 				if(squatData!=null){
 					squatData="";
 				}
-				//squatData = Integer.valueOf(resultData.substring(2));
 				squatData = resultData;
-				//Log.v("스쿼트 데이터 입니다 입니다", String.valueOf(squatData));
 			}else if(resultData.charAt(0)=='4'){
-				//Log.v("크런치 횟수 데이터 입니다", "핳");
 				if(crunchData!=null){
 					crunchData="";
 				}
-				//crunchData = Integer.valueOf(resultData.substring(2));
 				crunchData = resultData;
-				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
 			}else if(resultData.charAt(0)=='5'){
-				//Log.v("크런치 횟수 데이터 입니다", "핳");
 				if(lungeData!=null){
 					lungeData="";
 				}
-				//crunchData = Integer.valueOf(resultData.substring(2));
 				lungeData = resultData;
-				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
+				Log.e("런지 데이터 나오라고", lungeData);
 			}else if(resultData.charAt(0)=='6'){
-				//Log.v("크런치 횟수 데이터 입니다", "핳");
 				if(legRaiseData!=null){
 					legRaiseData="";
 				}
-				//crunchData = Integer.valueOf(resultData.substring(2));
 				legRaiseData = resultData;
-				//Log.v("크런치 데이터 입니다 입니다", String.valueOf(crunchData));
-			}else{
-				
+			}else if(resultData.charAt(0)=='7'){
+				if(doNotExcerData!=null){
+					doNotExcerData="";
+				}
+				doNotExcerData="조금더 내려가세요";
+			}else if(resultData.charAt(0)=='8'){
+				if(doNotExcerData!=null){
+					doNotExcerData="";
+				}
+				doNotExcerData="조금더 올라가세요";
+			}else if(resultData.charAt(0)=='9'){
+				if(doNotExcerData!=null){
+					doNotExcerData="";
+				}
+				doNotExcerData="";
+			}else if(resultData.charAt(0)=='1'){
+				if(doNotExcerData!=null){
+					doNotExcerData="";
+				}
+				doNotExcerData="닿지 않았습니다.";
+				Log.e("여기에들어와야하거든요",doNotExcerData);
 			}
-		
+		}catch(Exception e){
+			Log.e("이상해", "아웃 오브 바운드 나면 안되는건데...");
+		}
 	}
 
 }

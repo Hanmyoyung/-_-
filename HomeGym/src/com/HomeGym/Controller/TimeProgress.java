@@ -2,14 +2,18 @@ package com.HomeGym.Controller;
 
 import com.HomeGym.Activity.FinishActivity;
 import com.HomeGym.Activity.RestActivity;
+import com.HomeGym.Bluetooth.BluetoothGetData;
 import com.HomeGym.Bluetooth.BluetoothSetting;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class TimeProgress {
   
@@ -21,29 +25,65 @@ public class TimeProgress {
    ExcerciseSequence NextExcercise = new ExcerciseSequence();
    Activity activity;
    private Intent intent;
+   private Context tContext;
    public String bString;
-   BluetoothSetting btSetting;
+   private BluetoothSetting btSetting;
+   private BluetoothGetData btGet;
+   private ToastHandler handler;
    
-   public void timeProgress(final Context context, final String next, final ProgressBar pb, final int percent){
-   final Intent intentToEx = NextExcercise.nextExcercise(context, next);   
-   final Intent intentToRest = new Intent(context, RestActivity.class);
-   
+   public void timeProgress(final Context context, final String Present, final String next, final ProgressBar pb, final int percent){
+	   final Intent intentToEx = NextExcercise.nextExcercise(context, next);   
+	   final Intent intentToRest = new Intent(context, RestActivity.class);
+	   final String present = Present;
+	   tContext = context;
    if (percent == 10 || percent == 5) intent = intentToEx;
    else{
       intent = intentToRest;
       intent.putExtra("next", next);
       if(next.equals("finish")){
-
             intent = new Intent(context, FinishActivity.class);
          }
    }
    
+   handler = new ToastHandler(context);
    TimeThread = new Thread(new Runnable(){
       @Override
       public void run(){
          while (true) { 
             if(ProgressStatus < 100){
-            ProgressStatus += percent;
+            	ProgressStatus += percent;
+            	try{
+            			btGet = BluetoothGetData.getInstance();	
+            			if(present == "Squat"|| present =="Lunge"){
+            				Log.i("아 뭐야", present);
+            
+            					if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
+            						Log.v("운동할때 여기로 들어가야 된다고", "에휴");
+            					} else { 
+            						// 값이 있는 경우 처리
+            						handler.sendMessage(handler.obtainMessage(1));
+            						Log.v("운동안할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
+            					}
+            		
+            			}else if(present == "Crunch"){
+            				if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
+            					Log.v("크런치 할때  여기로 들어가야 된다고", "에휴");
+            				} else { 
+            		    // 값이 있는 경우 처리
+            					handler.sendMessage(handler.obtainMessage(2));
+            					Log.v("크런치 안할때 할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
+            				}
+            			}else if(present =="Legraise"){
+            				if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
+            					Log.v("운동할때 여기로 들어가야 된다고", "에휴");
+            				} else { 
+            					// 값이 있는 경우 처리
+            					handler.sendMessage(handler.obtainMessage(3));
+            					Log.v("운동안할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
+            				}
+            			}
+            }catch(Exception e){
+            	Log.e("왜 널인지 알수 없음", "에휴");}
             }
             else if(ProgressStatus >= 100){
                Log.v("여기 언제들어오나요","빨리 들어오면 안되는데");
@@ -76,4 +116,75 @@ public class TimeProgress {
    TimeThread.start();
    }
    
-   }
+}
+
+
+class ToastHandler extends Handler {
+
+	public Context tContext;
+	private BluetoothGetData btGet;
+	private Toast t;
+	public ToastHandler(Context context){
+		tContext = context;
+		btGet = BluetoothGetData.getInstance();
+	}
+    @Override
+
+    public void handleMessage(Message msg) {
+
+    	Handler handler = new Handler();
+        switch (msg.what) {
+        case 1:
+        	t = Toast.makeText(tContext,btGet.getDoNotExcerData(), Toast.LENGTH_SHORT);
+            t.show();
+            
+            handler.postDelayed(new Runnable() {
+            	@Override
+            	public void run() {
+            		// TODO Auto-generated method stub
+            		t.cancel();
+            		btGet.setDoNotExcerData();
+            	}
+            }, 100);
+
+            
+            break;
+            
+        case 2:
+        	t = Toast.makeText(tContext,"무릎에"+btGet.getDoNotExcerData(), Toast.LENGTH_SHORT);
+            t.show();
+
+            handler.postDelayed(new Runnable() {
+            	@Override
+            	public void run() {
+            		// TODO Auto-generated method stub
+            		t.cancel();
+            		btGet.setDoNotExcerData();
+            	}
+            }, 100);
+
+            
+            break;
+        case 3:
+        	t = Toast.makeText(tContext,"바닥에"+btGet.getDoNotExcerData(), Toast.LENGTH_SHORT);
+            t.show();
+
+            handler.postDelayed(new Runnable() {
+            	@Override
+            	public void run() {
+            		// TODO Auto-generated method stub
+            		t.cancel();
+            		btGet.setDoNotExcerData();
+            	}
+            }, 100);
+
+            
+            break;
+        }
+        super.handleMessage(msg);
+    }
+}
+
+
+
+
