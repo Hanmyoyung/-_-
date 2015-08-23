@@ -15,6 +15,7 @@ public class LungeActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
+	private String present = "Lunge";
 	private String next = "Legraise";
 	private int fillBarPercent = tSetting.lowerTime();// 나중에 2로 바꿔야함
 	
@@ -28,7 +29,7 @@ public class LungeActivity extends Activity {
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
 		pb = (ProgressBar)findViewById(R.id.lungeBar);
-		tp.timeProgress(LungeActivity.this, next, pb, fillBarPercent);
+		tp.timeProgress(LungeActivity.this, present, next, pb, fillBarPercent);
 		
 	}
 

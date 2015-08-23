@@ -15,6 +15,7 @@ public class LegraiseActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
+	private String present = "Legraise";
 	private String next = "finish";
 	private int fillBarPercent = tSetting.stomachTime();// 나중에 2로 바꿔야함
 	
@@ -29,7 +30,7 @@ public class LegraiseActivity extends Activity {
 		//final Intent intent = new Intent(CrunchActivity.this, RestActivity.class);
 		
 		pb = (ProgressBar)findViewById(R.id.legraiseBar);
-		tp.timeProgress(LegraiseActivity.this, next, pb, fillBarPercent);
+		tp.timeProgress(LegraiseActivity.this,present, next, pb, fillBarPercent);
 		
 	}
 

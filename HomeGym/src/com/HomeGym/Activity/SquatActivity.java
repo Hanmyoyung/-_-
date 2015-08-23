@@ -15,6 +15,7 @@ public class SquatActivity extends Activity {
 
 	ExTimeSetting tSetting = new ExTimeSetting();
 	private ProgressBar pb;
+	private String present = "Squat";
 	private String next = "Crunch";
 	private int fillBarPercent; //= tSetting.lowerTime();// 나중에 2로 바꿔야함
 	
@@ -29,7 +30,7 @@ public class SquatActivity extends Activity {
 		
 		fillBarPercent = tSetting.lowerTime();
 		pb = (ProgressBar)findViewById(R.id.squatBar);
-		tp.timeProgress(SquatActivity.this, next, pb, fillBarPercent);
+		tp.timeProgress(SquatActivity.this, present, next, pb, fillBarPercent);
 
 	}
 
