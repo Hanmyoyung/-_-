@@ -99,7 +99,9 @@ public class PreviewActivity extends Activity {
 			}
 		});
 		
-		focus.setText("집중부위 : "+vs.getFocus());
+		if(vs.getFocus().equals("")){
+			focus.setText("집중부위 : "+"설정해주세요");
+		}else focus.setText("집중부위 : "+vs.getFocus());
 		Log.v("집중부위",vs.getFocus());
 		temp.setText("온도는요?   "+ValueSetting.temp);
 		Log.v("온도는요?",ValueSetting.temp); 
@@ -201,6 +203,11 @@ public class PreviewActivity extends Activity {
 			crunchInfo.setText("[크런치] 50회/100초");	
 		}
 		else if(vs.getFocus().equals("전신")){
+			lungeInfo.setText("[런지] 25회/50초");	
+			legraiseInfo.setText("[레그레이즈] 25회/50초");	
+			squatInfo.setText("[스쿼트] 25회/50초");
+			crunchInfo.setText("[크런치] 25회/50초");	
+		}else if(vs.getFocus().equals("")){
 			lungeInfo.setText("[런지] 25회/50초");	
 			legraiseInfo.setText("[레그레이즈] 25회/50초");	
 			squatInfo.setText("[스쿼트] 25회/50초");

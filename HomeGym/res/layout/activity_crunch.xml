@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:scaleType="fitXY"
-        android:src="@drawable/crunch1"
+        android:src="@drawable/crunch2"
         ></ImageView>
 
     <ProgressBar
