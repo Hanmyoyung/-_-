@@ -40,11 +40,9 @@ public class CameraSetting {
 		// TODO Auto-generated constructor stub
 		 cameraContext= applicationContext;	
 		 imgSetting = new ImgDBSetting(cameraContext);
-		 Log.i("뭐야 이거", "카메라 세팅 새성자입니다.");
 	}
 	
 	public void setBeforeAfterDialog(){
-		Log.v("들어오냐", "setBeforeAfterDialog");
 		AlertDialog.Builder builder = new AlertDialog.Builder(cameraContext);     // 여기서 this는 Activity의 this
 		// 여기서 부터는 알림창의 속성 설정
 		builder.setTitle("변경할 항목을 선택하세요")        // 제목 설정
@@ -68,7 +66,6 @@ public class CameraSetting {
 	}
 	
 	public void setCameraDialog(){
-		Log.v("들어오냐", "setCameraDialog");
 		AlertDialog.Builder builder = new AlertDialog.Builder(cameraContext);     // 여기서 this는 Activity의 this
 		// 여기서 부터는 알림창의 속성 설정
 		builder.setTitle("사진을 가져올 위치를 선택하세요")        // 제목 설정

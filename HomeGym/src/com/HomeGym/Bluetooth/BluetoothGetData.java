@@ -70,16 +70,13 @@ public class BluetoothGetData {
 	
 	public void getData(String getString){
 		
-		Log.v("초기값은요", getString);
 		for(int i=0; i<getString.length(); i++){
 			
 			String temp = getString.substring(i,i+1);
 			if(getString.charAt(i)!='\0'){
-				Log.v("temp값은요", temp);
 				resultData+=temp;
 				
 			}else{
-				Log.v("널 만났어", resultData);
 				setData();
 				resultData = "";
 				i=getString.length();
@@ -112,7 +109,6 @@ public class BluetoothGetData {
 					lungeData="";
 				}
 				lungeData = resultData;
-				Log.e("런지 데이터 나오라고", lungeData);
 			}else if(resultData.charAt(0)=='6'){
 				if(legRaiseData!=null){
 					legRaiseData="";
@@ -138,10 +134,9 @@ public class BluetoothGetData {
 					doNotExcerData="";
 				}
 				doNotExcerData="닿지 않았습니다.";
-				Log.e("여기에들어와야하거든요",doNotExcerData);
 			}
 		}catch(Exception e){
-			Log.e("이상해", "아웃 오브 바운드 나면 안되는건데...");
+			Log.e("이상합니다", "에러입니다");
 		}
 	}
 

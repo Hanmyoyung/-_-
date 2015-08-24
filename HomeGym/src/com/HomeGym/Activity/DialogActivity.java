@@ -93,7 +93,7 @@ public class DialogActivity extends Activity  {
                @Override
                public void onClick(DialogInterface dialog, int which) {
                    // 'No'
-                  Toast toast = Toast.makeText(DialogActivity.this, "¸Þ··", Toast.LENGTH_SHORT ); 
+                  Toast toast = Toast.makeText(DialogActivity.this, "¸Þ·Õ", Toast.LENGTH_SHORT ); 
                      toast.show();
                      alert.show();
 

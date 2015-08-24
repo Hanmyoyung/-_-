@@ -90,12 +90,9 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 	    	
 	    	if (preference instanceof Preference) {	
 	    	    preference.setSummary(alarmSetting.selectValue());  
-	    	    Log.i("수강신청이라니...", "여기는 서머리에요....");
 	    	}else if(preference instanceof CheckBoxPreference){
-	    		Log.i("수강신청이라니...", "여기 들어오긴 하나요");
 	    		if(prefs.getBoolean("excercise_alarm", true)==false){
 	    			//am.cancel(pendingIntent());
-	    			Log.i("수강신청이라니...", "여기 들어오긴 하나요");
 	    		}
 	    		
 	    		
@@ -123,7 +120,6 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 			// TODO Auto-generated method stub
 
-			Log.i("여기 몇번 읽히는거야", "알랴줫");
 			calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 			calendar.set(Calendar.MINUTE, minute);
 			calendar.set(Calendar.SECOND, 0);
@@ -216,11 +212,11 @@ public class SettingActivity extends PreferenceActivity implements OnDateSetList
 			MainActivity.MainAct.finish();
 			PreviewActivity.isResume = true;
 			//카메라로찍었을때
-			Log.v("RESULT_OK??", "ㅅㅄㅂ");
+
 			if(requestCode == CameraSetting.TAKE_CAMERA) //1
 			{
 				//찍은 사진을 이미지뷰에 보여줌
-				Log.v("들어오니", "ㅅㅄㅂ");
+
 				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
 				Intent intentToMain = new Intent(this, MainActivity.class);
 				intentToMain.putExtra("cameraSetting","camera");

@@ -93,6 +93,7 @@ public class PreviewActivity extends Activity {
 			public void onClick(View v){
 				Intent intent = new Intent(PreviewActivity.this, SquatActivity.class);//excercise액티비티 확인할라고 임의로 넘김
 				startActivity(intent);
+				finish();
 				sString = "1";
 				btSetting.sendStringData(sString);
 				overridePendingTransition(0,0);
@@ -184,7 +185,6 @@ public class PreviewActivity extends Activity {
 		
 		
 		if(vs.getFocus().equals("상체")){
-			Log.i("dididkdkdkdk", "들어오냐고오오오오");
 			squatInfo.setText("[스쿼트] 25회/50초");
 			crunchInfo.setText("[크런치] 25회/50초");	
 			lungeInfo.setText("[런지] 25회/50초");	
@@ -229,11 +229,11 @@ public class PreviewActivity extends Activity {
 			MainActivity.MainAct.finish();
 			isResume = true;
 			//카메라로찍었을때
-			Log.v("RESULT_OK??", "ㅅㅄㅂ");
+
 			if(requestCode == CameraSetting.TAKE_CAMERA) //1
 			{
 				//찍은 사진을 이미지뷰에 보여줌
-				Log.v("들어오니", "ㅅㅄㅂ");
+
 				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
 				Intent intentToMain = new Intent(this, MainActivity.class);
 				intentToMain.putExtra("cameraSetting","camera");
