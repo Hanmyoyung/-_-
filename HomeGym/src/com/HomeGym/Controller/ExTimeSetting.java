@@ -39,7 +39,14 @@ public class ExTimeSetting {
 	}
 	
 	public int restTime(){
-		double temp = Double.parseDouble(btGet.getTemp());
+		double temp;
+		
+		try{
+			temp = Double.parseDouble(btGet.getTemp());
+		}
+		catch(Exception e){
+			temp = 0.0;
+		}
 		if(temp <= 26){
 			fillPercent = 10;
 		}

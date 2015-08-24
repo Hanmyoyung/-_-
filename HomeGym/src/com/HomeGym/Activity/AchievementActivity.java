@@ -74,7 +74,6 @@ public class AchievementActivity extends Activity {
         	 @Override
         	 public void onClick(View v){
         		 	if(v.isClickable()){
-        		 			Log.v("들어오면 정말 좋겠다", "진짜 좋겠다");
         		 			new DatePickerDialog(AchievementActivity.this, dateSetListener, thisYear, thisMonth, thisDay).show();
         		 	}
         	 }
@@ -143,7 +142,6 @@ public class AchievementActivity extends Activity {
 		todayPercent = Float.valueOf(Double.toString(dbSetting.selectTodayValue(thisDate)));
 		monthPercent = Float.valueOf(Double.toString(dbSetting.selectMonthValue(thisYear,thisMonth)));
 		//squatPercent=Integer.valueOf(stringValue).intValue();
-		Log.e("뭐지 이 그지같은이이이이이", String.valueOf(squatPercent));
 		// 상체 하체 복근 전신 오늘 운동한 양
 		
 		
@@ -227,11 +225,9 @@ public class AchievementActivity extends Activity {
 			MainActivity.MainAct.finish();
 			PreviewActivity.isResume = true;
 			//카메라로찍었을때
-			Log.v("RESULT_OK??", "ㅅㅄㅂ");
 			if(requestCode == CameraSetting.TAKE_CAMERA) //1
 			{
 				//찍은 사진을 이미지뷰에 보여줌
-				Log.v("들어오니", "ㅅㅄㅂ");
 				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://"+ CameraSetting.tempPicturePath)));
 				Intent intentToMain = new Intent(this, MainActivity.class);
 				intentToMain.putExtra("cameraSetting","camera");

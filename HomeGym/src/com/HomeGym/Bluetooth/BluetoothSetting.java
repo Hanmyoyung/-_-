@@ -49,24 +49,24 @@ public class BluetoothSetting {
       data += '\0';
       byte[] buffer = data.getBytes();
       if(mBTHandler.write(buffer)) {
-         Log.i("登绰芭聪", "焊陈嚼聪寸");
+
       }
    }
 
    public void initDeviceListDialog() {
       mDeviceArrayAdapter = new ArrayAdapter<String>(btContext,R.layout.item_device);
-      Log.v("构具构具", "恐救登绰单1?");
+
       ListView listView = new ListView(btContext);
       listView.setAdapter(mDeviceArrayAdapter);
-      Log.v("构具构具", "恐救登绰单?2");
+
       listView.setOnItemClickListener(new OnItemClickListener() {
          @Override
          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Log.v("构具构具", "恐救登绰单?3");
+
             String item =  (String) parent.getItemAtPosition(position); 
             for(BluetoothDevice device : mBluetoothDevices) {
                if(item.contains(device.getAddress())) {
-                  Log.v("构具构具", "恐救登绰单?4");
+
                   connect(device);
                   mDeviceListDialog.cancel();
                }
@@ -76,15 +76,15 @@ public class BluetoothSetting {
       AlertDialog.Builder builder = new AlertDialog.Builder(btContext);
       builder.setTitle("楷搬且 喉风捧胶 厘摹甫 急琶窍技夸");
       builder.setView(listView);
-      Log.v("构具构具", "恐救登绰单6?");
+
       builder.setPositiveButton("Scan",new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialog, int id) {
-           Log.v("构具构具", "快快快酒びし扼っけ;ちだじ矾;け呆だじ矾;だじ埾矾?");
+
            scanDevices();
         }
        });
       mDeviceListDialog = builder.create();
-      Log.v("构具构具", "恐救登绰单7?");
+
       mDeviceListDialog.setCanceledOnTouchOutside(false);
    }
    
@@ -99,7 +99,7 @@ public class BluetoothSetting {
       //mLoadingDialog.setMessage("Connecting....");
       //mLoadingDialog.setCancelable(false);
       //mLoadingDialog.show();
-      Log.v("构具构具", "恐救登绰单5?");
+
       BluetoothSerialClient btSet =  BluetoothSerialClient.getInstance();
       
       if(btSet.connect(btContext, device, mBTHandler)==true){
@@ -155,7 +155,7 @@ public class BluetoothSetting {
    }
    
    public void scanDevices() {
-      Log.v("构具构具", "胶牡 叼官捞胶 涝聪促?");
+
       BluetoothSerialClient btSet = BluetoothSerialClient.getInstance();
       btSet.scanDevices(btContext, new OnScanListener() {
          String message ="";
