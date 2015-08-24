@@ -18,7 +18,6 @@ public class AlarmDBManager extends SQLiteOpenHelper {
     	String sql = "CREATE TABLE AlarmInfo("+
     				"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
     				"alarm String);";
-    	Log.i("에휴", "여기로 오긴 하는 겁니까");
     	
     	db.execSQL(sql);
     }
@@ -28,7 +27,6 @@ public class AlarmDBManager extends SQLiteOpenHelper {
     	String sql = "drop table if exists AlarmInfo";
     	db.execSQL(sql);
     	
-    	Log.i("핳핳핳핳핳", "디비가 업그레이드 됐습니다.");
     	onCreate(db);
     	
     }

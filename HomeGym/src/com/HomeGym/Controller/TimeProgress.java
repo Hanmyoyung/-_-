@@ -55,38 +55,33 @@ public class TimeProgress {
             	try{
             			btGet = BluetoothGetData.getInstance();	
             			if(present == "Squat"|| present =="Lunge"){
-            				Log.i("아 뭐야", present);
             
             					if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
-            						Log.v("운동할때 여기로 들어가야 된다고", "에휴");
+                					Log.v("Squat,Lunge", "운동을 하고 있습니다.");
             					} else { 
             						// 값이 있는 경우 처리
             						handler.sendMessage(handler.obtainMessage(1));
-            						Log.v("운동안할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
             					}
             		
             			}else if(present == "Crunch"){
             				if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
-            					Log.v("크런치 할때  여기로 들어가야 된다고", "에휴");
+            					Log.v("Crunch.", "운동을 하고 있습니다.");
             				} else { 
             		    // 값이 있는 경우 처리
             					handler.sendMessage(handler.obtainMessage(2));
-            					Log.v("크런치 안할때 할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
             				}
             			}else if(present =="Legraise"){
             				if (btGet.getDoNotExcerData() == null || btGet.getDoNotExcerData().length() == 0) {
-            					Log.v("운동할때 여기로 들어가야 된다고", "에휴");
+            					Log.v("Legraise.", "운동을 하고 있습니다.");
             				} else { 
             					// 값이 있는 경우 처리
             					handler.sendMessage(handler.obtainMessage(3));
-            					Log.v("운동안할때 여기로 들어가야 된다고", btGet.getDoNotExcerData());
             				}
             			}
             }catch(Exception e){
-            	Log.e("왜 널인지 알수 없음", "에휴");}
+            	Log.e("Exception", "Time Progress 에러입니다.");}
             }
             else if(ProgressStatus >= 100){
-               Log.v("여기 언제들어오나요","빨리 들어오면 안되는데");
                hand.removeCallbacks(TimeThread);
                TimeThread.interrupt();
                context.startActivity(intent);

@@ -25,7 +25,7 @@ public class AlarmDBSetting {
 	
 	public AlarmDBSetting(Context context){
 		dbContext = context;
-		Log.i("뭐야 이거", "디비 이미지 세팅 클래스 생성자입니다.");	
+		Log.i("AlarmDBSetting", "디비 이미지 세팅 클래스 생성자입니다.");	
 		helper = new AlarmDBManager(dbContext,"AlarmInfo",null,1); // 버전 조심해야함!! 현재 버전이 1.0
 		
 	}

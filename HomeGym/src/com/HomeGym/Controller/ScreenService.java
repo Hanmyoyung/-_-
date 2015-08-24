@@ -27,11 +27,7 @@ public class ScreenService extends Service {
 	@Override
 
 	public void onCreate() {
-
 		super.onCreate();
-
-		//Intent i = new Intent(this, AlarmAlert.class);
-		//i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
 		Intent i = new Intent(this, DialogActivity.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -47,24 +43,17 @@ public class ScreenService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startId){
 
 		super.onStartCommand(intent, flags, startId);
-
 		
 		if(intent != null){
-			Log.i("ø°»ﬁ", "¿Œ≈Ÿ∆Æ∞° ≥Œ¿Ã æ∆¥’¥œ±Ó??");
 			if(intent.getAction()==null){
-				Log.i("ø°»ﬁ", "¿Œ≈Ÿ∆Æ¿« ∞Ÿ æ◊º«¿Ã ≥Œ¿‘¥œ±Ó?");
 				if(mReceiver==null){
-					Log.i("ø°»ﬁ", "ππæﬂ ±◊∑≥ ≥Œ¿Ã æ∆¥œæﬂ??");
 					mReceiver = new AlarmReceiver();					
 					IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
 					registerReceiver(mReceiver, filter);
 					Log.i("SCreenService", "onSTartCommand");
 				}
-
 			}
-
 		}
-
 		return START_REDELIVER_INTENT;
 
 	}
@@ -76,8 +65,6 @@ public class ScreenService extends Service {
 	public void onDestroy(){		 	
 
 		super.onDestroy();
-
-		
 
 		if(mReceiver != null){
 

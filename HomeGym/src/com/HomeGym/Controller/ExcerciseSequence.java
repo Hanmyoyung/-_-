@@ -20,7 +20,6 @@ public class ExcerciseSequence {
 	}
 
 	public Intent nextExcercise(Context context, String string){
-		Log.v("메소드 들어왔니????","dkdkdkdk");
 		
 		if(string.equals("Squat")){
 			intent = new Intent(context,SquatActivity.class);
@@ -28,17 +27,14 @@ public class ExcerciseSequence {
 			
 		}
 		else if(string.equals("Crunch")){
-			Log.v("if문 들어왔니????","dkdkdkdk");
 			intent = new Intent(context,CrunchActivity.class);
 			//context.startActivity(intent);
 		}
 		else if(string.equals("Lunge")){
-			Log.v("if문 들어왔니????","dkdkdkdk");
 			intent = new Intent(context,LungeActivity.class);
 			//context.startActivity(intent);
 		}
 		else if(string.equals("Legraise")){
-			Log.v("if문 들어왔니????","dkdkdkdk");
 			intent = new Intent(context,LegraiseActivity.class);
 			//context.startActivity(intent);
 		}

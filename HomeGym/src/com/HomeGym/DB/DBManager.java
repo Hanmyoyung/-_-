@@ -23,7 +23,6 @@ public class DBManager extends SQLiteOpenHelper {
     				"targetCount INTEGER, "+
     				"doneCount INTEGER, "+
     				"percent DOUBLE);";
-    	Log.i("에휴", "여기로 오긴 하는 겁니까");
     	db.execSQL(sql);
     }
  
@@ -32,7 +31,6 @@ public class DBManager extends SQLiteOpenHelper {
     	String sql = "drop table if exists UserInfo";
     	db.execSQL(sql);
     	
-    	Log.i("핳핳핳핳핳", "디비가 업그레이드 됐습니다.");
     	onCreate(db);
     	
     }

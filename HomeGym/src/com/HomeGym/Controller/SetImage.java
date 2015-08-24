@@ -32,12 +32,7 @@ public class SetImage
 
 		File copyFile = new File(CameraSetting.tempPicturePath);
 		try{		
-			/*copyFile.createNewFile();
-			OutputStream out = null;
-			out = new FileOutputStream(copyFile);
-			bm.compress(CompressFormat.JPEG, 70, out);
-			out.close();
-*/
+
 			if(copyFile.exists() && copyFile.length() > 0)
 			{		
 				if(bm.getWidth()>bm.getHeight()){
@@ -47,13 +42,8 @@ public class SetImage
 				}
 
 				BitmapDrawable dbmp = new BitmapDrawable(bm);
-				//Drawable dr = resize(CameraSetting.tempPicturePath);
 				Drawable dr = (Drawable)dbmp;
 				iv.setBackgroundDrawable(dr);
-				//Drawable dr = resize(CameraSetting.tempPicturePath);
-				//iv.setBackgroundDrawable(dr);
-				//Drawable dr = resize(tempPicturePath);
-				//iv.setBackgroundDrawable(dr);
 			}
 			else
 			{
@@ -87,11 +77,8 @@ public class SetImage
 				}
 
 				BitmapDrawable dbmp = new BitmapDrawable(bm);
-				//Drawable dr = resize(tempPicturePath);
 				Drawable dr = (Drawable)dbmp;
 				iv.setBackgroundDrawable(dr);
-				//Drawable dr = resize(tempPicturePath);
-				//iv.setBackgroundDrawable(dr);
 			}
 			else
 			{

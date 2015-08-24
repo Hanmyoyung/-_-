@@ -41,7 +41,6 @@ public class StorageLocationSetting {
 		        e.printStackTrace();
 		    }
 
-		    // parse output
 
 		    final String[] lines = s.split("\n");
 		    for (String line : lines) {
@@ -61,22 +60,18 @@ public class StorageLocationSetting {
 
 	
 	public String createName(long dateTaken){
-		Log.v("createName","들어오니");
 		Date date= new Date(dateTaken);
 		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH.mm.ss");
 		return dateFormat.format(date)+".jpg";
 	}
 	
 	public String createInternalFolder(){
-		Log.v("createInternalFolder", "들어오니");
 		String dir=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + name;
 		//String dir = Environment.DIRECTORY_DCIM + name;
 		File folder = new File(dir);
 		if (!folder.exists()) {
-			Log.v("폴더가없으면", "만들으라고");
 			folder.mkdirs();
 		}
-		//folder.mkdirs();
 		uri = Uri.fromFile(folder);
 		return dir;    		
 	}

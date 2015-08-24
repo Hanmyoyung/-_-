@@ -28,7 +28,7 @@ public class ImgDBSetting {
 	
 	public ImgDBSetting(Context context){
 		dbContext = context;
-		Log.i("뭐야 이거", "디비 이미지 세팅 클래스 생성자입니다.");
+		Log.i("ImgDBSetting", "디비 이미지 세팅 클래스 생성자입니다.");
 		
 		helper = new ImageDBManager(dbContext,"ImgInfo",null,2); // 버전 조심해야함!! 현재 버전이 1.0
 		
@@ -66,8 +66,7 @@ public class ImgDBSetting {
 		db = helper.getReadableDatabase();
 		//String sQuery = "SELECT percent FROM UserInfo WHERE state = 3 AND date = '"+today+"'";
 		
-		String sQuery = "SELECT path FROM ImgInfo WHERE id = (SELECT MAX(id) FROM ImgInfo WHERE type = "+thisType+")" ;		
-		Log.v("여기는요 패스 받아와서  출력하려고 해요", "왜 안들어가냐 진짜");		
+		String sQuery = "SELECT path FROM ImgInfo WHERE id = (SELECT MAX(id) FROM ImgInfo WHERE type = "+thisType+")" ;			
 		Cursor c = db.rawQuery(sQuery, null);		
 		String path="";		
 		if(c.moveToFirst()){
@@ -98,13 +97,13 @@ public class ImgDBSetting {
 			int type = c.getInt(c.getColumnIndex("type"));
 			String path = c.getString(c.getColumnIndex("path"));
 			
-			Log.i("-------디비디비디비-------","-------다긁어옴-------");
+			Log.i("-------디비디비디비-------","-------전체선택-------");
 			Log.i("id는요??",Integer.toString(id));
 			Log.i("state는요??",Integer.toString(type));
 			try{
 				Log.i("경로는요?",path);
 			}catch(Exception e){};
-			Log.i("--------디비디비------","--------다긁어옴------");
+			Log.i("--------디비디비------","--------전체선택------");
 
 		}
 		

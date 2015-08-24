@@ -33,7 +33,7 @@ public class DBSetting {
 		
 		public DBSetting(Context context){
 			dbContext = context;
-			helper = new DBManager(dbContext,"UserExcerInfo",null,1); // 버전 조심해야함!! 현재 버전이 4.0
+			helper = new DBManager(dbContext,"UserExcerInfo",null,1); // 버전 조심해야함!! 현재 버전이 1.0
 			
 		}
 		
@@ -140,24 +140,17 @@ public class DBSetting {
 				state = 6;
 			}
 			
-			//String sQuery = "SELECT percent FROM UserInfo WHERE state = 3 AND date = '"+today+"'";
 			String sQuery = "SELECT percent FROM UserInfo WHERE id = (SELECT MAX(id) FROM UserInfo WHERE date = '"+date+"' AND state = "+state+")";
-			
-			Log.v("여기는요디비세팅인데요지금 받아와서 달성률 출력하려고 해요", "왜 안들어가냐 진짜");
 			
 			Cursor c = db.rawQuery(sQuery, null);
 			double percent = 0;
 			
 			if(c.moveToFirst()){
-					do{
-						percent = c.getDouble(c.getColumnIndex("percent"));
-					}while(c.moveToNext());
-					
-			}
-			
-			return percent;
-			
-			
+				do{
+					percent = c.getDouble(c.getColumnIndex("percent"));
+				}while(c.moveToNext());					
+			}			
+			return percent;			
 		}
 		
 		
@@ -168,17 +161,13 @@ public class DBSetting {
 			
 			String sQuery = "SELECT AVG(percent) FROM UserInfo GROUP BY date HAVING date = '"+date+"'";
 			
-			Log.v("여기는요디비세팅인데요지금 받아와서 달성률 출력하려고 해요", "왜 안들어가냐 진짜");
-			
 			Cursor c = db.rawQuery(sQuery, null);
-			//Cursor c = db.query("UserInfo", null,null, null, null, null, null, null);
 			double percent = 0;
 			
 	
 			if(c.moveToLast()){
-						percent =c.getDouble(0);
+					percent =c.getDouble(0);
 			}
-	
 			return percent;
 			
 			
@@ -222,7 +211,7 @@ public class DBSetting {
 				int targetCount = c.getInt(c.getColumnIndex("targetCount"));
 				double percent = c.getDouble(c.getColumnIndex("percent"));
 				
-				Log.i("-------디비디비디비-------","-------디비디비디비디비-------");
+				Log.i("-------디비디비디비-------","-------사용자정보디비-------");
 				Log.i("id는요??",Integer.toString(id));
 				Log.i("state는요??",Integer.toString(state));
 				Log.i("날짜는요?",date);
@@ -231,7 +220,7 @@ public class DBSetting {
 				Log.i("해당운동 수행 횟수는요?",Integer.toString(doneCount));
 				Log.i("해당운동 목표 횟수는요?",Integer.toString(targetCount));
 				Log.i("해당운동 달성률은요?",Double.toString(percent));
-				Log.i("--------디비디비------","--------디비디비디비디비디비------");
+				Log.i("--------디비디비------","--------사용자정보디비------");
 
 			}
 			
