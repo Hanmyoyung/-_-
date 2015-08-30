@@ -44,8 +44,6 @@ public class BluetoothSerialClient {
    private AtomicBoolean mIsConnection = new AtomicBoolean(false);
    private ExecutorService mReadExecutor; 
    private ExecutorService mWriteExecutor;
-   //private BluetoothStreamingHandler mBluetoothStreamingHandler;
-   //private BTHandler mBluetoothStreamingHandler = new BTHandler();
    private BluetoothStreamingHandler mBluetoothStreamingHandler = new BTHandler();
    private Handler mMainHandler = new Handler(Looper.getMainLooper());
    private BluetoothDevice mConnectedDevice = null;

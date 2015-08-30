@@ -36,7 +36,7 @@ public class TimeProgress {
 	   final Intent intentToRest = new Intent(context, RestActivity.class);
 	   final String present = Present;
 	   tContext = context;
-   if (percent == 10 || percent == 5) intent = intentToEx;
+   if (percent == 10 ) intent = intentToEx;
    else{
       intent = intentToRest;
       intent.putExtra("next", next);

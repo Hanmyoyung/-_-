@@ -13,7 +13,7 @@ public class ExTimeSetting {
 		if(ValueSetting.focus.equals("상체")){		
 			fillPercent = 1;		
 		}
-		else fillPercent = 2; 	
+		else fillPercent = 5; 	
 		
 		return fillPercent;
 	}
@@ -22,7 +22,7 @@ public class ExTimeSetting {
 		if(ValueSetting.focus.equals("하체")){		
 			fillPercent = 1;		
 		}
-		else fillPercent = 2; 	
+		else fillPercent = 5; 	
 		return fillPercent;
 		
 	}
@@ -32,7 +32,7 @@ public class ExTimeSetting {
 		if(ValueSetting.focus.equals("복근")){		
 			fillPercent = 1;		
 		}
-		else fillPercent = 2; 	
+		else fillPercent = 5; 	
 		
 		return fillPercent;
 		
